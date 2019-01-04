@@ -12,7 +12,14 @@ public class Grid {
         String next = "";
         for (int i = 0; i < 9; i++) {
             if (i == 0 || i == 8) {
-                hold += "---------";
+                hold += "---------\n";
+                next += "---------\n";
+            } else if (i == 1) {
+                hold += "| Hold: |\n";
+                next += "| Next: |\n";
+            } else if (i == 2 || i == 7){
+                hold += "|       |";
+                next += "|       |";
             }
         }
         for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
