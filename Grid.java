@@ -7,28 +7,18 @@ public class Grid {
     }
 
     public String toString() {
-        String toReturn = "---------------------\n";
-        String hold = "";
-        String next = "";
-        for (int i = 0; i < 9; i++) {
-            if (i == 0 || i == 8) {
-                hold += "---------\n";
-                next += "---------\n";
-            } else if (i == 1) {
-                hold += "| Hold: |\n";
-                next += "| Next: |\n";
-            } else if (i == 2 || i == 7){
-                hold += "|       |";
-                next += "|       |";
-            }
-        }
+        String[] toReturnArr = new String[20];
+        toReturnArr[0] = "---------------------\n";
+        String[] hold = new String[9];
+        String[] next = new String[9];
         for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
             for (int j = 0; j < grid[i].length; j++) {
-                toReturn += "|" + grid[i][j].toString();
             }
-            toReturn += "|";
-            toReturn += "\n";
         }
-        return toReturn + "---------------------";
+        String toReturn = "";
+        for (int i = 0; i < toReturnArr.length; i++) {
+            toReturn += toReturnArr[i] + "\n";
+        }
+        return toReturn;
     }
 }
