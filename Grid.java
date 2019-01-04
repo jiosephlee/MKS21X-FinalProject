@@ -1,6 +1,8 @@
 public class Grid {
 
     private Piece[][] grid;
+    private Tetrimino dropping, holding, next;
+    private int x, y; //these are coords of the dropping tetrimino
 
     public Grid() {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
@@ -9,6 +11,9 @@ public class Grid {
                 grid[i][j] = new Piece();
             }
         }
+        dropping = new Tetrimino();
+        holding = new Tetrimino();
+        next = new Tetrimino();
     }
 
     public String toString() {
