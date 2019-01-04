@@ -7,10 +7,13 @@ public class Grid {
     }
 
     public String toString() {
-        String toReturn = "---------------------";
-        for (int i = 1; i < grid.length; i++) {
-
+        String toReturn = "---------------------\n";
+        for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
+            for (int j = 0; j < grid[i].length; j++) {
+                toReturn += "|" + grid[i][j].toString();
+            }
+            toReturn += "|\n";
         }
-        return toReturn;
+        return toReturn + "---------------------";
     }
 }
