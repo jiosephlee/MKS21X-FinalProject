@@ -5,4 +5,12 @@ public class Grid {
     public Grid() {
 
     }
+
+    public String toString() {
+        String toReturn = "---------------------";
+        for (int i = 1; i < grid.length; i++) {
+
+        }
+        return toReturn;
+    }
 }
