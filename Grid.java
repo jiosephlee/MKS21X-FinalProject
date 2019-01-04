@@ -17,13 +17,17 @@ public class Grid {
     }
 
     public String toString() {
-        String[] toReturnArr = new String[20];
+        String[] toReturnArr = new String[20]; //each cell is a row in the tetris board
         toReturnArr[0] = "---------------------\n";
-        String[] hold = new String[9];
+        String[] hold = new String[9]; //each cell is a row in the tetris board
         String[] next = new String[9];
         for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
+            String row = "";
             for (int j = 0; j < grid[i].length; j++) {
+                row += "|" + grid[i][j].toString();
             }
+            row += "|";
+            toReturnArr[i - 4] = row;
         }
         String toReturn = "";
         for (int i = 0; i < toReturnArr.length; i++) {
