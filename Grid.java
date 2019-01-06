@@ -21,6 +21,20 @@ public class Grid {
         toReturnArr[0] = "---------------------\n";
         String[] hold = new String[9]; //each cell is a row in the tetris board
         String[] next = new String[9];
+        hold[0] = "---------";
+        hold[1] = "| Hold: |";
+        hold[2] = "|       |";
+        hold[7] = "|       |";
+        hold[8] = "---------";
+        next[0] = "---------";
+        next[1] = "| Next: |";
+        next[2] = "|       |";
+        next[7] = "|       |";
+        next[8] = "---------";
+        for (int i = 3; i < 7; i++) {
+            next[i] = "|   " + next.getPieces[i - 3] + "   |";
+            hold[i] = "|   " + hold.getPieces[i - 3] + "   |";
+        }
         for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
             String row = "";
             for (int j = 0; j < grid[i].length; j++) {
