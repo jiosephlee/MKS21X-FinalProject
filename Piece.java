@@ -29,6 +29,10 @@ public class Piece{
     }
 
     public void moveDown(){
-        xCor--;
+        yCor--;
+    }
+
+    public void moveRight() {
+
     }
 }
