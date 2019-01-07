@@ -27,4 +27,8 @@ public class Piece{
     public Tetrimino getOwner(){
       return owner;
     }
+
+    public void moveDown(){
+      xCor--;
+    }
 }

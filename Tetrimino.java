@@ -1,33 +1,36 @@
 public class Tetrimino{
 
   private Piece[] pieces;
-  private int centerX;
-  private int centerY;
+  private double centerX;
+  private double centerY;
 
   public Tetrimino(Piece[] input){
     pieces = input;
     int sumx = 0;
     int sumy = 0;
-    for (int x = 0; x < pieces.size; x++){
+    for (int x = 0; x < pieces.length; x++){
       sumx += pieces[x].getX();
       sumy += pieces[x].getY();
     }
-    centerX = (double) sumx / pieces.size;
-    centerY = sumy / pieces.size;
+    centerX = (double)sumx / pieces.length;
+    centerY = (double)sumy / pieces.length;
   }
 
   public void rotate(){
     
   }
 
-  public int getX(){
+  public double getX(){
     return centerX;
   }
 
-  public int getY(){
+  public double getY(){
     return centerY;
   }
-  public int moveDown(){
-
+  public void moveDown(){
+    for (int x = 0; x < pieces.length; x++){
+      pieces[x].moveDown();
+    }
+    centerY--;
   }
 }
