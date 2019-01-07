@@ -33,6 +33,10 @@ public class Piece{
     }
 
     public void moveRight() {
+        xCor++;
+    }
 
+    public void moveLeft() {
+        xCor--;
     }
 }
