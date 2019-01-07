@@ -32,8 +32,8 @@ public class Grid {
         next[7] = "|       |";
         next[8] = "---------";
         for (int i = 3; i < 7; i++) {
-            next[i] = "|   " + next.getPieces[i - 3] + "   |";
-            hold[i] = "|   " + hold.getPieces[i - 3] + "   |";
+            next[i] = "|   " + next.getPieces[i - 3].toString() + "   |";
+            hold[i] = "|   " + hold.getPieces[i - 3].toString() + "   |";
         }
         for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
             String row = "";
@@ -41,6 +41,12 @@ public class Grid {
                 row += "|" + grid[i][j].toString();
             }
             row += "|";
+            if (i >= 7 && i <= 15) { //these ifs append the hold and the next strings
+                row += "\t\t" + next[i - 7];
+            }
+            if (i >= 19 && i <= 27) {
+                row += "\t\t" + hold[i - 19];
+            }
             toReturnArr[i - 4] = row;
         }
         String toReturn = "";
