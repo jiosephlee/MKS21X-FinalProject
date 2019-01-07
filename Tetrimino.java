@@ -4,12 +4,12 @@ public class Tetrimino{
   private int centerX;
   private int centerY;
 
-  public Tetrimino(Piece[]){
-
+  public Tetrimino(Piece[] input){
+    pieces = input;
   }
 
   public void rotate(){
-    
+
   }
 
   public int getX(){

@@ -4,6 +4,27 @@ public class Piece{
     private Tetrimino owner;
 
     public Piece(){
-        xCor =
+        xCor = 5;
+        yCor = 21;
+    }
+
+    public void setX(int x){
+      xCor = x;
+    }
+
+    public void setY(int y){
+      yCor = y;
+    }
+
+    public int getX(){
+      return xCor;
+    }
+
+    public int getY(){
+      return yCor;
+    }
+
+    public Tetrimino getOwner(){
+      return owner;
     }
 }
