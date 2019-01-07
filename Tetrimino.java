@@ -30,10 +30,18 @@ public class Tetrimino{
     public double getY(){
         return centerY;
     }
+
     public void moveDown(){
         for (int x = 0; x < pieces.length; x++){
             pieces[x].moveDown();
         }
         centerY--;
+    }
+
+    public void moveRight() {
+        for (int x = 0; x < pieces.length; x++) {
+            pieces[x].moveRight();
+        }
+        centerX++;
     }
 }
