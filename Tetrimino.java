@@ -44,4 +44,11 @@ public class Tetrimino{
         }
         centerX++;
     }
+
+    public void moveLeft() {
+        for (int x = 0; x < pieces.length; x++) {
+            pieces[x].moveLeft();
+        }
+        centerX--;
+    }
 }
