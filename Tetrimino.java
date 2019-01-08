@@ -15,6 +15,10 @@ public class Tetrimino{
         centerY = y;
     }
 
+    public Tetrimino() { //this is used for stuff like hold in Grid
+
+    }
+
     public void rotateCW(){
         for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (y,-x)
             int xcor = pieces[i].getX();
