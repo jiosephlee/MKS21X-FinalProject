@@ -31,7 +31,7 @@ public class Tetrimino{
             int ycor = pieces[i].getY();
             pieces[i].setY(xcor - centerX + centerY);
             pieces[i].setX(-1 * (ycor - centerY) + centerX);
-        }
+        } //remember!!! do cases where it ends up being outside or there are other pieces on top
     }
 
     public double getX(){
