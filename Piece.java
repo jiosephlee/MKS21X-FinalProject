@@ -7,13 +7,11 @@ public class Piece{
     public Piece(int x, int y, int col){
         xCor = x;
         yCor = y;
-        color= col;
+        color = col;
     }
 
-
-
     public String toString() {
-        return " ";
+        return "" + color;
     }
 
     public void setX(int x){
