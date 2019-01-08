@@ -4,16 +4,10 @@ public class Tetrimino{
     private int centerX;
     private int centerY;
 
-    public Tetrimino(Piece[] input){
+    public Tetrimino(Piece[] input, int x, int y){
         pieces = input;
-        int sumx = 0;
-        int sumy = 0;
-        for (int i = 0; i < pieces.length; i++){
-            sumx += pieces[i].getX();
-            sumy += pieces[i].getY();
-        }
-        centerX = 0;
-        centerY = 0; //place values for now until we implement actual pieces
+        centerX = x;
+        centerY = y;
   }
 
     public void rotateCW(){
