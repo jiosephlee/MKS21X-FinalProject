@@ -8,7 +8,12 @@ public class Tetrimino{
         pieces = input;
         centerX = x;
         centerY = y;
-  }
+    }
+
+    public Tetrimino(double x, double y) { //this is used in blocks
+        centerX = x;
+        centerY = y;
+    }
 
     public void rotateCW(){
         for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (y,-x)
