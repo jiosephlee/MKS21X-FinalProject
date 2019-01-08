@@ -36,6 +36,14 @@ public class Tetrimino{
         return centerY;
     }
 
+    public setPieces(Piece[] newPieces) {
+        pieces = newPieces;
+    }
+
+    public Piece[] getPieces() {
+        return pieces;
+    }
+
     public void moveDown(){
         for (int i = 0; i < pieces.length; i++){
             pieces[i].moveDown();
