@@ -14,3 +14,5 @@ Final Project: Tetris
 - Officially made toString for Grid and merged the branch toStringFirst and master. Waiting for Tetrimino and Piece. (George)
 - Finished working on Pieces.java and figured out how Pieces will fit into Tetrimino (Joseph)
 ### 1/7/19
+- In class, worked on translating Tetriminos and Pieces (George)
+- At home, worked on rotating Tetriminos by using freshman Euclidean Geometry
