@@ -2,16 +2,22 @@ public class Piece{
     private int xCor;
     private int yCor;
     private Tetrimino owner;
-    private int color;
+    private String colour; //:)))))
 
-    public Piece(int x, int y, int col){
+    public Piece(int x, int y, String col){
         xCor = x;
         yCor = y;
-        color = col;
+        colour = col;
+    }
+
+    public Piece(int x, int y) { //this is the emptyPiece
+        xCor = x;
+        yCor = y;
+        colour = " ";
     }
 
     public String toString() {
-        return "" + color;
+        return "" + colour;
     }
 
     public void setX(int x){
