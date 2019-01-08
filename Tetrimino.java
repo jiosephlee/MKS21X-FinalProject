@@ -1,10 +1,10 @@
 public class Tetrimino{
 
     private Piece[] pieces;
-    private int centerX;
-    private int centerY;
+    private double centerX;
+    private double centerY;
 
-    public Tetrimino(Piece[] input, int x, int y){
+    public Tetrimino(Piece[] input, double x, double y){
         pieces = input;
         centerX = x;
         centerY = y;
