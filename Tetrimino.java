@@ -36,7 +36,7 @@ public class Tetrimino{
         return centerY;
     }
 
-    public setPieces(Piece[] newPieces) {
+    public void setPieces(Piece[] newPieces) {
         pieces = newPieces;
     }
 
