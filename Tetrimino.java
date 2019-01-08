@@ -1,8 +1,8 @@
 public class Tetrimino{
 
     private Piece[] pieces;
-    private double centerX;
-    private double centerY;
+    private int centerX;
+    private int centerY;
 
     public Tetrimino(Piece[] input){
         pieces = input;
@@ -12,14 +12,16 @@ public class Tetrimino{
             sumx += pieces[i].getX();
             sumy += pieces[i].getY();
         }
-        centerX = (double)sumx / pieces.length;
-        centerY = (double)sumy / pieces.length;
+        centerX = 0;
+        centerY = 0; //place values for now until we implement actual pieces
   }
 
-    public void rotate(){
-        for (int i = 0; i < pieces.length; i++) {
+    public void rotateCC(){
+        for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (-y,x)
             int xcor = pieces[i].getX();
             int ycor = pieces[i].getY();
+            pieces[i].setY(-1 * (xcor - centerX) + centerY);
+            pieces[i].setX(ycor - centerY + centerX);
         }
     }
 
