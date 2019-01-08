@@ -3,9 +3,9 @@ public class Piece{
     private int yCor;
     private Tetrimino owner;
 
-    public Piece(){
-        xCor = 5;
-        yCor = 21;
+    public Piece(int x, int y){
+        xCor = x;
+        yCor = y;
     }
 
     public String toString() {
