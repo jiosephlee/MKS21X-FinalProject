@@ -2,11 +2,15 @@ public class Piece{
     private int xCor;
     private int yCor;
     private Tetrimino owner;
+    private int color;
 
-    public Piece(int x, int y){
+    public Piece(int x, int y, int col){
         xCor = x;
         yCor = y;
+        color= col;
     }
+
+
 
     public String toString() {
         return " ";
