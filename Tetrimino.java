@@ -16,12 +16,21 @@ public class Tetrimino{
         centerY = 0; //place values for now until we implement actual pieces
   }
 
-    public void rotateCC(){
-        for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (-y,x)
+    public void rotateCW(){
+        for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (y,-x)
             int xcor = pieces[i].getX();
             int ycor = pieces[i].getY();
             pieces[i].setY(-1 * (xcor - centerX) + centerY);
             pieces[i].setX(ycor - centerY + centerX);
+        }
+    }
+
+    public void rotateCCW() {
+        for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (-y,x)
+            int xcor = pieces[i].getX();
+            int ycor = pieces[i].getY();
+            pieces[i].setY(xcor - centerX + centerY);
+            pieces[i].setX(-1 * (ycor - centerY) + centerX);
         }
     }
 
