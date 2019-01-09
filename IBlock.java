@@ -1,9 +1,4 @@
 public class IBlock extends Tetrimino {
-    /* this is the shape:
-    ---------
-    | | | | |
-    ---------
-    */
     public IBlock(int x, int y) { //x's and y's don't mean center, but starting point
         super((double)(x + 2), (double)y - 0.5);
         Piece a = new Piece(x, y); //precondition, x + 3 < 10 and y < 24
@@ -13,4 +8,9 @@ public class IBlock extends Tetrimino {
         Piece[] toAdd = {a, b, c, d};
         super.setPieces(toAdd);
     }
+    /* this is the shape:
+    ---------
+    | | | | |
+    ---------
+    */
 }
