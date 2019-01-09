@@ -8,7 +8,7 @@ public class Grid {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                grid[i][j] = new Piece();
+                grid[i][j] = new Piece(j, i);
             }
         }
         dropping = new Tetrimino();
@@ -32,8 +32,8 @@ public class Grid {
         next[7] = "|       |";
         next[8] = "---------";
         for (int i = 3; i < 7; i++) {
-            next[i] = "|   " + next.getPieces[i - 3].toString() + "   |";
-            hold[i] = "|   " + hold.getPieces[i - 3].toString() + "   |";
+            next[i] = "|   " + next.getPieces()[i - 3].toString() + "   |";
+            hold[i] = "|   " + hold.getPieces()[i - 3].toString() + "   |";
         }
         for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
             String row = "";
