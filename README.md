@@ -15,6 +15,10 @@ Final Project: Tetris
 - Finished working on Pieces.java and figured out how Pieces will fit into Tetrimino (Joseph)
 ### 1/7/19
 - In class, worked on translating Tetriminos and Pieces (George)
-- In class, fixed the few mothods of Tetriminos and Pieces (Joseph)
-- At home, worked on rotating Tetriminos by using freshman Euclidean Geometry
+- In class, fixed the few methods of Tetriminos and Pieces (Joseph)
+- At home, worked on rotating Tetriminos by using freshman Euclidean Geometry (George)
 - At home, started figuring out the graphics using Laterna (Joseph)
+### 1/8/19
+- In class, I started figuring out how to make the blocks. I realized I needed to change how my classes worked and their constructors. (George)
+- At home, I made new constructors and methods with different kinds of inputs depending on the class using it. I also made all the classes for all the 7 different kinds of Tetriminos in Tetris. Today was productive dabdab (George)
+<img src="https://media.giphy.com/media/A4R8sdUG7G9TG/giphy.gif" width="400" height="400" /
