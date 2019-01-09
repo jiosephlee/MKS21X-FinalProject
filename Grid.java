@@ -17,8 +17,8 @@ public class Grid {
     }
 
     public String toString() {
-        String[] toReturnArr = new String[20]; //each cell is a row in the tetris board
-        toReturnArr[0] = "---------------------\n";
+        String[] toReturnArr = new String[41]; //each cell is a row in the tetris board
+        toReturnArr[0] = "---------------------";
         String[] hold = new String[9]; //each cell is a row in the tetris board
         String[] next = new String[9];
         hold[0] = "---------";
@@ -41,13 +41,18 @@ public class Grid {
                 row += "|" + grid[i][j].toString();
             }
             row += "|";
+            toReturnArr[2 * (i - 4) + 1] = row;
+            toReturnArr[2 * (i - 4) + 2] = "---------------------";
+        }
+        for (int i = 0; i < toReturnArr.length; i++) { //remember first 4 rows are hidden
+            String row = "";
             if (i >= 7 && i <= 15) { //these ifs append the hold and the next strings
                 row += "\t\t" + next[i - 7];
             }
             if (i >= 19 && i <= 27) {
                 row += "\t\t" + hold[i - 19];
             }
-            toReturnArr[i - 4] = row;
+            toReturnArr[i] += row;
         }
         String toReturn = "";
         for (int i = 0; i < toReturnArr.length; i++) {
