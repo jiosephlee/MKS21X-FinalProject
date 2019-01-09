@@ -21,4 +21,4 @@ Final Project: Tetris
 ### 1/8/19
 - In class, I started figuring out how to make the blocks. I realized I needed to change how my classes worked and their constructors. (George)
 - At home, I made new constructors and methods with different kinds of inputs depending on the class using it. I also made all the classes for all the 7 different kinds of Tetriminos in Tetris. Today was productive dabdab (George)
-<img src="https://media.giphy.com/media/A4R8sdUG7G9TG/giphy.gif" width="400" height="400" />
+<img src="https://media.giphy.com/media/A4R8sdUG7G9TG/giphy.gif" width="768" height="400" />
