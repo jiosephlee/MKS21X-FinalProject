@@ -8,11 +8,13 @@ public class JBlock extends Tetrimino {
         Piece[] toAdd = {a, b, c, d};
         super.setPieces(toAdd);
     }
-    /* this is the shape
+    /* this is the shape:
     ---
-    | |
+    |X|
     -------
     | |r| |
     -------
+    X = the coords of (x, y)
+    r = the center of rotation
     */
 }

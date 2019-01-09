@@ -1,5 +1,5 @@
 public class TBlock extends Tetrimino {
-    public TBlock(int x, int y) { //x's and y's don't mean center, but starting point
+    public TBlock(int x, int y) {
         super(x + 1, y);
         Piece a = new Piece(x, y); //precondition: x < 8, y < 23
         Piece b = new Piece(x + 1, y);
@@ -12,7 +12,9 @@ public class TBlock extends Tetrimino {
       ---
       | |
     -------
-    | | | |
+    |X|r| |
     -------
+    X = the coords of (x, y)
+    r = the center of rotation
     */
 }

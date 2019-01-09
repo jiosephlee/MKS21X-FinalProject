@@ -1,5 +1,5 @@
 public class OBlock extends Tetrimino {
-    public OBlock(int x, int y) { //x's and y's don't mean center, but starting point
+    public OBlock(int x, int y) {
         super(x + 0.5, y + 0.5);
         Piece a = new Piece(x, y); //precondition: x < 9, y < 23
         Piece b = new Piece(x + 1, y);
@@ -11,8 +11,10 @@ public class OBlock extends Tetrimino {
     /* this is the shape:
     -----
     | | |
+    --r--
+    |X| |
     -----
-    | | |
-    -----
+    X = the coords of (x, y)
+    r = the center of rotation
     */
 }
