@@ -8,27 +8,45 @@ public class Piece{
         yCor = 21;
     }
 
+    public String toString() {
+        return " ";
+    }
+
     public void setX(int x){
-      xCor = x;
+        xCor = x;
     }
 
     public void setY(int y){
-      yCor = y;
+        yCor = y;
     }
 
     public int getX(){
-      return xCor;
+        return xCor;
     }
 
     public int getY(){
-      return yCor;
+        return yCor;
     }
 
     public Tetrimino getOwner(){
-      return owner;
+        return owner;
     }
 
     public void moveDown(){
-      xCor--;
+        yCor--;
+    }
+
+    public void moveRight() {
+        xCor++;
+    }
+    public void moveRight(int x) {
+        xCor += x;
+    }
+
+    public void moveLeft() {
+        xCor--;
+    }
+    public void moveLeft(int x) {
+        xCor -= x;
     }
 }
