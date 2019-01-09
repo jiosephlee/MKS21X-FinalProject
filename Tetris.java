@@ -29,9 +29,11 @@ public class Tetris{
 		int y = 0;
 		for(int i = 0; i++; i < storage.length()){
 			terminal.moveCursor(x,y);
-			terminal.applyBackgroundColor(Terminal.Color.WHITE);
-			terminal.applyForegroundColor(Terminal.Color.BLACK);
-			//applySGR(a,b) for multiple modifiers (bold,blink) etc.
+			if (storage.charAt(i) == '|'){
+				terminal.applyBackgroundColor(Terminal.Color.WHITE);
+			} else if (storage.charAt(i) == ' '){
+				terminal.applyBackgroundColor(Terminal.Color.BLACK);
+			}
 			terminal.applySGR(Terminal.SGR.ENTER_UNDERLINE);
 			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
 			terminal.applyForegroundColor(Terminal.Color.DEFAULT);
@@ -56,7 +58,7 @@ public class Tetris{
 		long lastSecond = 0;
 
 		while(running){
-
+			terminal.putGrid(game);
 			terminal.moveCursor(x,y);
 			terminal.applyBackgroundColor(Terminal.Color.WHITE);
 			terminal.applyForegroundColor(Terminal.Color.BLACK);
