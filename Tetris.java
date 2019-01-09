@@ -14,7 +14,7 @@ import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.input.KeyMappingProfile;
 
 
-public class Tetris {
+public class Tetris{
 
 	public static void putString(int r, int c,Terminal t, String s){
 		t.moveCursor(r,c);
@@ -22,8 +22,24 @@ public class Tetris {
 			t.putCharacter(s.charAt(i));
 		}
 	}
-	public static void main(String[] args) {
 
+	public static void putGrid(Grid input){
+		String storage = input.toString();
+		int x = 0;
+		int y = 0;
+		for(int i = 0; i++; i < storage.length()){
+			terminal.moveCursor(x,y);
+			terminal.applyBackgroundColor(Terminal.Color.WHITE);
+			terminal.applyForegroundColor(Terminal.Color.BLACK);
+			//applySGR(a,b) for multiple modifiers (bold,blink) etc.
+			terminal.applySGR(Terminal.SGR.ENTER_UNDERLINE);
+			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
+			terminal.applyForegroundColor(Terminal.Color.DEFAULT);
+			terminal.applySGR(Terminal.SGR.RESET_ALL);
+		}
+	}
+	public static void main(String[] args) {
+		Grid game = new Grid();
 
 		int x = 10;
 		int y = 10;
