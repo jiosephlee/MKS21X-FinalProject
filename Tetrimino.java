@@ -10,7 +10,7 @@ public class Tetrimino{
         centerY = y;
     }
 
-    public Tetrimino(double x, double y) { //this is used in blocks
+    public Tetrimino(double x, double y) { //this is used in block classes
         centerX = x;
         centerY = y;
     }
