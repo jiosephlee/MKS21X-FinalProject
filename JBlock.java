@@ -1,10 +1,10 @@
 public class JBlock extends Tetrimino {
     public JBlock(int x, int y) {
-        super();
-        Piece a = new Piece();
-        Piece b = new Piece();
-        Piece c = new Piece();
-        Piece d = new Piece();
+        super(x + 1, y - 1);
+        Piece a = new Piece(x, y);
+        Piece b = new Piece(x, y - 1);
+        Piece c = new Piece(x + 1, y - 1);
+        Piece d = new Piece(x + 2, y - 1);
         Piece[] toAdd = {a, b, c, d};
         super.setPieces(toAdd);
     }
@@ -12,7 +12,7 @@ public class JBlock extends Tetrimino {
     ---
     | |
     -------
-    | | | |
+    | |r| |
     -------
     */
 }
