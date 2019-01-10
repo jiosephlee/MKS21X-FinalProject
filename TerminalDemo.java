@@ -39,7 +39,7 @@ public class TerminalDemo {
 
 			KeyStroke key = screen.pollInput();
 
-			//String storage = game.toString();
+			/*String storage = game.toString();
 			String storage = "|                | +\n + |      |";
 			int xcor = 1;
 			int ycor = 5;
@@ -63,7 +63,7 @@ public class TerminalDemo {
 							if (storage.charAt(i)=='\n'){
 								ycor++;
 							}
-			}
+			}*/
 			if (key != null) {
 				screen.setCharacter(x, y, new TextCharacter(' '));
 
