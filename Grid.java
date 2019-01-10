@@ -69,11 +69,17 @@ public class Grid {
     public void setNext(Tetrimino toPut) {
         nexting = toPut;
     }
-    public void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
-        dropping = nexting; //remember!!! TURN BACK TO PRIVATE
+    private void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
+        dropping = nexting;
+    }
+    public void setDrop(Tetrimino toPut) {
+        dropping = toPut;
     }
     public void moveDown(int x) { //remember!!! TURN BACK TO PRIVATE
         dropping.moveDown(x);
+    }
+    public void putIn() { //remember!!! TURN BACK TO PRIVATE
+
     }
 
     private int[] checkTetris() { //returns the rows that have tetris
@@ -99,5 +105,7 @@ public class Grid {
     public static void main(String[] args) {
         Grid test = new Grid();
         System.out.println(test);
+        Tetrimino toAdd = new IBlock(0, 5);
+        test.setDrop(toAdd);
     }
 }
