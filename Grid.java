@@ -76,7 +76,14 @@ public class Grid {
     private int[] checkTetris() { //returns the rows that have tetris
         ArrayList<Integer> toReturn = new ArrayList<Integer>();
         for (int i = grid.length; i >= 0; i--) {
+            boolean isDone = true;
             for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j].toString().equals(" ")) {
+                    isDone = false;
+                }
+            }
+            if (isDone) {
+                toReturn.add(i);
             }
         }
         int[] toReturnActually = new int[toReturn.size()];
