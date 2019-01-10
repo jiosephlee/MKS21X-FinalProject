@@ -23,27 +23,6 @@ public class Tetris{
 		}
 	}
 
-	public static void putGrid(Grid input){
-		String storage = input.toString();
-		int x = 0;
-		int y = 0;
-		for (int i = 0; i < storage.length(); i++){
-			terminal.moveCursor(x,y);
-			if (storage.charAt(i) == '|'){
-				terminal.applyBackgroundColor(Terminal.Color.WHITE);
-			} else if (storage.charAt(i) == ' '){
-				terminal.applyBackgroundColor(Terminal.Color.BLACK);
-			}
-			terminal.applySGR(Terminal.SGR.ENTER_UNDERLINE);
-			terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
-			terminal.applyForegroundColor(Terminal.Color.DEFAULT);
-			terminal.applySGR(Terminal.SGR.RESET_ALL);
-			x++;
-			if (storage.charAt(i)=='\n'){
-				y++;
-			}
-		}
-	}
 	public static void main(String[] args) {
 		Grid game = new Grid();
 
@@ -62,8 +41,25 @@ public class Tetris{
 		long lastSecond = 0;
 
 		while(running){
-			
-			terminal.putGrid(game);
+			String storage = input.toString();
+			int x = 0;
+			int y = 0;
+			for (int i = 0; i < storage.length(); i++){
+				terminal.moveCursor(x,y);
+				if (storage.charAt(i) == '|'){
+					terminal.applyBackgroundColor(Terminal.Color.WHITE);
+				} else if (storage.charAt(i) == ' '){
+					terminal.applyBackgroundColor(Terminal.Color.BLACK);
+				}
+				terminal.applySGR(Terminal.SGR.ENTER_UNDERLINE);
+				terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
+				terminal.applyForegroundColor(Terminal.Color.DEFAULT);
+				terminal.applySGR(Terminal.SGR.RESET_ALL);
+				x++;
+				if (storage.charAt(i)=='\n'){
+					y++;
+				}
+			}
 			terminal.moveCursor(x,y);
 			terminal.applyBackgroundColor(Terminal.Color.WHITE);
 			terminal.applyForegroundColor(Terminal.Color.BLACK);
