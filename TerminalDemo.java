@@ -20,7 +20,7 @@ public class TerminalDemo {
 
 		int x = 10;
 		int y = 10;
-		Grid game = new Grid();
+		//Grid game = new Grid();
 
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
@@ -39,15 +39,16 @@ public class TerminalDemo {
 
 			KeyStroke key = screen.pollInput();
 
-			String storage = game.toString();
+			//String storage = game.toString();
+			String storage = "|                | +\n + |      |";
 			int xcor = 1;
 			int ycor = 5;
 			for (int i = 0; i < storage.length(); i++){
 							if (storage.charAt(i) == '|'){
 								TextCharacter put = new TextCharacter(
 									' ',
-									new TextColor.RGB(1, 1, 1),
-									new TextColor.RGB(1,1,1)
+									new TextColor.RGB(50, 50, 50),
+									new TextColor.RGB(50,50,50)
 								);
 								screen.setCharacter(xcor, ycor, put);
 							} else if (storage.charAt(i) == ' '){
