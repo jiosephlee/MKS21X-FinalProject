@@ -72,4 +72,9 @@ public class Grid {
     private void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
         dropping = nexting;
     }
+
+    public static void main(String[] args) {
+        Grid test = new Grid();
+        test.toString();
+    }
 }
