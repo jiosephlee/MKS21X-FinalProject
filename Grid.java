@@ -80,7 +80,10 @@ public class Grid {
             }
         }
         int[] toReturnActually = new int[toReturn.size()];
-        return toReturn.toArray(toReturnActually);
+        for (int i = 0; i < toReturn.size(); i++) {
+            toReturnActually[i] = toReturn.get(i);
+        }
+        return toReturnActually;
     }
 
     public static void main(String[] args) {
