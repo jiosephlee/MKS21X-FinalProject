@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Grid {
 
     private Piece[][] grid;
@@ -64,13 +66,21 @@ public class Grid {
     public void setHold(Tetrimino toPut) {
         holding = toPut;
     }
-
     public void setNext(Tetrimino toPut) {
         nexting = toPut;
     }
-
     private void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
         dropping = nexting;
+    }
+
+    private int[] checkTetris() { //returns the rows that have tetris
+        ArrayList<Integer> toReturn = new ArrayList<Integer>();
+        for (int i = grid.length; i >= 0; i--) {
+            for (int j = 0; j < grid[i].length; j++) {
+            }
+        }
+        int[] toReturnActually = new int[toReturn.size()];
+        return toReturn.toArray(toReturnActually);
     }
 
     public static void main(String[] args) {
