@@ -68,4 +68,8 @@ public class Grid {
     public void setNext(Tetrimino toPut) {
         nexting = toPut;
     }
+
+    private void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
+        dropping = nexting;
+    }
 }
