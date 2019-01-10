@@ -69,8 +69,11 @@ public class Grid {
     public void setNext(Tetrimino toPut) {
         nexting = toPut;
     }
-    private void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
-        dropping = nexting;
+    public void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
+        dropping = nexting; //remember!!! TURN BACK TO PRIVATE
+    }
+    public void moveDown(int x) { //remember!!! TURN BACK TO PRIVATE
+        dropping.moveDown(x);
     }
 
     private int[] checkTetris() { //returns the rows that have tetris
