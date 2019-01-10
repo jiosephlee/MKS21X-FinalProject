@@ -60,4 +60,12 @@ public class Grid {
         }
         return toReturn;
     }
+
+    public void setHold(Tetrimino toPut) {
+        holding = toPut;
+    }
+
+    public void setNext(Tetrimino toPut) {
+        nexting = toPut;
+    }
 }
