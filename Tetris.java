@@ -24,7 +24,7 @@ public class Tetris{
 	}
 
 	public static void main(String[] args) {
-		Grid game = new Grid();
+		//Grid game = new Grid();
 
 		int x = 10;
 		int y = 10;
@@ -41,9 +41,9 @@ public class Tetris{
 		long lastSecond = 0;
 
 		while(running){
-			String storage = input.toString();
-			int x = 0;
-			int y = 0;
+/*			String storage = game.toString();
+			int xcor = 0;
+			int ycor = 0;
 			for (int i = 0; i < storage.length(); i++){
 				terminal.moveCursor(x,y);
 				if (storage.charAt(i) == '|'){
@@ -55,11 +55,12 @@ public class Tetris{
 				terminal.applyBackgroundColor(Terminal.Color.DEFAULT);
 				terminal.applyForegroundColor(Terminal.Color.DEFAULT);
 				terminal.applySGR(Terminal.SGR.RESET_ALL);
-				x++;
+				xcor++;
 				if (storage.charAt(i)=='\n'){
-					y++;
+					ycor++;
 				}
 			}
+			*/
 			terminal.moveCursor(x,y);
 			terminal.applyBackgroundColor(Terminal.Color.WHITE);
 			terminal.applyForegroundColor(Terminal.Color.BLACK);

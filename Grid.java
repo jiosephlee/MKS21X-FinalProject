@@ -11,9 +11,9 @@ public class Grid {
                 grid[i][j] = new Piece();
             }
         }
-        dropping = new Tetrimino();
-        holding = new Tetrimino();
-        next = new Tetrimino();
+        dropping = new Tetrimino(null);
+        holding = new Tetrimino(null);
+        next = new Tetrimino(null);
     }
 
     public String toString() {
