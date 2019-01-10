@@ -75,6 +75,6 @@ public class Grid {
 
     public static void main(String[] args) {
         Grid test = new Grid();
-        test.toString();
+        System.out.println(test);
     }
 }

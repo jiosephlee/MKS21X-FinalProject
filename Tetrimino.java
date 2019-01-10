@@ -54,31 +54,17 @@ public class Tetrimino{
         return pieces;
     }
 
-    public void moveDown(){
+    public void moveDown(int x){
         for (int i = 0; i < pieces.length; i++){
-            pieces[i].moveDown();
+            pieces[i].moveDown(x);
         }
-        centerY--;
-    }
-
-    public void moveRight() {
-        for (int i = 0; i < pieces.length; i++) {
-            pieces[i].moveRight();
-        }
-        centerX++;
+        centerY += x; //it is adding it to move down becuase in an array, down = higher num.
     }
     public void moveRight(int x) {
         for (int i = 0; i < pieces.length; i++) {
             pieces[x].moveRight(x);
         }
         centerX += x;
-    }
-
-    public void moveLeft() {
-        for (int i = 0; i < pieces.length; i++) {
-            pieces[i].moveLeft();
-        }
-        centerX--;
     }
     public void moveLeft(int x) {
         for (int i = 0; i < pieces.length; i++) {
