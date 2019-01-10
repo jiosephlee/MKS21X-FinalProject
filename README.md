@@ -19,8 +19,11 @@ Final Project: Tetris
 - At home, worked on rotating Tetriminos by using freshman Euclidean Geometry (George)
 - At home, started figuring out the graphics using Laterna (Joseph)
 ### 1/8/19
-- In class, we started figuring out how to make the blocks. We realized we needed to change how our classes worked and their constructors. 
+- In class, we started figuring out how to make the blocks. We realized we needed to change how our classes worked and their constructors.
 - At home, I made new constructors and methods with different kinds of inputs depending on the class using it. I also made all the classes for all the 7 different kinds of Tetriminos in Tetris. Today was productive dabdab (George)
 <img src="https://media.giphy.com/media/A4R8sdUG7G9TG/giphy.gif" width="768" height="400" />
+
 ### 1/9/19
+- I tested the toString and other methods and they now work! (George)
 - At home, I figured out how the Demo and graphics works for Lanterna 3 and started modifying the code to our project (Joseph)
+- At home, I added a bunch of easy misc. functions in Grid to help prepare for tomorrow's intensive work of trying to move a tetrimino :( (George)
