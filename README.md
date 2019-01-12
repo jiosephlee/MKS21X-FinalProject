@@ -27,3 +27,5 @@ Final Project: Tetris
 - I tested the toString and other methods and they now work! (George)
 - At home, I figured out how the Demo and graphics works for Lanterna 3 and started modifying the code to our project (Joseph)
 - At home, I added a bunch of easy misc. functions in Grid to help prepare for tomorrow's intensive work of trying to move a tetrimino :( (George)
+### 1/10/19
+- I started doing the actual functions of Grid such as moving the blocks and rotating them, but however, I realized my constructors for the blocks were wrong. I also finished testing the other methods (George)
