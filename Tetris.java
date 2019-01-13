@@ -16,6 +16,7 @@ import java.awt.Color;
 			int x = 10;
 			int y = 10;
 			Grid game = new Grid();
+			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
 			long tStart = System.currentTimeMillis();
@@ -37,35 +38,32 @@ import java.awt.Color;
 				int ycor = 5;
 				boolean yes = true;
 				for (int i = 0; i < storage.length(); i++){
-								xcor++;
-								if ((storage.charAt(i) == '|' && yes) || storage.charAt(i) == '['){
-									TextCharacter put = new TextCharacter(
-										' ',
-										new TextColor.RGB(50, 50, 50),
-										new TextColor.RGB(50,50,50)
-									);
-									yes = false;
-									screen.setCharacter(xcor, ycor, put);
-								} else if (storage.charAt(i) == 234234){
-									TextCharacter put = new TextCharacter(
-										' ',
-										new TextColor.RGB(0, 0, 0),
-										new TextColor.RGB(0, 0, 0)
-									);
-									screen.setCharacter(xcor, ycor, put);
-								}
-								if (storage.charAt(i)=='\n'){
-									TextCharacter put = new TextCharacter(
-										' ',
-										new TextColor.RGB(50, 50, 50),
-										new TextColor.RGB(50,50,50)
-									);
-									yes = false;
-									screen.setCharacter(xcor, ycor, put);
-									ycor++;
-									xcor = 3;
-									yes = true;
-								}
+					xcor++;
+					if (((storage.charAt(i) == '|' || storage.charAt(i) == '-') && yes) || storage.charAt(i) == '['){
+					TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(50, 50, 50),
+						new TextColor.RGB(50,50,50));
+						yes = false;
+						screen.setCharacter(xcor, ycor, put);
+						}
+					else if (storage.charAt(i) == 234234){
+						TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(0, 0, 0),
+						new TextColor.RGB(0, 0, 0));
+						screen.setCharacter(xcor, ycor, put);
+						}
+						if (storage.charAt(i)=='\n'){
+							TextCharacter put = new TextCharacter(
+							' ',
+							new TextColor.RGB(50, 50, 50),
+							new TextColor.RGB(50,50,50));
+							yes = true;
+							screen.setCharacter(xcor, ycor, put);
+							ycor++;
+							xcor = 3;
+						}
 				}
 			if (key != null) {
 				screen.setCharacter(x, y, new TextCharacter(' '));
