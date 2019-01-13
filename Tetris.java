@@ -31,19 +31,28 @@ import java.awt.Color;
 
 				KeyStroke key = screen.pollInput();
 
-				//String storage = game.toString();
 				String storage = game.toString();
-				//String storage = "|                | +\n + |      |";
+
 				int xcor = 3;
 				int ycor = 5;
 				boolean yes = true;
+				int linecount = 1;
 				for (int i = 0; i < storage.length(); i++){
 					xcor++;
-					if (((storage.charAt(i) == '|' || storage.charAt(i) == '-') && yes) || storage.charAt(i) == '['){
+					if (storage.charAt(i) =='\t'){
+						xcor+=3;
+					}
+					if (i < storage.length() - 12 && storage.charAt(i+12) == '\n'){
+						xcor++;
+					}
+					if (((storage.charAt(i) == '|' || storage.charAt(i) == '-') && yes) ||
+						storage.charAt(i) == '[' ||
+						(((linecount > 7 && linecount < 17) || (linecount > 19 && linecount < 29)) && ((storage.charAt(i+12) == '\n') ||
+						(storage.charAt(i+9) == '\n')))){
 					TextCharacter put = new TextCharacter(
 						' ',
-						new TextColor.RGB(50, 50, 50),
-						new TextColor.RGB(50,50,50));
+						new TextColor.RGB(255, 255, 255),
+						new TextColor.RGB(255, 255, 255));
 						yes = false;
 						screen.setCharacter(xcor, ycor, put);
 						}
@@ -57,11 +66,12 @@ import java.awt.Color;
 						if (storage.charAt(i)=='\n'){
 							TextCharacter put = new TextCharacter(
 							' ',
-							new TextColor.RGB(50, 50, 50),
-							new TextColor.RGB(50,50,50));
+							new TextColor.RGB(255, 255, 255),
+							new TextColor.RGB(255, 255, 255));
 							yes = true;
 							screen.setCharacter(xcor, ycor, put);
 							ycor++;
+							linecount++;
 							xcor = 3;
 						}
 				}
