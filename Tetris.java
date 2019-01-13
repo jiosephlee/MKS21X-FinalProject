@@ -38,7 +38,7 @@ import java.awt.Color;
 				boolean yes = true;
 				for (int i = 0; i < storage.length(); i++){
 								xcor++;
-								if (storage.charAt(i) == '|' && yes){
+								if ((storage.charAt(i) == '|' && yes) || storage.charAt(i) == '['){
 									TextCharacter put = new TextCharacter(
 										' ',
 										new TextColor.RGB(50, 50, 50),
