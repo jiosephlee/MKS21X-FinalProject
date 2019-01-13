@@ -32,18 +32,21 @@ import java.awt.Color;
 
 				//String storage = game.toString();
 				String storage = game.toString();
-				String storage = "|                | +\n + |      |";
-				int xcor = 1;
+				//String storage = "|                | +\n + |      |";
+				int xcor = 3;
 				int ycor = 5;
+				boolean yes = true;
 				for (int i = 0; i < storage.length(); i++){
-								if (storage.charAt(i) == '|'){
+								xcor++;
+								if (storage.charAt(i) == '|' && yes){
 									TextCharacter put = new TextCharacter(
 										' ',
 										new TextColor.RGB(50, 50, 50),
 										new TextColor.RGB(50,50,50)
 									);
+									yes = false;
 									screen.setCharacter(xcor, ycor, put);
-								} else if (storage.charAt(i) == ' '){
+								} else if (storage.charAt(i) == 234234){
 									TextCharacter put = new TextCharacter(
 										' ',
 										new TextColor.RGB(0, 0, 0),
@@ -51,9 +54,17 @@ import java.awt.Color;
 									);
 									screen.setCharacter(xcor, ycor, put);
 								}
-								xcor++;
 								if (storage.charAt(i)=='\n'){
+									TextCharacter put = new TextCharacter(
+										' ',
+										new TextColor.RGB(50, 50, 50),
+										new TextColor.RGB(50,50,50)
+									);
+									yes = false;
+									screen.setCharacter(xcor, ycor, put);
 									ycor++;
+									xcor = 3;
+									yes = true;
 								}
 				}
 			if (key != null) {
@@ -66,13 +77,7 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.ArrowDown)  y++;
 				putString(1, 1, screen, key+"                 ");
 			}
-			long tEnd = System.currentTimeMillis();
-			long millis = tEnd - tStart;
-			putString(1, 2, screen, "Milliseconds since start of program: "+millis);
-			if (millis / 1000 > lastSecond) {
-				lastSecond = millis / 1000;
-				putString(1, 3, screen, "Seconds since start of program: "+millis/1000);
-			}
+
 			screen.doResizeIfNecessary();
 			screen.refresh();
 		}
