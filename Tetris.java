@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.awt.Color;
 /*  Mr. K's TerminalDemo edited for lanterna 3 by Ethan
 */
-	public class TerminalDemo {
+	public class Tetris {
 		public static void putString(int x, int y, Screen screen, String str) {
 			for (int i = 0; i < str.length(); ++i) {
 				screen.setCharacter(x+i, y, new TextCharacter(str.charAt(i)));
