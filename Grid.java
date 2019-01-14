@@ -56,12 +56,7 @@ public class Grid {
                 row += "|" + grid[i][j].toString();
             }
             row += "|.";
-<<<<<<< HEAD
-            toReturnArr[2 * (i - 4) + 1] = row;
-            toReturnArr[2 * (i - 4) + 2] = ".---------------------.";
-=======
             toReturnArr[i - 4] = row;
->>>>>>> master
         }
         for (int i = 0; i < toReturnArr.length; i++) {
             String row = "";
