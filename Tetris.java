@@ -27,10 +27,12 @@ import java.awt.Color;
 			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
+
 			long tStart = System.currentTimeMillis();
 			long lastSecond = 0;
-			while (true) {
 
+			while (true) {
+				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
 				int ycor = 5;
@@ -113,9 +115,8 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.ArrowRight) x++;//game.moveRight();
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
 				else if (key.getKeyType() == KeyType.ArrowDown)  game.rotateCCW();
-				putString(1, 1, screen, key+"                 ");
 			}
-			putString(1,3, screen, storage);
+			//putString(1,3, screen, storage);
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
 			if (millis / 1000 > lastSecond) {
