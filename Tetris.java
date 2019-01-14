@@ -30,8 +30,18 @@ import java.awt.Color;
 
 			long tStart = System.currentTimeMillis();
 			long lastSecond = 0;
-
+			long tEnd = System.currentTimeMillis();
+			long millis = tEnd - tStart;
+			long time2 = System.currentTimeMillis();
+			long time1 = System.currentTimeMillis();
+			long diff = time2 - time1;
+			long lasts = 0;
 			while (true) {
+			time2 = System.currentTimeMillis();
+			diff = time2 - time1;
+			if (diff / 50 > lasts) {
+				lasts = diff / 50;
+
 				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
@@ -111,14 +121,14 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.Character){
 					if (key.getCharacter() == ' ') game.moveDown(1);
 				}
-				else if (key.getKeyType() == KeyType.ArrowLeft) x++;//game.moveLeft();
-				else if (key.getKeyType() == KeyType.ArrowRight) x++;//game.moveRight();
+				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
+				else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
 				else if (key.getKeyType() == KeyType.ArrowDown)  game.rotateCCW();
 			}
 			//putString(1,3, screen, storage);
-			long tEnd = System.currentTimeMillis();
-			long millis = tEnd - tStart;
+			tEnd = System.currentTimeMillis();
+			millis = tEnd - tStart;
 			if (millis / 1000 > lastSecond) {
 				lastSecond = millis / 1000;
 				game.moveDown(1);
@@ -126,6 +136,7 @@ import java.awt.Color;
 			screen.doResizeIfNecessary();
 			screen.refresh();
 		}
+	}
 		screen.stopScreen();
 	}
 }
