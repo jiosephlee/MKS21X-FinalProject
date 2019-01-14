@@ -31,5 +31,6 @@ Final Project: Tetris
 - I started doing the actual functions of Grid such as moving the blocks and rotating them, but however, I realized my constructors for the blocks were wrong. I also finished testing the other methods (George)
 ### 1/12/19
 - I started adjusting Tetris.java for our project and figured out how to integrate the game objects from the grid onto the terminal (Joseph)
+- I changed constructors for the blocks which accepts a character that enables colors for the dropping tetrimino. (George)
 ### 1/13/19
-- 
+- I added mechanics in Grid.java which enables the Driver, which is the Tetris file, which allows the Driver to access its elements, move the dropping tetrimino down, rotate it, move left, stacking the tetriminos, and adding tetriminos. (George)
