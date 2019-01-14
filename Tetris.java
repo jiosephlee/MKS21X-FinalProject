@@ -23,8 +23,8 @@ import java.awt.Color;
 			int x = 1;
 			int y = 1;
 			Grid game = new Grid();
-	        game.setDrop(new IBlock(5, 4, "1"));
-			game.setNext(new IBlock(5, 4, "1"));
+	        game.setDrop(new IBlock(5, 4));
+			game.setNext(new IBlock(5, 4));
 			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
@@ -129,8 +129,8 @@ import java.awt.Color;
 			}
 			if (game.isDoneDropping()){
 				game.setInStone();
-				setDrop();
-				setNext(new IBlock(5, 4, "1"));
+				game.setDrop();
+				game.setNext(new IBlock(5, 4));
 			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;

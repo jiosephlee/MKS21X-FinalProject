@@ -54,9 +54,9 @@ public class Grid {
         for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden
             String row = ".";
             for (int j = 0; j < grid2[i].length; j++) {
-                row += "|" + grid2[i][j].toString();
+                row += "" + grid2[i][j].toString();
             }
-            row += "|.";
+            row += ".";
             toReturnArr[i - 4] = row;
         }
         for (int i = 0; i < toReturnArr.length; i++) {
@@ -73,7 +73,7 @@ public class Grid {
         for (int i = 0; i < toReturnArr.length; i++) {
             toReturn += toReturnArr[i] + "\n";
         }
-        toReturn += "_______________________";
+        toReturn += "____________";
         return toReturn;
     }
 
