@@ -30,7 +30,6 @@ public class Grid {
 
     public String toString() {
         Piece[][] grid2;
-        //grid2 = copyOf(grid);
         for (int i = 0; i < dropping.getPieces().length; i++) {
             grid[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }

@@ -8,12 +8,20 @@ import java.awt.Color;
 */
 	public class Tetris {
 		public static void putString(int x, int y, Screen screen, String str) {
+			int xcor = x;
 			for (int i = 0; i < str.length(); ++i) {
-				screen.setCharacter(x+i, y, new TextCharacter(str.charAt(i)));
+				if(str.charAt(i)=='\n'){
+					y++;
+					xcor = x;
+				}else{
+				xcor++
+				screen.setCharacter(xcor, y, new TextCharacter(str.charAt(i)));
+				}
 			}
 		}
 		public static void main(String[] args) throws IOException {
-			int x = 0;
+			int x = 1;
+			int y = 1;
 			Grid game = new Grid();
 	        game.setDrop(new IBlock(5, 4, "1"));
 			System.out.println(game);
@@ -107,6 +115,7 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.ArrowDown)  game.rotateCCW();
 				putString(1, 1, screen, key+"                 ");
 			}
+			putString(1,3, screen, storage);
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
 			if (millis / 1000 > lastSecond) {
