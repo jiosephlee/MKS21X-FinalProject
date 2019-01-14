@@ -92,6 +92,38 @@ public class Grid {
     public void moveDown(int x) {
         dropping.moveDown(x);
     }
+    public void moveLeft(int cordx) {
+        dropping.moveLeft(cordx);
+        boolean isDone = true;
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            int x = dropping.getPieces()[i].getX();
+            int y = dropping.getPieces()[i].getY();
+            if (x < 0 || x > 9) {
+                isDone = false;
+            } else if (!grid[y][x].toString().equals(" ")) {
+                isDone = false;
+            }
+        }
+        if (!isDone) {
+            dropping.moveRight(cordx);
+        }
+    }
+    public void moveRight(int cordx) {
+        dropping.moveRight(cordx);
+        boolean isDone = true;
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            int x = dropping.getPieces()[i].getX();
+            int y = dropping.getPieces()[i].getY();
+            if (x < 0 || x > 9) {
+                isDone = false;
+            } else if (!grid[y][x].toString().equals(" ")) {
+                isDone = false;
+            }
+        }
+        if (!isDone) {
+            dropping.moveLeft(cordx);
+        }
+    }
 
     public void rotateCW() {
         dropping.rotateCW();
@@ -138,6 +170,7 @@ public class Grid {
             int y = dropping.getPieces()[i].getY();
             grid[y][x] = dropping.getPieces()[i];
         }
+        dropping = new Tetrimino(); //now there is nothing thats "dropping"
     }
 
     public int[] checkTetris() { //returns the rows that have tetris
@@ -166,8 +199,12 @@ public class Grid {
         test.setDrop(toAdd);
         test.moveDown(15);
         test.rotateCCW();
-        System.out.println(test.isDoneDropping());
         test.moveDown(3);
+        test.setInStone();
+        toAdd = new ZBlock(0, 15, "d");
+        test.setDrop(toAdd);
+        test.rotateCW();
+        test.moveLeft(1);
         System.out.println(test);
         System.out.println(test.isDoneDropping());
     }

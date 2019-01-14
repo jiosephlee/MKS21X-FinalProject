@@ -62,7 +62,7 @@ public class Tetrimino{
     }
     public void moveRight(int x) {
         for (int i = 0; i < pieces.length; i++) {
-            pieces[x].moveRight(x);
+            pieces[i].moveRight(x);
         }
         centerX += x;
     }
