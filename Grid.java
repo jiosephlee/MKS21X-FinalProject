@@ -99,8 +99,8 @@ public class Grid {
         boolean isDone = true;
         for (int i = 0; i < dropping.getPieces().length; i++) {
             int x = dropping.getPieces()[i].getX();
-            int y = dropping.getPieces()[j].getY();
-            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[x][y].toString().equals(" ")) {
+            int y = dropping.getPieces()[i].getY();
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
                 isDone = false;
             }
         }
@@ -113,8 +113,8 @@ public class Grid {
         boolean isDone = true;
         for (int i = 0; i < dropping.getPieces().length; i++) {
             int x = dropping.getPieces()[i].getX();
-            int y = dropping.getPieces()[j].getY();
-            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[x][y].toString().equals(" ")) {
+            int y = dropping.getPieces()[i].getY();
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
                 isDone = false;
             }
         }
@@ -145,10 +145,11 @@ public class Grid {
 
     public static void main(String[] args) {
         Grid test = new Grid();
-        System.out.println(test);
         Tetrimino toAdd = new IBlock(0, 5, "a");
         test.setDrop(toAdd);
         test.moveDown(15);
+        System.out.println(test);
+        test.rotateCCW();
         System.out.println(test);
     }
 }
