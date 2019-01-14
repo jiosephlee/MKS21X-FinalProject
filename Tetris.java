@@ -21,6 +21,7 @@ import java.awt.Color;
 			screen.startScreen();
 
 			while (true) {
+
 				TextCharacter chr = new TextCharacter(
 					'\u263B',
 					new TextColor.RGB((int)(255*Math.random()), (int)(255*Math.random()), (int)(255*Math.random())),
@@ -102,10 +103,11 @@ import java.awt.Color;
 				screen.setCharacter(x, y, new TextCharacter(' '));
 
 				if      (key.getKeyType() == KeyType.Escape)     break;
-				else if (key.getKeyType() == KeyType.ArrowLeft)  ;
-				else if (key.getKeyType() == KeyType.ArrowRight) x++;
-				else if (key.getKeyType() == KeyType.ArrowUp)    y--;
-				else if (key.getKeyType() == KeyType.ArrowDown)  y++;
+				else if (key.getKeyType() == KeyType.Shift) game.store() game.bring();
+				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveleft();
+				else if (key.getKeyType() == KeyType.ArrowRight) game.moveright();
+				else if (key.getKeyType() == KeyType.ArrowUp) game.rotate();
+				else if (key.getKeyType() == KeyType.ArrowDown)  game.arrowdown();
 				putString(1, 1, screen, key+"                 ");
 			}
 
