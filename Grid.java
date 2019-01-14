@@ -52,25 +52,14 @@ public class Grid {
             next[i] = ".[   " + nexting.getPieces()[i - 3].toString() + "   |.";
             hold[i] = ".[   " + holding.getPieces()[i - 3].toString() + "   |.";
         }
-<<<<<<< HEAD
         for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
             String row = ".";
             for (int j = 0; j < grid[i].length; j++) {
                 row += "|" + grid[i][j].toString();
-=======
-        for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden
-            String row = "";
-            for (int j = 0; j < grid2[i].length; j++) {
-                row += "|" + grid2[i][j].toString();
->>>>>>> d1b719b012e745b2930606d526a9abae382bad46
             }
             row += "|.";
             toReturnArr[2 * (i - 4) + 1] = row;
-<<<<<<< HEAD
             toReturnArr[2 * (i - 4) + 2] = ".---------------------.";
-=======
-            toReturnArr[2 * (i - 4) + 2] = "---------------------"; //remembER REMOVE THIS FLKDJSLFJDSL
->>>>>>> d1b719b012e745b2930606d526a9abae382bad46
         }
         for (int i = 0; i < toReturnArr.length; i++) {
             String row = "";

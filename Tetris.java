@@ -13,20 +13,18 @@ import java.awt.Color;
 			}
 		}
 		public static void main(String[] args) throws IOException {
-			int x = 10;
+			int x = 7;
 			int y = 10;
 			Grid game = new Grid();
+			Tetrimino toAdd = new IBlock(5, 4, "1");
+	        test.setDrop(toAdd);
 			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
-
+			long tStart = System.currentTimeMillis();
+			long lastSecond = 0;
 			while (true) {
 
-				TextCharacter chr = new TextCharacter(
-					'\u263B',
-					new TextColor.RGB((int)(255*Math.random()), (int)(255*Math.random()), (int)(255*Math.random())),
-					TextColor.ANSI.DEFAULT
-				);
 				screen.setCharacter(x, y, chr);
 				String storage = game.toString();
 				int xcor = 3;
@@ -102,15 +100,21 @@ import java.awt.Color;
 			if (key != null) {
 				screen.setCharacter(x, y, new TextCharacter(' '));
 
-				if      (key.getKeyType() == KeyType.Escape)     break;
-				else if (key.getKeyType() == KeyType.Shift) game.store() game.bring();
-				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveleft();
-				else if (key.getKeyType() == KeyType.ArrowRight) game.moveright();
-				else if (key.getKeyType() == KeyType.ArrowUp) game.rotate();
-				else if (key.getKeyType() == KeyType.ArrowDown)  game.arrowdown();
+				if      (key.getKeyType() == KeyType.Escape) break;
+				else if (key.getKeyType() == KeyType.Backspace) x++;
+				else if (key.getKeyType() == KeyType.Enter) game.moveDown(1);
+				else if (key.getKeyType() == KeyType.ArrowLeft) x++;//game.moveLeft();
+				else if (key.getKeyType() == KeyType.ArrowRight) x++;//game.moveRight();
+				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
+				else if (key.getKeyType() == KeyType.ArrowDown)  game.rotateCCW();
 				putString(1, 1, screen, key+"                 ");
 			}
-
+			long tEnd = System.currentTimeMillis();
+			long millis = tEnd - tStart;
+			if (millis / 1000 > lastSecond) {
+				lastSecond = millis / 1000;
+				game.moveDown(1);
+			}
 			screen.doResizeIfNecessary();
 			screen.refresh();
 		}
