@@ -34,7 +34,7 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }
-        String[] toReturnArr = new String[41]; //each cell is a row in the tetris board
+        String[] toReturnArr = new String[20]; //each cell is a row in the tetris board
         toReturnArr[0] = "---------------------";
         String[] hold = new String[9]; //each cell is a row in the tetris board
         String[] next = new String[9];
@@ -58,16 +58,15 @@ public class Grid {
                 row += "|" + grid2[i][j].toString();
             }
             row += "|";
-            toReturnArr[2 * (i - 4) + 1] = row;
-            toReturnArr[2 * (i - 4) + 2] = "---------------------"; //remembER REMOVE THIS FLKDJSLFJDSL
+            toReturnArr[i - 4] = row;
         }
         for (int i = 0; i < toReturnArr.length; i++) {
             String row = "";
-            if (i >= 7 && i <= 15) { //these ifs append the hold and the next strings
-                row += "\t\t" + next[i - 7];
+            if (i >= 1 && i <= 9) { //these ifs append the hold and the next strings
+                row += "\t\t" + next[i - 1];
             }
-            if (i >= 19 && i <= 27) {
-                row += "\t\t" + hold[i - 19];
+            if (i >= 11 && i <= 19) {
+                row += "\t\t" + hold[i - 11];
             }
             toReturnArr[i] += row;
         }
