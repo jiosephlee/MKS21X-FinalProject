@@ -29,8 +29,9 @@ public class Grid {
     }
 
     public String toString() {
+        Piece[][] grid2 = copyOf(grid);
         for (int i = 0; i < dropping.getPieces().length; i++) {
-            grid[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
+            grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }
         String[] toReturnArr = new String[20]; //each cell is a row in the tetris board
         toReturnArr[0] = ".---------------------.";
@@ -50,10 +51,10 @@ public class Grid {
             next[i] = ".[   " + nexting.getPieces()[i - 3].toString() + "   |.";
             hold[i] = ".[   " + holding.getPieces()[i - 3].toString() + "   |.";
         }
-        for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
+        for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden
             String row = ".";
-            for (int j = 0; j < grid[i].length; j++) {
-                row += "|" + grid[i][j].toString();
+            for (int j = 0; j < grid2[i].length; j++) {
+                row += "|" + grid2[i][j].toString();
             }
             row += "|.";
             toReturnArr[i - 4] = row;
