@@ -16,7 +16,7 @@ public class Tetrimino{
     }
 
     public Tetrimino() { //this is used for stuff like hold in Grid
-        Piece[] toAdd = {new Piece(-1, -1), new Piece(-1, -1), new Piece(-1, -1), new Piece(-1, -1)}; //these pieces are simply placeholders
+        Piece[] toAdd = {new Piece(0, 0), new Piece(0, 0), new Piece(0, 0), new Piece(0, 0)}; //these pieces are simply placeholders
         pieces = toAdd;
     }
 
