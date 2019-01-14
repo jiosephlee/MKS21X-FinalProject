@@ -122,6 +122,11 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.Character){
 					if (key.getCharacter() == ' ') game.moveDown(1);
 				}
+				else if (key.getKeyType() == KeyType.Character){
+					if (key.getCharacter() == 'c') setHold();
+					game.setDrop();
+					game.setNext(new IBlock(5, 4));
+				}
 				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
 				else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
