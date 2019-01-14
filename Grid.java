@@ -136,7 +136,7 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             int x = dropping.getPieces()[i].getX();
             int y = dropping.getPieces()[i].getY();
-            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) { //checks if it's a valid rotation
                 isDone = false;
             }
         }
@@ -150,7 +150,7 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             int x = dropping.getPieces()[i].getX();
             int y = dropping.getPieces()[i].getY();
-            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) { //checks if it's a valid rotation
                 isDone = false;
             }
         }
@@ -206,14 +206,12 @@ public class Grid {
         test.rotateCW();
         test.moveLeft(1);
         test.rotateCCW();
-        /*
-        test.moveDown(3);
+        test.moveDown(2);
         test.setInStone();
         toAdd = new ZBlock(0, 15, "d");
         test.setDrop(toAdd);
         test.rotateCW();
         test.moveLeft(1);
-        */
         System.out.println(test);
         System.out.println(test.isDoneDropping());
     }
