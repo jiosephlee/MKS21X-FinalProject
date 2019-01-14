@@ -90,7 +90,7 @@ public class Grid {
     public void setDrop(Tetrimino toPut) { // remember to remove this after testing
         dropping = toPut;
     }
-    public void moveDown(int x) { //remember!!! TURN BACK TO PRIVATE
+    public void moveDown(int x) {
         dropping.moveDown(x);
     }
 
@@ -123,6 +123,17 @@ public class Grid {
         }
     }
 
+    public boolean isDoneDropping() {
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            int x = dropping.getPieces()[i].getX();
+            int y = dropping.getPieces()[i].getY();
+            if (y == 23 || !grid[y + 1][x].toString().equals(" ")) { //checks if its on top of the ground or on top of a piece;
+                return true;
+            }
+        }
+        return false;
+    }
+
     private int[] checkTetris() { //returns the rows that have tetris
         ArrayList<Integer> toReturn = new ArrayList<Integer>();
         for (int i = grid.length; i >= 0; i--) {
@@ -148,8 +159,10 @@ public class Grid {
         Tetrimino toAdd = new IBlock(0, 5, "a");
         test.setDrop(toAdd);
         test.moveDown(15);
-        System.out.println(test);
         test.rotateCCW();
+        System.out.println(test.isDoneDropping());
+        test.moveDown(3);
         System.out.println(test);
+        System.out.println(test.isDoneDropping());
     }
 }
