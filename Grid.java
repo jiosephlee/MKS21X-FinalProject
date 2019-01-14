@@ -30,9 +30,9 @@ public class Grid {
 
     public String toString() {
         Piece[][] grid2;
-        grid2 = copyOf(grid);
+        //grid2 = copyOf(grid);
         for (int i = 0; i < dropping.getPieces().length; i++) {
-            grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
+            grid[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }
         String[] toReturnArr = new String[41]; //each cell is a row in the tetris board
         toReturnArr[0] = ".---------------------.";
@@ -92,7 +92,12 @@ public class Grid {
         dropping = toPut;
     }
     public void moveDown(int x) {
-        dropping.moveDown(x);
+        if (!isDoneDropping()){
+            dropping.moveDown(x);
+        }
+        else{
+            setDrop(new IBlock(5, 4, "1"));
+        }
     }
 
     public void rotateCW() {

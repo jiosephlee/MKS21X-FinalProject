@@ -15,8 +15,7 @@ import java.awt.Color;
 		public static void main(String[] args) throws IOException {
 			int x = 0;
 			Grid game = new Grid();
-			Tetrimino toAdd = new IBlock(5, 4, "1");
-	        game.setDrop(toAdd);
+	        game.setDrop(new IBlock(5, 4, "1"));
 			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
@@ -99,8 +98,8 @@ import java.awt.Color;
 
 				if      (key.getKeyType() == KeyType.Escape) break;
 				else if (key.getKeyType() == KeyType.Backspace) x++;
-				if (keyStroke.getKeyType() == KeyType.Character){
-					else if (key.getCharacter() == ' ') game.moveDown(1);
+				else if (key.getKeyType() == KeyType.Character){
+					if (key.getCharacter() == ' ') game.moveDown(1);
 				}
 				else if (key.getKeyType() == KeyType.ArrowLeft) x++;//game.moveLeft();
 				else if (key.getKeyType() == KeyType.ArrowRight) x++;//game.moveRight();
