@@ -29,3 +29,7 @@ Final Project: Tetris
 - At home, I added a bunch of easy misc. functions in Grid to help prepare for tomorrow's intensive work of trying to move a tetrimino :( (George)
 ### 1/10/19
 - I started doing the actual functions of Grid such as moving the blocks and rotating them, but however, I realized my constructors for the blocks were wrong. I also finished testing the other methods (George)
+### 1/12/19
+- I started adjusting Tetris.java for our project and figured out how to integrate the game objects from the grid onto the terminal (Joseph)
+### 1/13/19
+- 
