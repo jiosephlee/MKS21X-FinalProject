@@ -13,11 +13,10 @@ import java.awt.Color;
 			}
 		}
 		public static void main(String[] args) throws IOException {
-			int x = 7;
-			int y = 10;
+			int x = 0;
 			Grid game = new Grid();
 			Tetrimino toAdd = new IBlock(5, 4, "1");
-	        test.setDrop(toAdd);
+	        game.setDrop(toAdd);
 			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
@@ -25,7 +24,6 @@ import java.awt.Color;
 			long lastSecond = 0;
 			while (true) {
 
-				screen.setCharacter(x, y, chr);
 				String storage = game.toString();
 				int xcor = 3;
 				int ycor = 5;
@@ -98,11 +96,12 @@ import java.awt.Color;
 				KeyStroke key = screen.pollInput();
 
 			if (key != null) {
-				screen.setCharacter(x, y, new TextCharacter(' '));
 
 				if      (key.getKeyType() == KeyType.Escape) break;
 				else if (key.getKeyType() == KeyType.Backspace) x++;
-				else if (key.getKeyType() == KeyType.Enter) game.moveDown(1);
+				if (keyStroke.getKeyType() == KeyType.Character){
+					else if (key.getCharacter() == ' ') game.moveDown(1);
+				}
 				else if (key.getKeyType() == KeyType.ArrowLeft) x++;//game.moveLeft();
 				else if (key.getKeyType() == KeyType.ArrowRight) x++;//game.moveRight();
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
