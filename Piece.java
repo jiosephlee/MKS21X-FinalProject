@@ -40,19 +40,11 @@ public class Piece{
         return owner;
     }
 
-    public void moveDown(){
-        yCor--;
-    }
-
-    public void moveRight() {
-        xCor++;
+    public void moveDown(int x){
+        yCor += x; //you add because down = higher num. in arrays
     }
     public void moveRight(int x) {
         xCor += x;
-    }
-
-    public void moveLeft() {
-        xCor--;
     }
     public void moveLeft(int x) {
         xCor -= x;
