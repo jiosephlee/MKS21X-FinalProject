@@ -35,7 +35,7 @@ import java.awt.Color;
 
 				int xcor = 3;
 				int ycor = 5;
-				for (int i = 0; i < storage.length() - 1; i++){
+				for (int i = 0; i < storage.length(); i++){
 					xcor++;
 					if (storage.charAt(i) =='\t'){
 						xcor+=3;
