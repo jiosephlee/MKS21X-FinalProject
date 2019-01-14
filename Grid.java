@@ -84,10 +84,10 @@ public class Grid {
     public void setNext(Tetrimino toPut) {
         nexting = toPut;
     }
-    private void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
+    public void setDrop() {
         dropping = nexting;
     }
-    public void setDrop(Tetrimino toPut) { // remember to remove this after testing
+    public void setDrop(Tetrimino toPut) {
         dropping = toPut;
     }
     public void moveDown(int x) {
@@ -133,8 +133,15 @@ public class Grid {
         }
         return false;
     }
+    public void setInStone() { //precondition: isDoneDroopping is
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            int x = dropping.getPieces()[i].getX();
+            int y = dropping.getPieces()[i].getY();
+            grid[y][x] = dropping.getPieces()[i];
+        }
+    }
 
-    private int[] checkTetris() { //returns the rows that have tetris
+    public int[] checkTetris() { //returns the rows that have tetris
         ArrayList<Integer> toReturn = new ArrayList<Integer>();
         for (int i = grid.length; i >= 0; i--) {
             boolean isDone = true;
