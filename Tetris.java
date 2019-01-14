@@ -14,7 +14,7 @@ import java.awt.Color;
 					y++;
 					xcor = x;
 				}else{
-				xcor++
+				xcor++;
 				screen.setCharacter(xcor, y, new TextCharacter(str.charAt(i)));
 				}
 			}

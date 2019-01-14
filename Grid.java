@@ -29,7 +29,6 @@ public class Grid {
     }
 
     public String toString() {
-        Piece[][] grid2;
         for (int i = 0; i < dropping.getPieces().length; i++) {
             grid[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }
@@ -163,7 +162,9 @@ public class Grid {
         Grid test = new Grid();
         Tetrimino toAdd = new IBlock(0, 5, "a");
         test.setDrop(toAdd);
+        System.out.println(test);
         test.moveDown(15);
+        System.out.println(test);
         test.rotateCCW();
         System.out.println(test.isDoneDropping());
         test.moveDown(3);
