@@ -19,8 +19,7 @@ import java.awt.Color;
 			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
-			long tStart = System.currentTimeMillis();
-			long lastSecond = 0;
+
 			while (true) {
 				TextCharacter chr = new TextCharacter(
 					'\u263B',
@@ -28,11 +27,7 @@ import java.awt.Color;
 					TextColor.ANSI.DEFAULT
 				);
 				screen.setCharacter(x, y, chr);
-
-				KeyStroke key = screen.pollInput();
-
 				String storage = game.toString();
-
 				int xcor = 3;
 				int ycor = 5;
 				for (int i = 0; i < storage.length(); i++){
@@ -40,11 +35,7 @@ import java.awt.Color;
 					if (storage.charAt(i) =='\t'){
 						xcor+=3;
 					}
-					/*if (((storage.charAt(i) == '|' || storage.charAt(i) == '-') && yes) ||
-						storage.charAt(i) == '[' ||
-						(((linecount > 7 && linecount < 17) || (linecount > 19 && linecount < 29)) && ((storage.charAt(i+12) == '\n') ||
-						(storage.charAt(i+9) == '\n'))))*/
-				 	if(storage.charAt(i) == '.' || storage.charAt(i) == '_'){
+					if(storage.charAt(i) == '.' || storage.charAt(i) == '_'){
 						TextCharacter put = new TextCharacter(
 						' ',
 						new TextColor.RGB(255, 255, 255),
@@ -55,61 +46,63 @@ import java.awt.Color;
 						TextCharacter put = new TextCharacter(
 						' ',
 						new TextColor.RGB(102,205,170),
-						new TextColor.RGB(102,205,170);
+						new TextColor.RGB(102,205,170));
 						screen.setCharacter(xcor, ycor, put);
 						}
 					else if (storage.charAt(i) == '2'){
 						TextCharacter put = new TextCharacter(
 						' ',
 						new TextColor.RGB(0,0,255),
-						new TextColor.RGB(0,0,255);
+						new TextColor.RGB(0,0,255));
 						screen.setCharacter(xcor, ycor, put);
 						}
 					else if (storage.charAt(i) == '3'){
 						TextCharacter put = new TextCharacter(
 						' ',
 						new TextColor.RGB(255,165,0),
-						new TextColor.RGB(255,165,0);
+						new TextColor.RGB(255,165,0));
 						screen.setCharacter(xcor, ycor, put);
 						}
 					else if (storage.charAt(i) == '4'){
 						TextCharacter put = new TextCharacter(
 						' ',
 						new TextColor.RGB(255,255,0),
-						new TextColor.RGB(255,255,0);
+						new TextColor.RGB(255,255,0));
 						screen.setCharacter(xcor, ycor, put);
 						}
 					else if (storage.charAt(i) == '5'){
 						TextCharacter put = new TextCharacter(
 						' ',
 						new TextColor.RGB(50,205,50),
-						new TextColor.RGB(50,205,50);
+						new TextColor.RGB(50,205,50));
 						screen.setCharacter(xcor, ycor, put);
 						}
 					else if (storage.charAt(i) == '6'){
 						TextCharacter put = new TextCharacter(
 						' ',
-						new TextColor.RGB(238,130,238)
-						new TextColor.RGB(238,130,238);
+						new TextColor.RGB(238,130,238),
+						new TextColor.RGB(238,130,238));
 						screen.setCharacter(xcor, ycor, put);
 						}
-					else if (storage.charAt(i) == '1'){
+					else if (storage.charAt(i) == '7'){
 						TextCharacter put = new TextCharacter(
 						' ',
 						new TextColor.RGB(255,0,0),
-						new TextColor.RGB(255,0,0);
+						new TextColor.RGB(255,0,0));
 						screen.setCharacter(xcor, ycor, put);
 						}
-						if (storage.charAt(i)=='\n'){
-							ycor++;
-							xcor = 3;
-						}
+					if (storage.charAt(i)=='\n'){
+						ycor++;
+						xcor = 3;
+					}
 				}
+				KeyStroke key = screen.pollInput();
+
 			if (key != null) {
 				screen.setCharacter(x, y, new TextCharacter(' '));
 
 				if      (key.getKeyType() == KeyType.Escape)     break;
-				else if (key.getKeyType() == KeyType.ArrowLeft)  x--;
+				else if (key.getKeyType() == KeyType.ArrowLeft)  ;
 				else if (key.getKeyType() == KeyType.ArrowRight) x++;
 				else if (key.getKeyType() == KeyType.ArrowUp)    y--;
 				else if (key.getKeyType() == KeyType.ArrowDown)  y++;
