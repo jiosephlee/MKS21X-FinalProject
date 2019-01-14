@@ -24,8 +24,8 @@ public class Tetrimino{
         for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (y,-x)
             int xcor = pieces[i].getX();
             int ycor = pieces[i].getY();
-            pieces[i].setY((int)(-1 * (xcor - centerX) + centerY));
-            pieces[i].setX((int)(ycor - centerY + centerX));
+            pieces[i].setY((int)(xcor - centerX + centerY));
+            pieces[i].setX((int)(-1 * (ycor - centerY) + centerX));
         }
     }
 
@@ -33,8 +33,8 @@ public class Tetrimino{
         for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (-y,x)
             int xcor = pieces[i].getX();
             int ycor = pieces[i].getY();
-            pieces[i].setY((int)(xcor - centerX + centerY));
-            pieces[i].setX((int)(-1 * (ycor - centerY) + centerX));
+            pieces[i].setY((int)(-1 * (xcor - centerX) + centerY));
+            pieces[i].setX((int)(ycor - centerY + centerX));
         } //remember!!! do cases where it ends up being outside or there are other pieces on top
     }
 

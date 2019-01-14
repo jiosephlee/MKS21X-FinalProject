@@ -200,13 +200,13 @@ public class Grid {
 
     public static void main(String[] args) {
         Grid test = new Grid();
-        /*
         Tetrimino toAdd = new IBlock(0, 5, "a");
         test.setDrop(toAdd);
-        System.out.println(test);
         test.moveDown(15);
-        System.out.println(test);
+        test.rotateCW();
+        test.moveLeft(1);
         test.rotateCCW();
+        /*
         test.moveDown(3);
         test.setInStone();
         toAdd = new ZBlock(0, 15, "d");
