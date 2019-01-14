@@ -24,6 +24,7 @@ import java.awt.Color;
 			int y = 1;
 			Grid game = new Grid();
 	        game.setDrop(new IBlock(5, 4, "1"));
+			game.setNext(new IBlock(5, 4, "1"));
 			System.out.println(game);
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
@@ -126,7 +127,11 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
 				else if (key.getKeyType() == KeyType.ArrowDown)  game.rotateCCW();
 			}
-			//putString(1,3, screen, storage);
+			if (game.isDoneDropping()){
+				game.setInStone();
+				setDrop();
+				setNext(new IBlock(5, 4, "1"));
+			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;
 			if (millis / 1000 > lastSecond) {
