@@ -1,4 +1,16 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Grid {
+    public static Piece[][] copyOf(Piece[][] og) {
+        Piece[][] toReturn = new Piece[og.length][og[0].length];
+        for (int i = 0; i < og.length; i++) {
+            for (int j = 0; j < og[i].length; j++) {
+                toReturn[i][j] = og[i][j];
+            }
+        }
+        return toReturn;
+    }
 
     private Piece[][] grid;
     private Tetrimino dropping, holding, nexting;
@@ -17,6 +29,11 @@ public class Grid {
     }
 
     public String toString() {
+        Piece[][] grid2;
+        grid2 = copyOf(grid);
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
+        }
         String[] toReturnArr = new String[41]; //each cell is a row in the tetris board
         toReturnArr[0] = "---------------------";
         String[] hold = new String[9]; //each cell is a row in the tetris board
@@ -35,16 +52,16 @@ public class Grid {
             next[i] = "|   " + nexting.getPieces()[i - 3].toString() + "   |";
             hold[i] = "|   " + holding.getPieces()[i - 3].toString() + "   |";
         }
-        for (int i = 4; i < grid.length; i++) { //remember first 4 rows are hidden
+        for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden
             String row = "";
-            for (int j = 0; j < grid[i].length; j++) {
-                row += "|" + grid[i][j].toString();
+            for (int j = 0; j < grid2[i].length; j++) {
+                row += "|" + grid2[i][j].toString();
             }
             row += "|";
             toReturnArr[2 * (i - 4) + 1] = row;
-            toReturnArr[2 * (i - 4) + 2] = "---------------------";
+            toReturnArr[2 * (i - 4) + 2] = "---------------------"; //remembER REMOVE THIS FLKDJSLFJDSL
         }
-        for (int i = 0; i < toReturnArr.length; i++) { //remember first 4 rows are hidden
+        for (int i = 0; i < toReturnArr.length; i++) {
             String row = "";
             if (i >= 7 && i <= 15) { //these ifs append the hold and the next strings
                 row += "\t\t" + next[i - 7];
@@ -64,12 +81,88 @@ public class Grid {
     public void setHold(Tetrimino toPut) {
         holding = toPut;
     }
-
     public void setNext(Tetrimino toPut) {
         nexting = toPut;
     }
-
     private void setDrop() { //the reason it's private is 'coz we can just move the next as the things that's dropping
         dropping = nexting;
+    }
+    public void setDrop(Tetrimino toPut) { // remember to remove this after testing
+        dropping = toPut;
+    }
+    public void moveDown(int x) {
+        dropping.moveDown(x);
+    }
+
+    public void rotateCW() {
+        dropping.rotateCW();
+        boolean isDone = true;
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            int x = dropping.getPieces()[i].getX();
+            int y = dropping.getPieces()[i].getY();
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
+                isDone = false;
+            }
+        }
+        if (!isDone) {
+            dropping.rotateCCW();
+        }
+    }
+    public void rotateCCW() {
+        dropping.rotateCCW();
+        boolean isDone = true;
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            int x = dropping.getPieces()[i].getX();
+            int y = dropping.getPieces()[i].getY();
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
+                isDone = false;
+            }
+        }
+        if (!isDone) {
+            dropping.rotateCW();
+        }
+    }
+
+    public boolean isDoneDropping() {
+        for (int i = 0; i < dropping.getPieces().length; i++) {
+            int x = dropping.getPieces()[i].getX();
+            int y = dropping.getPieces()[i].getY();
+            if (y == 23 || !grid[y + 1][x].toString().equals(" ")) { //checks if its on top of the ground or on top of a piece;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int[] checkTetris() { //returns the rows that have tetris
+        ArrayList<Integer> toReturn = new ArrayList<Integer>();
+        for (int i = grid.length; i >= 0; i--) {
+            boolean isDone = true;
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j].toString().equals(" ")) {
+                    isDone = false;
+                }
+            }
+            if (isDone) {
+                toReturn.add(i);
+            }
+        }
+        int[] toReturnActually = new int[toReturn.size()];
+        for (int i = 0; i < toReturn.size(); i++) {
+            toReturnActually[i] = toReturn.get(i);
+        }
+        return toReturnActually;
+    }
+
+    public static void main(String[] args) {
+        Grid test = new Grid();
+        Tetrimino toAdd = new IBlock(0, 5, "a");
+        test.setDrop(toAdd);
+        test.moveDown(15);
+        test.rotateCCW();
+        System.out.println(test.isDoneDropping());
+        test.moveDown(3);
+        System.out.println(test);
+        System.out.println(test.isDoneDropping());
     }
 }
