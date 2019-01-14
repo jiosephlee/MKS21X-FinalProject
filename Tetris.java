@@ -51,11 +51,53 @@ import java.awt.Color;
 						new TextColor.RGB(255, 255, 255));
 						screen.setCharacter(xcor, ycor, put);
 						}
-					else if (storage.charAt(i) == 234234){
+					else if (storage.charAt(i) == '1'){
 						TextCharacter put = new TextCharacter(
 						' ',
-						new TextColor.RGB(0, 0, 0),
-						new TextColor.RGB(0, 0, 0));
+						new TextColor.RGB(102,205,170),
+						new TextColor.RGB(102,205,170);
+						screen.setCharacter(xcor, ycor, put);
+						}
+					else if (storage.charAt(i) == '2'){
+						TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(0,0,255),
+						new TextColor.RGB(0,0,255);
+						screen.setCharacter(xcor, ycor, put);
+						}
+					else if (storage.charAt(i) == '3'){
+						TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(255,165,0),
+						new TextColor.RGB(255,165,0);
+						screen.setCharacter(xcor, ycor, put);
+						}
+					else if (storage.charAt(i) == '4'){
+						TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(255,255,0),
+						new TextColor.RGB(255,255,0);
+						screen.setCharacter(xcor, ycor, put);
+						}
+					else if (storage.charAt(i) == '5'){
+						TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(50,205,50),
+						new TextColor.RGB(50,205,50);
+						screen.setCharacter(xcor, ycor, put);
+						}
+					else if (storage.charAt(i) == '6'){
+						TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(238,130,238)
+						new TextColor.RGB(238,130,238);
+						screen.setCharacter(xcor, ycor, put);
+						}
+					else if (storage.charAt(i) == '1'){
+						TextCharacter put = new TextCharacter(
+						' ',
+						new TextColor.RGB(255,0,0),
+						new TextColor.RGB(255,0,0);
 						screen.setCharacter(xcor, ycor, put);
 						}
 						if (storage.charAt(i)=='\n'){
