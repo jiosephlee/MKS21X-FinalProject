@@ -207,7 +207,7 @@ public class Grid {
 
     public void removeTetris(int[] rows) {
         for (int i = 0; i < rows.length; i++) {
-
+            remove(grid, rows[i]);
         }
     }
 
