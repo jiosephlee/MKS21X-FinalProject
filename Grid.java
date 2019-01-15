@@ -12,7 +12,11 @@ public class Grid {
         return toReturn;
     }
     public static void removeRow(Piece[][] grid, int row) {
-
+        for (int i = row; i > 3; i--) {
+            for (int j = 0; j < grid[i].length; j++) {
+                grid[i][j] = grid[i - 1][j];
+            }
+        }
     }
 
     private Piece[][] grid;
@@ -203,7 +207,7 @@ public class Grid {
 
     public void removeTetris(int[] rows) {
         for (int i = 0; i < rows.length; i++) {
-            
+
         }
     }
 
