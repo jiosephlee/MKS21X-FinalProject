@@ -123,7 +123,7 @@ import java.awt.Color;
 					if (key.getCharacter() == ' ') game.moveDown(1);
 				}
 				else if (key.getKeyType() == KeyType.Character){
-					if (key.getCharacter() == 'c') setHold();
+					if (key.getCharacter() == 'c') game.setHold();
 					game.setDrop();
 					game.setNext(new IBlock(5, 4));
 				}
@@ -142,6 +142,10 @@ import java.awt.Color;
 			if (millis / 1000 > lastSecond) {
 				lastSecond = millis / 1000;
 				game.moveDown(1);
+			}
+			int[] cleared = game.checkTetris();
+			if (cleared.length > 0){
+				game.removeTetris(cleared);
 			}
 			screen.doResizeIfNecessary();
 			screen.refresh();
