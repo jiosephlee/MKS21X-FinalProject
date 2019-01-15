@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>110</x>
-      <y>30</y>
-      <w>180</w>
-      <h>310</h>
+      <x>150</x>
+      <y>0</y>
+      <w>220</w>
+      <h>400</h>
     </coordinates>
     <panel_attributes>Grid
 --
@@ -18,25 +18,31 @@
 - x: int
 - y: int
 --
+_+ copyOf(Piece[][]): Piece[][]_
+_+ removeRow(Piece[][], int)_
 + Grid()
 + toString(): String
 + setHold(Tetrimino)
 + setNext(Tetrimino)
-- setDrop()
-- checkTetris(): boolean
-- isDropped(): boolean
-+ isDone(): boolean
++ setDrop()
++ setDrop(Tetrimino)
++ moveDown(int)
++ moveleft(int)
++ moveRight(int)
 + rotateCW()
 + rotateCCW()
-+ move()
++ isDoneDropping(): boolean
++ setInStone()
++ checkTetris(): int[]
++ removeTetris(int[])
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>410</x>
-      <y>70</y>
+      <x>490</x>
+      <y>130</y>
       <w>210</w>
       <h>300</h>
     </coordinates>
@@ -68,30 +74,36 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>810</x>
-      <y>70</y>
+      <x>890</x>
+      <y>30</y>
       <w>200</w>
-      <h>180</h>
+      <h>280</h>
     </coordinates>
     <panel_attributes>Piece
 --
 - xCor: int
 - yCor: int
 - owner: Tetrimino
-- color: int
+- color: String
 --
-+ Piece(int, int, int)
++ Piece(int, int, String)
++ Piece(int, int)
 + toString(): String
-+ moveDown()
++ setX(int)
++ setY(int)
++ getX(): int
++ getY(): int
 + getOwner(): Tetrimino
-- getColor(): int</panel_attributes>
++ moveDown(int)
++ moveRight(int)
++ moveLeft(int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>190</y>
+      <x>360</x>
+      <y>250</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -102,8 +114,8 @@ m1=0..45</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
-      <y>190</y>
+      <x>690</x>
+      <y>250</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -115,196 +127,198 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>460</y>
-      <w>150</w>
-      <h>70</h>
+      <y>520</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>IBlock
 --
 
 --
-+ IBlock()
-</panel_attributes>
++ IBlock(int, int, String)
++ IBlock(int, int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>160</x>
-      <y>460</y>
-      <w>150</w>
-      <h>70</h>
+      <x>180</x>
+      <y>520</y>
+      <w>180</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>OBlock
 --
 
 --
-- OBlock()
++ OBlock(int, int, String)
++ OBlock(int, int)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>460</y>
-      <w>150</w>
-      <h>70</h>
+      <x>550</x>
+      <y>520</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>TBlock
 --
 
 --
-+ TBlock()
-</panel_attributes>
++ TBlock(int, int, String)
++ TBlock(int, int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>960</x>
-      <y>460</y>
-      <w>150</w>
-      <h>70</h>
+      <x>1090</x>
+      <y>520</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>SBlock
 --
 
 --
-+ SBlock()
-</panel_attributes>
++ SBlock(int, int, String)
++ SBlock(int, int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>460</y>
-      <w>150</w>
-      <h>70</h>
+      <x>730</x>
+      <y>520</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>ZBlock
 --
 
 --
--ZBlock()
-</panel_attributes>
++ ZBlock(int, int, String)
++ ZBlock(int, int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>460</y>
-      <w>150</w>
-      <h>70</h>
+      <x>370</x>
+      <y>520</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>JBlock
 --
 
 --
-+ JBlock()
++ JBlock(int, int, String)
++ JBlock(int, int)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>800</x>
-      <y>460</y>
-      <w>150</w>
-      <h>70</h>
+      <x>910</x>
+      <y>520</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>LBlock
 --
 
 --
-+ LBlock()
-</panel_attributes>
++ LBlock(int, int, String)
++ LBlock(int, int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>60</x>
-      <y>290</y>
-      <w>370</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-extends</panel_attributes>
-    <additional_attributes>350.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>510</x>
-      <y>360</y>
-      <w>100</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-extends</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>610</x>
-      <y>290</y>
+      <y>350</y>
       <w>450</w>
       <h>190</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 extends</panel_attributes>
-    <additional_attributes>10.0;10.0;430.0;170.0</additional_attributes>
+    <additional_attributes>430.0;10.0;10.0;170.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>360</y>
-      <w>160</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-extends</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>390</x>
-      <y>360</y>
+      <x>590</x>
+      <y>420</y>
       <w>90</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 extends</panel_attributes>
-    <additional_attributes>30.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;30.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
-      <y>310</y>
-      <w>290</w>
-      <h>170</h>
+      <x>690</x>
+      <y>350</y>
+      <w>500</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 extends</panel_attributes>
-    <additional_attributes>10.0;10.0;270.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;480.0;170.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>220</x>
-      <y>310</y>
-      <w>210</w>
+      <x>650</x>
+      <y>420</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+extends</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>420</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+extends</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>370</y>
+      <w>320</w>
       <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 extends</panel_attributes>
-    <additional_attributes>190.0;10.0;10.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;300.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>370</y>
+      <w>270</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+extends</panel_attributes>
+    <additional_attributes>250.0;10.0;10.0;150.0</additional_attributes>
   </element>
 </diagram>
