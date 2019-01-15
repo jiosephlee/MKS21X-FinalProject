@@ -52,14 +52,14 @@ _+ removeRow(Piece[][], int)_
 - centerX: int
 - centerY: int
 --
-+ Tetrimino(Piece[], int, int)
++ Tetrimino(Piece[], double, double)
 + Tetrimino(double, double)
 + Tetrimino()
 + getPieces(): Piece[]
 + rotateCW()
 + rotateCCW()
-+ getX(): int
-+ getY(): int
++ getX(): double
++ getY(): double
 + setPieces(Piece[])
 + getPieces(): Piece[]
 + moveDown(int)
