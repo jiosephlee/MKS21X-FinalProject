@@ -11,6 +11,9 @@ public class Grid {
         }
         return toReturn;
     }
+    public static void removeRow(Piece[][] grid, int row) {
+
+    }
 
     private Piece[][] grid;
     private Tetrimino dropping, holding, nexting;
@@ -179,7 +182,7 @@ public class Grid {
     }
 
     public int[] checkTetris() { //returns the rows that have tetris
-        ArrayList<Integer> toReturn = new ArrayList<Integer>();
+        ArrayList<Integer> toReturn = new ArrayList<Integer>(); //makes arraylist cuz we don't know how many there are
         for (int i = grid.length; i >= 0; i--) {
             boolean isDone = true;
             for (int j = 0; j < grid[i].length; j++) {
@@ -196,6 +199,12 @@ public class Grid {
             toReturnActually[i] = toReturn.get(i);
         }
         return toReturnActually;
+    }
+
+    public void removeTetris(int[] rows) {
+        for (int i = 0; i < rows.length; i++) {
+            
+        }
     }
 
     public static void main(String[] args) {
