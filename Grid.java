@@ -187,7 +187,7 @@ public class Grid {
 
     public int[] checkTetris() { //returns the rows that have tetris
         ArrayList<Integer> toReturn = new ArrayList<Integer>(); //makes arraylist cuz we don't know how many there are
-        for (int i = grid.length; i >= 0; i--) {
+        for (int i = grid.length - 1; i >= 0; i--) {
             boolean isDone = true;
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j].toString().equals(" ")) {

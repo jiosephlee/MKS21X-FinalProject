@@ -121,9 +121,7 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.Backspace) x++;
 				else if (key.getKeyType() == KeyType.Character){
 					if (key.getCharacter() == ' ') game.moveDown(1);
-				}
-				else if (key.getKeyType() == KeyType.Character){
-					if (key.getCharacter() == 'c') game.setHold();
+					else if (key.getCharacter() == 'c') game.setHold();
 					game.setDrop();
 					game.setNext(new IBlock(5, 4));
 				}
