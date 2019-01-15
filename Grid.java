@@ -40,7 +40,7 @@ public class Grid {
                  new JBlock(5, 4),
                  new OBlock(5, 4),
                  new ZBlock(5, 4),
-                 new TBlock(5, 4)}
+                 new TBlock(5, 4)};
     }
 
     public String toString() {
@@ -219,7 +219,7 @@ public class Grid {
         }
     }
     public Tetrimino whatsNext(){
-
+        int load = (int)Math.random(queue.length);
     }
     public static void main(String[] args) {
         Grid test = new Grid();
