@@ -11,6 +11,13 @@ public class Grid {
         }
         return toReturn;
     }
+    public static void removeRow(Piece[][] grid, int row) {
+        for (int i = row; i > 3; i--) {
+            for (int j = 0; j < grid[i].length; j++) {
+                grid[i][j] = grid[i - 1][j];
+            }
+        }
+    }
 
     private Piece[][] grid;
     private Tetrimino dropping, holding, nexting;
@@ -33,31 +40,31 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }
-        String[] toReturnArr = new String[20]; //each cell is a row in the tetris board
-        toReturnArr[0] = ".---------------------.";
+        String[] toReturnArr = new String[21]; //each cell is a row in the tetris board
+        toReturnArr[0] = ".--------------------.";
         String[] hold = new String[9]; //each cell is a row in the tetris board
         String[] next = new String[9];
-        hold[0] = ".---------.";
-        hold[1] = ".[ Hold: |.";
-        hold[2] = ".[       |.";
-        hold[7] = ".[       |.";
-        hold[8] = ".---------.";
-        next[0] = ".---------.";
-        next[1] = ".[ Next: |.";
-        next[2] = ".[       |.";
-        next[7] = ".[       |.";
-        next[8] = ".---------.";
+        hold[0] = ".----------.";
+        hold[1] = ".[ Hold:  |.";
+        hold[2] = ".[        |.";
+        hold[7] = ".[        |.";
+        hold[8] = ".----------.";
+        next[0] = ".----------.";
+        next[1] = ".[ Next:  |.";
+        next[2] = ".[        |.";
+        next[7] = ".[        |.";
+        next[8] = ".----------.";
         for (int i = 3; i < 7; i++) {
-            next[i] = ".[   " + nexting.getPieces()[i - 3].toString() + "   |.";
-            hold[i] = ".[   " + holding.getPieces()[i - 3].toString() + "   |.";
+            next[i] = ".[   " + nexting.getPieces()[i - 3].toString() + nexting.getPieces()[i - 3].toString()+ "   |.";
+            hold[i] = ".[   " + holding.getPieces()[i - 3].toString() + nexting.getPieces()[i - 3].toString()+ "   |.";
         }
         for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden
             String row = ".";
             for (int j = 0; j < grid2[i].length; j++) {
-                row += "" + grid2[i][j].toString();
+                row += "" + grid2[i][j].toString()+ grid2[i][j].toString();
             }
             row += ".";
-            toReturnArr[i - 4] = row;
+            toReturnArr[i - 3] = row;
         }
         for (int i = 0; i < toReturnArr.length; i++) {
             String row = "";
@@ -73,7 +80,7 @@ public class Grid {
         for (int i = 0; i < toReturnArr.length; i++) {
             toReturn += toReturnArr[i] + "\n";
         }
-        toReturn += "____________";
+        toReturn += "______________________";
         return toReturn;
     }
 
@@ -136,7 +143,7 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             int x = dropping.getPieces()[i].getX();
             int y = dropping.getPieces()[i].getY();
-            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) { //checks if it's a valid rotation
                 isDone = false;
             }
         }
@@ -150,7 +157,7 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             int x = dropping.getPieces()[i].getX();
             int y = dropping.getPieces()[i].getY();
-            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) {
+            if (x < 0 || x > 9 || y < 0 || y > 23 || !grid[y][x].toString().equals(" ")) { //checks if it's a valid rotation
                 isDone = false;
             }
         }
@@ -179,7 +186,7 @@ public class Grid {
     }
 
     public int[] checkTetris() { //returns the rows that have tetris
-        ArrayList<Integer> toReturn = new ArrayList<Integer>();
+        ArrayList<Integer> toReturn = new ArrayList<Integer>(); //makes arraylist cuz we don't know how many there are
         for (int i = grid.length; i >= 0; i--) {
             boolean isDone = true;
             for (int j = 0; j < grid[i].length; j++) {
@@ -198,15 +205,21 @@ public class Grid {
         return toReturnActually;
     }
 
+    public void removeTetris(int[] rows) {
+        for (int i = 0; i < rows.length; i++) {
+            remove(grid, rows[i]);
+        }
+    }
+
     public static void main(String[] args) {
         Grid test = new Grid();
         Tetrimino toAdd = new IBlock(0, 5, "a");
         test.setDrop(toAdd);
-        System.out.println(test);
         test.moveDown(15);
-        System.out.println(test);
+        test.rotateCW();
+        test.moveLeft(1);
         test.rotateCCW();
-        test.moveDown(3);
+        test.moveDown(2);
         test.setInStone();
         toAdd = new ZBlock(0, 15, "d");
         test.setDrop(toAdd);
