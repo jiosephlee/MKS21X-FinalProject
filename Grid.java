@@ -22,6 +22,7 @@ public class Grid {
     private Piece[][] grid;
     private Tetrimino dropping, holding, nexting;
     private int x, y; //these are coords of the dropping tetrimino
+    private Tetrimino[] queue;
 
     public Grid() {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
@@ -33,6 +34,13 @@ public class Grid {
         dropping = new Tetrimino();
         holding = new Tetrimino();
         nexting = new Tetrimino();
+        queue = {new SBlock(5, 4),
+                 new IBlock(5, 4),
+                 new LBlock(5, 4),
+                 new JBlock(5, 4),
+                 new OBlock(5, 4),
+                 new ZBlock(5, 4),
+                 new TBlock(5, 4)}
     }
 
     public String toString() {
@@ -210,7 +218,9 @@ public class Grid {
             removeRow(grid, rows[i]);
         }
     }
+    public Tetrimino whatsNext(){
 
+    }
     public static void main(String[] args) {
         Grid test = new Grid();
         Tetrimino toAdd = new IBlock(0, 5, "a");
