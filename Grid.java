@@ -204,11 +204,13 @@ public class Grid {
         }
         return toReturnActually;
     }
-
     public void removeTetris(int[] rows) {
         for (int i = 0; i < rows.length; i++) {
             removeRow(grid, rows[i]);
         }
+    }
+    public boolean checkFailure() {
+        
     }
 
     public static void main(String[] args) {
