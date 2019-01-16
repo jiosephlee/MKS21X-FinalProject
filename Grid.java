@@ -210,7 +210,12 @@ public class Grid {
         }
     }
     public boolean checkFailure() {
-        
+        for (int i = 0; i < grid[4].length; i++) {
+            if (!grid[4][i].toString().equals(" ")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
