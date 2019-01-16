@@ -35,13 +35,13 @@ public class Grid {
         dropping = new Tetrimino();
         holding = new Tetrimino();
         nexting = new Tetrimino();
-        queue = {new SBlock(5, 4),
+        /*queue = {new SBlock(5, 4),
                  new IBlock(5, 4),
                  new LBlock(5, 4),
                  new JBlock(5, 4),
                  new OBlock(5, 4),
                  new ZBlock(5, 4),
-                 new TBlock(5, 4)};
+                 new TBlock(5, 4)};*/
     }
 
     public String toString() {
@@ -220,8 +220,8 @@ public class Grid {
         }
     }
     public Tetrimino whatsNext(){
-        int load = (int)Math.random(queue.length);
-
+        int load = (int)Math.random(/*queue.size()*/);
+        return new IBlock(5, 4);
     }
     public static void main(String[] args) {
         Grid test = new Grid();
