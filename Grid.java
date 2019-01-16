@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.lang.Math;
 
 public class Grid {
     public static Piece[][] copyOf(Piece[][] og) {
@@ -22,7 +23,7 @@ public class Grid {
     private Piece[][] grid;
     private Tetrimino dropping, holding, nexting;
     private int x, y; //these are coords of the dropping tetrimino
-    private Tetrimino[] queue;
+    private ArrayList<Tetrimino> queue;
 
     public Grid() {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
@@ -220,6 +221,7 @@ public class Grid {
     }
     public Tetrimino whatsNext(){
         int load = (int)Math.random(queue.length);
+
     }
     public static void main(String[] args) {
         Grid test = new Grid();
