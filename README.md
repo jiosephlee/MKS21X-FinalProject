@@ -34,9 +34,12 @@ Final Project: Tetris
 - I changed constructors for the blocks which accepts a character that enables colors for the dropping tetrimino. (George)
 ### 1/13/19
 - I added mechanics in Grid.java which enables the Driver, which is the Tetris file, which allows the Driver to access its elements, move the dropping tetrimino down, rotate it, move left, stacking the tetriminos, and adding tetriminos. (George)
+- I integrated Tetris mechanics into Graphics and got a working game but the levels don't clear yet (Joseph)
 ### 1/14/19
 - I added two features. One of which removes rows whenever you have an entire row full of nonempty pieces. The second of which basically doubles the block size which makes it easier for the user to read the tetriminos. (George)
+- Integrated more features like double wide pixel and clearing levels (Joseph)
 <img src="https://media.giphy.com/media/GhUkXNflFxJ0A/giphy.gif" width="768" height="400" />
 
 ### 1/15/19
 - I added only one function, which is to see whether you have failed the game or not. The rest of the time was used to testing whether every function works and so far it seems like it. (George)
+- Started working on the queueing feature and block loading (Joseph)
