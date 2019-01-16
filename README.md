@@ -37,3 +37,6 @@ Final Project: Tetris
 ### 1/14/19
 - I added two features. One of which removes rows whenever you have an entire row full of nonempty pieces. The second of which basically doubles the block size which makes it easier for the user to read the tetriminos. (George)
 <img src="https://media.giphy.com/media/GhUkXNflFxJ0A/giphy.gif" width="768" height="400" />
+
+### 1/15/19
+- I added only one function, which is to see whether you have failed the game or not. The rest of the time was used to testing whether every function works and so far it seems like it. (George)
