@@ -136,6 +136,9 @@ public class Grid {
             dropping.moveLeft(cordx);
         }
     }
+    public void hardDrop() {
+        
+    }
 
     public void rotateCW() {
         dropping.rotateCW();
