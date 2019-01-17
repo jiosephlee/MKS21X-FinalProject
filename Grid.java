@@ -228,6 +228,7 @@ public class Grid {
         Tetrimino toAdd = new IBlock(0, 5, "a");
         test.setDrop(toAdd);
         test.moveDown(15);
+        test.moveLeft(1);
         test.rotateCW();
         test.moveLeft(1);
         test.rotateCCW();

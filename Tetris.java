@@ -116,7 +116,7 @@ import java.awt.Color;
 				KeyStroke key = screen.pollInput();
 
 			if (key != null) {
-				putString(1, 1, screen, storage);
+
 				if      (key.getKeyType() == KeyType.Escape) break;
 				else if (key.getKeyType() == KeyType.Character){
 					if (key.getCharacter() == ' ') game.moveDown(1);
