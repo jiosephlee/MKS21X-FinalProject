@@ -137,7 +137,10 @@ public class Grid {
         }
     }
     public void hardDrop() {
-        
+        while (!isDoneDropping()) {
+            moveDown(1);
+        }
+        setInStone();
     }
 
     public void rotateCW() {
@@ -179,7 +182,7 @@ public class Grid {
         }
         return false;
     }
-    public void setInStone() { //precondition: isDoneDroopping is
+    public void setInStone() { //precondition: isDoneDropping is
         for (int i = 0; i < dropping.getPieces().length; i++) {
             int x = dropping.getPieces()[i].getX();
             int y = dropping.getPieces()[i].getY();
