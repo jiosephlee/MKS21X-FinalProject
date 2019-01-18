@@ -44,8 +44,8 @@ Final Project: Tetris
 - I added only one function, which is to see whether you have failed the game or not. The rest of the time was used to testing whether every function works and so far it seems like it. (George)
 - Started working on the queueing feature and block loading (Joseph)
 
-### 1/16/18
+### 1/16/19
 - Created branches which helped me test whether my code worked or not (George)
 
-### 1/17/18
+### 1/17/19
 - Added a function which allows you to hardDrop the current tetrimino. This pushes the tetrimino all the way to the bottom, and automatically selects the next tetrimino. (George)
