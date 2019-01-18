@@ -32,16 +32,16 @@ public class Grid {
                 grid[i][j] = new Piece(j, i);
             }
         }
-        dropping = new Tetrimino();
         holding = new Tetrimino();
-        nexting = new Tetrimino();
-        /*queue = {new SBlock(5, 4),
-                 new IBlock(5, 4),
-                 new LBlock(5, 4),
-                 new JBlock(5, 4),
-                 new OBlock(5, 4),
-                 new ZBlock(5, 4),
-                 new TBlock(5, 4)};*/
+        queue.add(new SBlock(5, 4));
+        queue.add(new IBlock(5, 4));
+        queue.add(new LBlock(5, 4));
+        queue.add(new JBlock(5, 4));
+        queue.add(new OBlock(5, 4));
+        queue.add(new ZBlock(5, 4));
+        queue.add(new TBlock(5, 4));
+        dropping = whatsNext();
+        nexting = whatsNext();
     }
 
     public String toString() {
@@ -220,7 +220,18 @@ public class Grid {
         }
     }
     public Tetrimino whatsNext(){
-        int load = (int)Math.random(/*queue.size()*/);
+        int load = ((int)Math.random())%queue.size();
+        Tetrimino output = queue.get(load);
+        queue.remove(load);
+        if (queue.size() == 0){
+            queue.add(new SBlock(5, 4));
+            queue.add(new IBlock(5, 4));
+            queue.add(new LBlock(5, 4));
+            queue.add(new JBlock(5, 4));
+            queue.add(new OBlock(5, 4));
+            queue.add(new ZBlock(5, 4));
+            queue.add(new TBlock(5, 4));
+        }
         return new IBlock(5, 4);
     }
     public static void main(String[] args) {

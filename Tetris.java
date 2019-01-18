@@ -22,10 +22,7 @@ import java.awt.Color;
 		public static void main(String[] args) throws IOException {
 			int x = 1;
 			int y = 1;
-			Grid game = new Grid();
-	        game.setDrop(new IBlock(5, 4));
-			game.setNext(new IBlock(5, 4));
-			System.out.println(game);
+			Grid game = new Grid(); //set up grid
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
 
@@ -133,7 +130,7 @@ import java.awt.Color;
 			if (game.isDoneDropping()){
 				game.setInStone();
 				game.setDrop();
-				game.setNext(new IBlock(5, 4));
+				game.setNext(whatsNext());
 			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;
