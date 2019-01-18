@@ -9,7 +9,7 @@ import java.awt.Color;
 	public class Tetris {
 		public static void putString(int x, int y, Screen screen, String str) {
 			int xcor = x;
-			for (int i = 0; i < str.length(); ++i) {
+			for (int i = 0; i < str.length(); i++) {
 				if(str.charAt(i)=='\n'){
 					y++;
 					xcor = x;
@@ -130,7 +130,7 @@ import java.awt.Color;
 			if (game.isDoneDropping()){
 				game.setInStone();
 				game.setDrop();
-				game.setNext(whatsNext());
+				game.setNext(game.whatsNext());
 			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;

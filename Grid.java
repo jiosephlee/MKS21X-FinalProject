@@ -33,6 +33,7 @@ public class Grid {
             }
         }
         holding = new Tetrimino();
+        queue = new ArrayList<Tetrimino>();
         queue.add(new SBlock(5, 4));
         queue.add(new IBlock(5, 4));
         queue.add(new LBlock(5, 4));
@@ -110,7 +111,7 @@ public class Grid {
             dropping.moveDown(x);
         }
         else{
-            setDrop(new IBlock(5, 4, "1"));
+            setDrop(whatsNext());
         }
     }
     public void moveLeft(int cordx) {
@@ -232,12 +233,10 @@ public class Grid {
             queue.add(new ZBlock(5, 4));
             queue.add(new TBlock(5, 4));
         }
-        return new IBlock(5, 4);
+        return output;
     }
     public static void main(String[] args) {
         Grid test = new Grid();
-        Tetrimino toAdd = new IBlock(0, 5, "a");
-        test.setDrop(toAdd);
         test.moveDown(15);
         test.moveLeft(1);
         test.rotateCW();
@@ -245,8 +244,6 @@ public class Grid {
         test.rotateCCW();
         test.moveDown(2);
         test.setInStone();
-        toAdd = new ZBlock(0, 15, "d");
-        test.setDrop(toAdd);
         test.rotateCW();
         test.moveLeft(1);
         System.out.println(test);
