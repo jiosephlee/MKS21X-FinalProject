@@ -5,9 +5,9 @@
     <id>UMLClass</id>
     <coordinates>
       <x>150</x>
-      <y>0</y>
+      <y>110</y>
       <w>220</w>
-      <h>400</h>
+      <h>430</h>
     </coordinates>
     <panel_attributes>Grid
 --
@@ -27,14 +27,16 @@ _+ removeRow(Piece[][], int)_
 + setDrop()
 + setDrop(Tetrimino)
 + moveDown(int)
-+ moveleft(int)
++ moveLeft(int)
 + moveRight(int)
++ hardDrop()
 + rotateCW()
 + rotateCCW()
 + isDoneDropping(): boolean
 + setInStone()
 + checkTetris(): int[]
 + removeTetris(int[])
++ checkFailure(): boolean
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -42,7 +44,7 @@ _+ removeRow(Piece[][], int)_
     <id>UMLClass</id>
     <coordinates>
       <x>490</x>
-      <y>130</y>
+      <y>270</y>
       <w>210</w>
       <h>300</h>
     </coordinates>
@@ -55,7 +57,6 @@ _+ removeRow(Piece[][], int)_
 + Tetrimino(Piece[], double, double)
 + Tetrimino(double, double)
 + Tetrimino()
-+ getPieces(): Piece[]
 + rotateCW()
 + rotateCCW()
 + getX(): double
@@ -75,7 +76,7 @@ _+ removeRow(Piece[][], int)_
     <id>UMLClass</id>
     <coordinates>
       <x>890</x>
-      <y>30</y>
+      <y>170</y>
       <w>200</w>
       <h>280</h>
     </coordinates>
@@ -103,7 +104,7 @@ _+ removeRow(Piece[][], int)_
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>250</y>
+      <y>390</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -115,7 +116,7 @@ m1=0..45</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>690</x>
-      <y>250</y>
+      <y>390</y>
       <w>220</w>
       <h>40</h>
     </coordinates>
@@ -127,7 +128,7 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>520</y>
+      <y>660</y>
       <w>170</w>
       <h>80</h>
     </coordinates>
@@ -143,7 +144,7 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>180</x>
-      <y>520</y>
+      <y>660</y>
       <w>180</w>
       <h>80</h>
     </coordinates>
@@ -160,7 +161,7 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>550</x>
-      <y>520</y>
+      <y>660</y>
       <w>170</w>
       <h>80</h>
     </coordinates>
@@ -176,7 +177,7 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1090</x>
-      <y>520</y>
+      <y>660</y>
       <w>170</w>
       <h>80</h>
     </coordinates>
@@ -192,7 +193,7 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>730</x>
-      <y>520</y>
+      <y>660</y>
       <w>170</w>
       <h>80</h>
     </coordinates>
@@ -208,7 +209,7 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>370</x>
-      <y>520</y>
+      <y>660</y>
       <w>170</w>
       <h>80</h>
     </coordinates>
@@ -225,7 +226,7 @@ m1=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>910</x>
-      <y>520</y>
+      <y>660</y>
       <w>170</w>
       <h>80</h>
     </coordinates>
@@ -241,7 +242,7 @@ m1=4</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>60</x>
-      <y>350</y>
+      <y>490</y>
       <w>450</w>
       <h>190</h>
     </coordinates>
@@ -253,7 +254,7 @@ extends</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>590</x>
-      <y>420</y>
+      <y>560</y>
       <w>90</w>
       <h>120</h>
     </coordinates>
@@ -265,7 +266,7 @@ extends</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>690</x>
-      <y>350</y>
+      <y>490</y>
       <w>500</w>
       <h>190</h>
     </coordinates>
@@ -277,7 +278,7 @@ extends</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>650</x>
-      <y>420</y>
+      <y>560</y>
       <w>170</w>
       <h>120</h>
     </coordinates>
@@ -289,7 +290,7 @@ extends</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>440</x>
-      <y>420</y>
+      <y>560</y>
       <w>110</w>
       <h>120</h>
     </coordinates>
@@ -301,7 +302,7 @@ extends</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>690</x>
-      <y>370</y>
+      <y>510</y>
       <w>320</w>
       <h>170</h>
     </coordinates>
@@ -313,7 +314,7 @@ extends</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>370</y>
+      <y>510</y>
       <w>270</w>
       <h>170</h>
     </coordinates>
