@@ -9,13 +9,13 @@ import java.awt.Color;
 public class Tetris {
 	public static void putString(int x, int y, Screen screen, String str) {
 		int xcor = x;
-		for (int i = 0; i < str.length(); ++i) {
-			if(str.charAt(i)=='\n'){
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i)=='\n') {
 				y++;
 				xcor = x;
-			}else{
-			xcor++;
-			screen.setCharacter(xcor, y, new TextCharacter(str.charAt(i)));
+			} else {
+				xcor++;
+				screen.setCharacter(xcor, y, new TextCharacter(str.charAt(i)));
 			}
 		}
 	}
