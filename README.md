@@ -49,3 +49,6 @@ Final Project: Tetris
 
 ### 1/17/19
 - Added a function which allows you to hardDrop the current tetrimino. This pushes the tetrimino all the way to the bottom, and automatically selects the next tetrimino. (George)
+
+### 1/18/19
+- Added a new branch in which Tetris.java is being edited to allow the player to have a home screen before you actually play.
