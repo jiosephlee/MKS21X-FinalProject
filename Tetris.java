@@ -30,7 +30,8 @@ import java.awt.Color;
 		        game.setDrop(new IBlock(5, 4));
 				game.setNext(new IBlock(5, 4));
 				System.out.println(game);
-				Screen screen = DefaultTerminalFactory().createScreen();
+				Screen screen = new DefaultTerminalFactory().createScreen();
+
 				screen.startScreen();
 
 				long tStart = System.currentTimeMillis();
@@ -42,118 +43,126 @@ import java.awt.Color;
 				long diff = time2 - time1;
 				long lasts = 0;
 				while (true) {
-				time2 = System.currentTimeMillis();
-				diff = time2 - time1;
-				if (diff / 50 > lasts) {
-					lasts = diff / 50;
+					time2 = System.currentTimeMillis();
+					diff = time2 - time1;
+					if (diff / 50 > lasts) {
+						lasts = diff / 50;
 
-					screen.clear();
-					String storage = game.toString();
-					int xcor = 3;
-					int ycor = 5;
-					for (int i = 0; i < storage.length(); i++){
-						xcor++;
-						if (storage.charAt(i) =='\t'){
-							xcor+=3;
+						screen.clear();
+						String storage = game.toString();
+						int xcor = 3;
+						int ycor = 5;
+						for (int i = 0; i < storage.length(); i++) {
+							xcor++;
+							if (storage.charAt(i) =='\t') {
+								xcor += 3;
+							}
+							if (storage.charAt(i) == '.' || storage.charAt(i) == '_') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(255, 255, 255),
+									new TextColor.RGB(255, 255, 255)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							} else if (storage.charAt(i) == '1') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(102,205,170),
+									new TextColor.RGB(102,205,170)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							} else if (storage.charAt(i) == '2') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(0,0,255),
+									new TextColor.RGB(0,0,255)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							} else if (storage.charAt(i) == '3') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(255,165,0),
+									new TextColor.RGB(255,165,0)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							} else if (storage.charAt(i) == '4') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(255,255,0),
+									new TextColor.RGB(255,255,0)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							} else if (storage.charAt(i) == '5') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(50,205,50),
+									new TextColor.RGB(50,205,50)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							} else if (storage.charAt(i) == '6') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(238,130,238),
+									new TextColor.RGB(238,130,238)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							} else if (storage.charAt(i) == '7') {
+								TextCharacter put = new TextCharacter(
+									' ',
+									new TextColor.RGB(255,0,0),
+									new TextColor.RGB(255,0,0)
+								);
+								screen.setCharacter(xcor, ycor, put);
+							}
+							if (storage.charAt(i)=='\n') {
+								ycor++;
+								xcor = 3;
+							}
 						}
-						if(storage.charAt(i) == '.' || storage.charAt(i) == '_'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(255, 255, 255),
-							new TextColor.RGB(255, 255, 255));
-							screen.setCharacter(xcor, ycor, put);
+						KeyStroke key = screen.pollInput();
+
+						if (key != null) {
+							if (key.getKeyType() == KeyType.Escape) {
+								break;
+							} else if (key.getKeyType() == KeyType.Character) {
+								if (key.getCharacter() == ' ') {
+									game.moveDown(1);
+								} else if (key.getCharacter() == 'c') {
+									game.setHold();
+									game.setDrop();
+									game.setNext(new IBlock(5, 4));
+								}
+							} else if (key.getKeyType() == KeyType.ArrowLeft) {
+								game.moveLeft(1); //game.moveLeft();
+							} else if (key.getKeyType() == KeyType.ArrowRight) {
+								game.moveRight(1);//game.moveRight();
+							} else if (key.getKeyType() == KeyType.ArrowUp) {
+								game.rotateCW();
+							} else if (key.getKeyType() == KeyType.ArrowDown) {
+								game.rotateCCW();
 							}
-						else if (storage.charAt(i) == '1'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(102,205,170),
-							new TextColor.RGB(102,205,170));
-							screen.setCharacter(xcor, ycor, put);
-							}
-						else if (storage.charAt(i) == '2'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(0,0,255),
-							new TextColor.RGB(0,0,255));
-							screen.setCharacter(xcor, ycor, put);
-							}
-						else if (storage.charAt(i) == '3'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(255,165,0),
-							new TextColor.RGB(255,165,0));
-							screen.setCharacter(xcor, ycor, put);
-							}
-						else if (storage.charAt(i) == '4'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(255,255,0),
-							new TextColor.RGB(255,255,0));
-							screen.setCharacter(xcor, ycor, put);
-							}
-						else if (storage.charAt(i) == '5'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(50,205,50),
-							new TextColor.RGB(50,205,50));
-							screen.setCharacter(xcor, ycor, put);
-							}
-						else if (storage.charAt(i) == '6'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(238,130,238),
-							new TextColor.RGB(238,130,238));
-							screen.setCharacter(xcor, ycor, put);
-							}
-						else if (storage.charAt(i) == '7'){
-							TextCharacter put = new TextCharacter(
-							' ',
-							new TextColor.RGB(255,0,0),
-							new TextColor.RGB(255,0,0));
-							screen.setCharacter(xcor, ycor, put);
-							}
-						if (storage.charAt(i)=='\n'){
-							ycor++;
-							xcor = 3;
 						}
+						if (game.isDoneDropping()) {
+							game.setInStone();
+							game.setDrop();
+							game.setNext(new IBlock(5, 4));
+						}
+						tEnd = System.currentTimeMillis();
+						millis = tEnd - tStart;
+						if (millis / 1000 > lastSecond) {
+							lastSecond = millis / 1000;
+							game.moveDown(1);
+						}
+						int[] cleared = game.checkTetris();
+						if (cleared.length > 0){
+							game.removeTetris(cleared);
+						}
+						screen.doResizeIfNecessary();
+						screen.refresh();
 					}
-					KeyStroke key = screen.pollInput();
-
-				if (key != null) {
-
-					if      (key.getKeyType() == KeyType.Escape) break;
-					else if (key.getKeyType() == KeyType.Character){
-						if (key.getCharacter() == ' ') game.moveDown(1);
-						else if (key.getCharacter() == 'c'){
-						game.setHold();
-						game.setDrop();
-						game.setNext(new IBlock(5, 4));}
-					}
-					else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
-					else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
-					else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
-					else if (key.getKeyType() == KeyType.ArrowDown)  game.rotateCCW();
 				}
-				if (game.isDoneDropping()){
-					game.setInStone();
-					game.setDrop();
-					game.setNext(new IBlock(5, 4));
-				}
-				tEnd = System.currentTimeMillis();
-				millis = tEnd - tStart;
-				if (millis / 1000 > lastSecond) {
-					lastSecond = millis / 1000;
-					game.moveDown(1);
-				}
-				int[] cleared = game.checkTetris();
-				if (cleared.length > 0){
-					game.removeTetris(cleared);
-				}
-				screen.doResizeIfNecessary();
-				screen.refresh();
+				screen.stopScreen();
 			}
 		}
-	}
-		screen.stopScreen();
 	}
 }
