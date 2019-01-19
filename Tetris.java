@@ -30,7 +30,7 @@ import java.awt.Color;
 		        game.setDrop(new IBlock(5, 4));
 				game.setNext(new IBlock(5, 4));
 				System.out.println(game);
-				Screen screen = new DefaultTerminalFactory().createScreen();
+				Screen screen = DefaultTerminalFactory().createScreen();
 				screen.startScreen();
 
 				long tStart = System.currentTimeMillis();
