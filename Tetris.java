@@ -32,14 +32,13 @@ public class Tetris {
 			text.putString(1, 4, "  \\            /   |   __|  |  |     |  |     |  |  |  | |  |\\/|  | |   __|         |  |     |  |  |  | ");
 			text.putString(1, 5, "   \\    /\\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____        |  |     |  `--'  | ");
 			text.putString(1, 6, "    \\__/  \\__/     |_______||_______| \\______| \\______/  |__|  |__| |_______|       |__|      \\______/  ");
-			text.putSTring(1, 8, "");
-			text.putSTring(1, 9, "");
-			text.putSTring(1, 10, "");
-			text.putSTring(1, 11, "");
-			text.putSTring(1, 12, "");
-			text.putSTring(1, 13, "");
-			text.putSTring(1, 14, "");
-			//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
+			text.putString(1, 8, "                  .___________. _______ .___________..______       __       _______.                    ");
+			text.putString(1, 9, "                  |           ||   ____||           ||   _  \\     |  |     /       |                    ");
+			text.putString(1, 10, "                  `---|  |----`|  |__   `---|  |----`|  |_)  |    |  |    |   (----`                    ");
+			text.putString(1, 11, "                      |  |     |   __|      |  |     |      /     |  |     \\   \\                        ");
+			text.putString(1, 12, "                      |  |     |  |____     |  |     |  |\\  \\----.|  | .----)   |                       ");
+			text.putString(1, 13, "                      |__|     |_______|    |__|     | _| `._____||__| |_______/                        ");
+			//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Welcome%20to%0A%20%20%20%20%20%20%20Tetris
 			screen.doResizeIfNecessary();
 			screen.refresh();
 			while (!isEnter) {
