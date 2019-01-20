@@ -24,6 +24,7 @@ public class Grid {
     private Tetrimino dropping, holding, nexting;
     private int x, y; //these are coords of the dropping tetrimino
     private ArrayList<Tetrimino> queue;
+    private boolean held;
 
     public Grid() {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
@@ -96,9 +97,10 @@ public class Grid {
 
     public void setHold() {
         holding = dropping;
+        held = true;
     }
-    public void setNext(Tetrimino toPut) {
-        nexting = toPut;
+    public void setNext() {
+        nexting = whatsNext();
     }
     public void setDrop() {
         dropping = nexting;
