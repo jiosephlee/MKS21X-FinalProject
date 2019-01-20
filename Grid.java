@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.lang.Math;
+import java.util.Random;
 
 public class Grid {
     public static Piece[][] copyOf(Piece[][] og) {
@@ -231,9 +231,10 @@ public class Grid {
         }
     }
     public Tetrimino whatsNext(){
-        int load = ((int)Math.random())%queue.size();
-        Tetrimino output = queue.get(load);
-        queue.remove(load);
+        Random rand = new Random();
+        int input = rand.nextInt(queue.size());
+        Tetrimino output = queue.get(input);
+        queue.remove(input);
         if (queue.size() == 0){
             queue.add(new SBlock(5, 4));
             queue.add(new IBlock(5, 4));
@@ -246,6 +247,11 @@ public class Grid {
         return output;
     }
     public static void main(String[] args) {
+        Random print = new Random();
+        int yolo = print.nextInt(7);
+        System.out.println(yolo);
+        int yoo = print.nextInt(7);
+        System.out.println(yoo);
         Grid test = new Grid();
         test.moveDown(15);
         test.moveLeft(1);
