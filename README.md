@@ -56,3 +56,8 @@ Final Project: Tetris
 - Added a new branch in which Tetris.java is being edited to allow the player to have a home screen before you actually play.
 - Coded the algorithm to randomly choose pieces for what comes next (Joseph)
 
+### 1/19/19
+- I spent most of my time retabbing/formatting the Tetris.java file to become readable. I also started making a HomeScreen branch which I set up the while and booleans needed to create a homescreen to start the game after pressing a certain button, which is the space. (George)
+
+### 1/20/19
+- I finished adding some textgraphics in the home screen so now it looks super cool and it says "Welcome to // Tetris //Press space to begin". I also had trouble merging, but that's okay now. Hopefully we're at the stage where we can (George)
