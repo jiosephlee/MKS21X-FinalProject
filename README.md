@@ -46,9 +46,11 @@ Final Project: Tetris
 
 ### 1/16/19
 - Created branches which helped me test whether my code worked or not (George)
+- Found a bug and debugged for many times but I wasn't able to find it (Joseph)
 
 ### 1/17/19
 - Added a function which allows you to hardDrop the current tetrimino. This pushes the tetrimino all the way to the bottom, and automatically selects the next tetrimino. (George)
+- Worked on queuing and holding and looked into debugging again(Joseph)
 
 ### 1/18/19
 - Added a new branch in which Tetris.java is being edited to allow the player to have a home screen before you actually play.
