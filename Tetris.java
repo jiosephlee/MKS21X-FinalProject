@@ -26,26 +26,20 @@ public class Tetris {
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
 			TextGraphics text = screen.newTextGraphics();
-			text.drawLine(
-				new TerminalPosition(1, 1),
-				new TerminalPosition(5, 5),
-				'●' //find another good textgraphic
-			);
-			text.drawLine(
-				new TerminalPosition(5, 5),
-				new TerminalPosition(9, 1),
-				'●'
-			);
-			text.drawLine(
-				new TerminalPosition(9, 1),
-				new TerminalPosition(13, 5),
-				'●'
-			);
-			text.drawLine(
-				new TerminalPosition(13, 5),
-				new TerminalPosition(17, 1),
-				'●'
-			);
+			text.putString(1, 1, "____    __    ____  _______  __        ______   ______   .___  ___.  _______    .___________.  ______   ");
+			text.putString(1, 2, "\\   \\  /  \\  /   / |   ____||  |      /      | /  __  \\  |   \\/   | |   ____|   |           | /  __  \\  ");
+			text.putString(1, 3, " \\   \\/    \\/   /  |  |__   |  |     |  ,----'|  |  |  | |  \\  /  | |  |__      `---|  |----`|  |  |  | ");
+			text.putString(1, 4, "  \\            /   |   __|  |  |     |  |     |  |  |  | |  |\\/|  | |   __|         |  |     |  |  |  | ");
+			text.putString(1, 5, "   \\    /\\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____        |  |     |  `--'  | ");
+			text.putString(1, 6, "    \\__/  \\__/     |_______||_______| \\______| \\______/  |__|  |__| |_______|       |__|      \\______/  ");
+			text.putSTring(1, 8, "");
+			text.putSTring(1, 9, "");
+			text.putSTring(1, 10, "");
+			text.putSTring(1, 11, "");
+			text.putSTring(1, 12, "");
+			text.putSTring(1, 13, "");
+			text.putSTring(1, 14, "");
+			//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 			screen.doResizeIfNecessary();
 			screen.refresh();
 			while (!isEnter) {
