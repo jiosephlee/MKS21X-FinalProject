@@ -2,6 +2,7 @@ import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.input.*;
 import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.screen.*;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import java.io.IOException;
 import java.awt.Color;
 /*  Mr. K's TerminalDemo edited for lanterna 3 by Ethan
@@ -22,9 +23,32 @@ public class Tetris {
 	public static void main(String[] args) throws IOException {
 		boolean isEnter = false;
 		if (!isEnter) {
+			Screen screen = new DefaultTerminalFactory().createScreen();
+			screen.startScreen();
+			TextGraphics text = screen.newTextGraphics();
+			text.drawLine(
+				new TerminalPosition(1, 1),
+				new TerminalPosition(5, 5),
+				'●' //find another good textgraphic
+			);
+			text.drawLine(
+				new TerminalPosition(5, 5),
+				new TerminalPosition(9, 1),
+				'●'
+			);
+			text.drawLine(
+				new TerminalPosition(9, 1),
+				new TerminalPosition(13, 5),
+				'●'
+			);
+			text.drawLine(
+				new TerminalPosition(13, 5),
+				new TerminalPosition(17, 1),
+				'●'
+			);
+			screen.doResizeIfNecessary();
+			screen.refresh();
 			while (!isEnter) {
-				Screen screen = new DefaultTerminalFactory().createScreen();
-				screen.startScreen();
 				KeyStroke key = screen.pollInput();
 				if (key != null) {
 					isEnter = true;
