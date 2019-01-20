@@ -161,6 +161,9 @@ public class Grid {
             moveDown(1);
         }
         setInStone();
+        setDrop();
+        setNext();
+        setHeld(false);
     }
 
     public void rotateCW() {

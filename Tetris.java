@@ -116,16 +116,20 @@ import java.awt.Color;
 
 				if      (key.getKeyType() == KeyType.Escape) break;
 				else if (key.getKeyType() == KeyType.Character){
-					if (key.getCharacter() == ' ') game.moveDown(1);
+					if (key.getCharacter() == ' ') game.hardDrop();
 					else if (key.getCharacter() == 'c' && !game.getHeld()){
 						game.setHold();
 						game.setDrop();
 						game.setNext();}
+					} else if (key.getCharacter() == 'z'){
+						game.rotateCW();
+					} else if (key.getCharacter() == 'x'){
+						game.rotateCCW();
 					}
 				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
 				else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
-				else if (key.getKeyType() == KeyType.ArrowDown)  game.rotateCCW();
+				else if (key.getKeyType() == KeyType.ArrowDown)  game.moveDown(1);
 			}
 			if (game.isDoneDropping()){
 				game.setInStone();
