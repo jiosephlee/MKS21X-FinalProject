@@ -39,6 +39,7 @@ public class Tetris {
 			text.putString(1, 12, "                      |  |     |  |____     |  |     |  |\\  \\----.|  | .----)   |                       ");
 			text.putString(1, 13, "                      |__|     |_______|    |__|     | _| `._____||__| |_______/                        ");
 			//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Welcome%20to%0A%20%20%20%20%20%20%20Tetris
+			text.putString(42, 15, "Press space to begin");
 			screen.doResizeIfNecessary();
 			screen.refresh();
 			while (!isEnter) {
