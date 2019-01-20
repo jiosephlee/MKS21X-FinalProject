@@ -116,6 +116,14 @@ public class Grid {
             setDrop(whatsNext());
         }
     }
+
+    public boolean getHeld(){
+        return held;
+    }
+
+    public void setHeld(boolean input){
+        held = input;
+    }
     public void moveLeft(int cordx) {
         dropping.moveLeft(cordx);
         boolean isDone = true;

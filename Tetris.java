@@ -117,12 +117,12 @@ import java.awt.Color;
 				if      (key.getKeyType() == KeyType.Escape) break;
 				else if (key.getKeyType() == KeyType.Character){
 					if (key.getCharacter() == ' ') game.moveDown(1);
-					else if (key.getCharacter() == 'c' && !held){
+					else if (key.getCharacter() == 'c' && !game.getHeld()){
 						game.setHold();
 						game.setDrop();
 						game.setNext();}
 					else {
-						held = false;
+						game.setHeld(false);
 					}
 				}
 				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
@@ -133,7 +133,7 @@ import java.awt.Color;
 			if (game.isDoneDropping()){
 				game.setInStone();
 				game.setDrop();
-				game.setNext(game.whatsNext());
+				game.setNext();
 			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;
