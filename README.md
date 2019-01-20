@@ -52,3 +52,5 @@ Final Project: Tetris
 
 ### 1/18/19
 - Added a new branch in which Tetris.java is being edited to allow the player to have a home screen before you actually play.
+- Coded the algorithm to randomly choose pieces for what comes next (Joseph)
+
