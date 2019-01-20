@@ -121,10 +121,7 @@ import java.awt.Color;
 						game.setHold();
 						game.setDrop();
 						game.setNext();}
-					else {
-						game.setHeld(false);
 					}
-				}
 				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
 				else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
@@ -134,6 +131,7 @@ import java.awt.Color;
 				game.setInStone();
 				game.setDrop();
 				game.setNext();
+				game.setHeld(false);
 			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;
