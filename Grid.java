@@ -25,6 +25,9 @@ public class Grid {
     private int x, y; //these are coords of the dropping tetrimino
     private ArrayList<Tetrimino> queue;
     private boolean held;
+    private boolean end;
+    public int score, level, highscore;
+
 
     public Grid() {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
@@ -44,6 +47,11 @@ public class Grid {
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
         nexting = whatsNext();
+        end = false;
+        score = 0;
+        level = 1;
+        highscore = 0;
+        held = false;
     }
 
     public String toString() {
@@ -264,6 +272,13 @@ public class Grid {
         return output;
     }
 
+    public void gameEnd(boolean input){
+        end = input;
+    }
+
+    public boolean getEnd(){
+        return end;
+    }
     public static void main(String[] args) {
         Random print = new Random();
         int yolo = print.nextInt(7);

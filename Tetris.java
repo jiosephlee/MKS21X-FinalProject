@@ -37,7 +37,7 @@ import java.awt.Color;
 			while (true) {
 			time2 = System.currentTimeMillis();
 			diff = time2 - time1;
-			if (diff / 50 > lasts) {
+			if (diff / 50 > lasts && ) {
 				lasts = diff / 50;
 
 				screen.clear();
@@ -139,13 +139,17 @@ import java.awt.Color;
 			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;
-			if (millis / 1000 > lastSecond) {
+			if (millis / (1000 - game.level * 20)> lastSecond) {
 				lastSecond = millis / 1000;
 				game.moveDown(1);
 			}
+
 			int[] cleared = game.checkTetris();
 			if (cleared.length > 0){
 				game.removeTetris(cleared);
+			}
+			if(game.checkFailure()){
+
 			}
 			screen.doResizeIfNecessary();
 			screen.refresh();
