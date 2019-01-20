@@ -2,6 +2,7 @@ import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.input.*;
 import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.screen.*;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import java.io.IOException;
 import java.awt.Color;
 /*  Mr. K's TerminalDemo edited for lanterna 3 by Ethan
@@ -20,6 +21,34 @@ public class Tetris {
 		}
 	}
 	public static void main(String[] args) throws IOException {
+		boolean isEnter = false;
+		if (!isEnter) {
+			Screen screen = new DefaultTerminalFactory().createScreen();
+			screen.startScreen();
+			TextGraphics text = screen.newTextGraphics();
+			text.putString(1, 1, "____    __    ____  _______  __        ______   ______   .___  ___.  _______    .___________.  ______   ");
+			text.putString(1, 2, "\\   \\  /  \\  /   / |   ____||  |      /      | /  __  \\  |   \\/   | |   ____|   |           | /  __  \\  ");
+			text.putString(1, 3, " \\   \\/    \\/   /  |  |__   |  |     |  ,----'|  |  |  | |  \\  /  | |  |__      `---|  |----`|  |  |  | ");
+			text.putString(1, 4, "  \\            /   |   __|  |  |     |  |     |  |  |  | |  |\\/|  | |   __|         |  |     |  |  |  | ");
+			text.putString(1, 5, "   \\    /\\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____        |  |     |  `--'  | ");
+			text.putString(1, 6, "    \\__/  \\__/     |_______||_______| \\______| \\______/  |__|  |__| |_______|       |__|      \\______/  ");
+			text.putString(1, 8, "                  .___________. _______ .___________..______       __       _______.                    ");
+			text.putString(1, 9, "                  |           ||   ____||           ||   _  \\     |  |     /       |                    ");
+			text.putString(1, 10, "                  `---|  |----`|  |__   `---|  |----`|  |_)  |    |  |    |   (----`                    ");
+			text.putString(1, 11, "                      |  |     |   __|      |  |     |      /     |  |     \\   \\                        ");
+			text.putString(1, 12, "                      |  |     |  |____     |  |     |  |\\  \\----.|  | .----)   |                       ");
+			text.putString(1, 13, "                      |__|     |_______|    |__|     | _| `._____||__| |_______/                        ");
+			//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Welcome%20to%0A%20%20%20%20%20%20%20Tetris
+			text.putString(42, 15, "Press space to begin");
+			screen.doResizeIfNecessary();
+			screen.refresh();
+			while (!isEnter) {
+				KeyStroke key = screen.pollInput();
+				if (key != null) {
+					isEnter = true;
+				}
+			}
+		}
 		int x = 1;
 		int y = 1;
 		Grid game = new Grid(); //set up grid
@@ -75,7 +104,7 @@ public class Tetris {
 							' ',
 							new TextColor.RGB(255,165,0),
 							new TextColor.RGB(255,165,0)
-							);
+						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '4') {
 						TextCharacter put = new TextCharacter(
