@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Grid {
     public static Piece[][] copyOf(Piece[][] og) {
@@ -22,6 +23,8 @@ public class Grid {
     private Piece[][] grid;
     private Tetrimino dropping, holding, nexting;
     private int x, y; //these are coords of the dropping tetrimino
+    private ArrayList<Tetrimino> queue;
+    private boolean held;
 
     public Grid() {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
@@ -30,9 +33,17 @@ public class Grid {
                 grid[i][j] = new Piece(j, i);
             }
         }
-        dropping = new Tetrimino();
         holding = new Tetrimino();
-        nexting = new Tetrimino();
+        queue = new ArrayList<Tetrimino>();
+        queue.add(new SBlock(5, 4));
+        queue.add(new IBlock(5, 4));
+        queue.add(new LBlock(5, 4));
+        queue.add(new JBlock(5, 4));
+        queue.add(new OBlock(5, 4));
+        queue.add(new ZBlock(5, 4));
+        queue.add(new TBlock(5, 4));
+        dropping = whatsNext();
+        nexting = whatsNext();
     }
 
     public String toString() {
@@ -86,9 +97,10 @@ public class Grid {
 
     public void setHold() {
         holding = dropping;
+        held = true;
     }
-    public void setNext(Tetrimino toPut) {
-        nexting = toPut;
+    public void setNext() {
+        nexting = whatsNext();
     }
     public void setDrop() {
         dropping = nexting;
@@ -101,8 +113,16 @@ public class Grid {
             dropping.moveDown(x);
         }
         else{
-            setDrop(new IBlock(5, 4, "1"));
+            setDrop(whatsNext());
         }
+    }
+
+    public boolean getHeld(){
+        return held;
+    }
+
+    public void setHeld(boolean input){
+        held = input;
     }
     public void moveLeft(int cordx) {
         dropping.moveLeft(cordx);
@@ -215,6 +235,7 @@ public class Grid {
             removeRow(grid, rows[i]);
         }
     }
+<<<<<<< HEAD
     public boolean checkFailure() {
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
@@ -224,18 +245,38 @@ public class Grid {
         return false;
     }
 
+=======
+    public Tetrimino whatsNext(){
+        Random rand = new Random();
+        int input = rand.nextInt(queue.size());
+        Tetrimino output = queue.get(input);
+        queue.remove(input);
+        if (queue.size() == 0){
+            queue.add(new SBlock(5, 4));
+            queue.add(new IBlock(5, 4));
+            queue.add(new LBlock(5, 4));
+            queue.add(new JBlock(5, 4));
+            queue.add(new OBlock(5, 4));
+            queue.add(new ZBlock(5, 4));
+            queue.add(new TBlock(5, 4));
+        }
+        return output;
+    }
+>>>>>>> MoreeMechanics
     public static void main(String[] args) {
+        Random print = new Random();
+        int yolo = print.nextInt(7);
+        System.out.println(yolo);
+        int yoo = print.nextInt(7);
+        System.out.println(yoo);
         Grid test = new Grid();
-        Tetrimino toAdd = new IBlock(0, 5, "a");
-        test.setDrop(toAdd);
         test.moveDown(15);
+        test.moveLeft(1);
         test.rotateCW();
         test.moveLeft(1);
         test.rotateCCW();
         test.moveDown(2);
         test.setInStone();
-        toAdd = new ZBlock(0, 15, "d");
-        test.setDrop(toAdd);
         test.rotateCW();
         test.moveLeft(1);
         System.out.println(test);

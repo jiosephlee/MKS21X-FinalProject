@@ -9,7 +9,7 @@ import java.awt.Color;
 	public class Tetris {
 		public static void putString(int x, int y, Screen screen, String str) {
 			int xcor = x;
-			for (int i = 0; i < str.length(); ++i) {
+			for (int i = 0; i < str.length(); i++) {
 				if(str.charAt(i)=='\n'){
 					y++;
 					xcor = x;
@@ -22,10 +22,7 @@ import java.awt.Color;
 		public static void main(String[] args) throws IOException {
 			int x = 1;
 			int y = 1;
-			Grid game = new Grid();
-	        game.setDrop(new IBlock(5, 4));
-			game.setNext(new IBlock(5, 4));
-			System.out.println(game);
+			Grid game = new Grid(); //set up grid
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
 
@@ -120,10 +117,13 @@ import java.awt.Color;
 				if      (key.getKeyType() == KeyType.Escape) break;
 				else if (key.getKeyType() == KeyType.Character){
 					if (key.getCharacter() == ' ') game.moveDown(1);
-					else if (key.getCharacter() == 'c'){
-					game.setHold();
-					game.setDrop();
-					game.setNext(new IBlock(5, 4));}
+					else if (key.getCharacter() == 'c' && !game.getHeld()){
+						game.setHold();
+						game.setDrop();
+						game.setNext();}
+					else {
+						game.setHeld(false);
+					}
 				}
 				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
 				else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
@@ -133,7 +133,7 @@ import java.awt.Color;
 			if (game.isDoneDropping()){
 				game.setInStone();
 				game.setDrop();
-				game.setNext(new IBlock(5, 4));
+				game.setNext();
 			}
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;
