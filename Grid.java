@@ -235,7 +235,6 @@ public class Grid {
             removeRow(grid, rows[i]);
         }
     }
-<<<<<<< HEAD
     public boolean checkFailure() {
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
@@ -244,8 +243,6 @@ public class Grid {
         }
         return false;
     }
-
-=======
     public Tetrimino whatsNext(){
         Random rand = new Random();
         int input = rand.nextInt(queue.size());
@@ -262,7 +259,6 @@ public class Grid {
         }
         return output;
     }
->>>>>>> MoreeMechanics
     public static void main(String[] args) {
         Random print = new Random();
         int yolo = print.nextInt(7);
