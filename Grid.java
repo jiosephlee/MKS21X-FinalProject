@@ -274,7 +274,11 @@ public class Grid {
             }
         }
     }
+<<<<<<< HEAD
     public boolean checkFailure() { //checks if the game is finished. if so stop playing and reset the game data
+=======
+    public boolean checkFailure() {
+>>>>>>> 40d7579cf6713cc3a5d878935f6e147906a8ce97
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
 
@@ -283,8 +287,12 @@ public class Grid {
         }
         return false;
     }
+<<<<<<< HEAD
 
     public Tetrimino whatsNext(){ //puts in the tetrimino that is queud to be next
+=======
+    public Tetrimino whatsNext(){
+>>>>>>> 40d7579cf6713cc3a5d878935f6e147906a8ce97
         Random rand = new Random();
         int input = rand.nextInt(queue.size());
         Tetrimino output = queue.get(input);
@@ -300,6 +308,7 @@ public class Grid {
         }
         return output;
     }
+<<<<<<< HEAD
 
     public void playGame(boolean input){ //sets whether the game is in play mode
         play = input;
@@ -308,6 +317,8 @@ public class Grid {
     public boolean getPlay(){
         return play;
     }
+=======
+>>>>>>> 40d7579cf6713cc3a5d878935f6e147906a8ce97
     public static void main(String[] args) {
         Random print = new Random();
         int yolo = print.nextInt(7);
