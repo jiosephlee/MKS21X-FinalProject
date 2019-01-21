@@ -28,22 +28,32 @@ public class Grid {
             lines[3] = ".[     22   |.";
             lines[4] = ".[     22   |.";
             lines[5] = ".[   2222   |."
+            lines[6] = ".[          |.";
         } else if (toAdd.toString().equals("3")) { //LBlock
             lines[3] = ".[   33     |.";
             lines[4] = ".[   33     |.";
             lines[5] = ".[   3333   |.";
+            lines[6] = ".[          |.";
         } else if (toAdd.toString().equals("4")) { //OBlock
-            lines[3] = ".[   4444   |.";
+            lines[3] = ".[          |.";
             lines[4] = ".[   4444   |.";
+            lines[5] = ".[   4444   |.";
+            lines[6] = ".[          |.";
         } else if (toAdd.toString().equals("5")) { //SBlock
-            lines[3] = ".[    5555  |.";
-            lines[4] = ".[  5555    |.";
+            lines[3] = ".[          |.";
+            lines[4] = ".[    5555  |.";
+            lines[5] = ".[  5555    |.";
+            lines[6] = ".[          |.";
         } else if (toAdd.toSTring().equals("6")) { //TBlock
-            lines[3] = ".[    66    |.";
-            lines[4] = ".[  666666  |.";
+            lines[3] = ".[          |.";
+            lines[4] = ".[    66    |.";
+            lines[5] = ".[  666666  |.";
+            lines[6] = ".[          |.";
         } else { //ZBlock
-            lines[3] = ".[  7777    |.";
-            lines[4] = ".[    7777  |.";
+            lines[3] = ".[          |.";
+            lines[4] = ".[  7777    |.";
+            lines[5] = ".[    7777  |.";
+            lines[6] = ".[          |.";
         }
     }
 
