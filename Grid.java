@@ -48,8 +48,8 @@ public class Grid {
         dropping = whatsNext();
         nexting = whatsNext();
         play = false;
-        levels = 0;
-        score = 1;
+        level = 1;
+        score = 0;
         highscore = 0;
         held = false;
     }
@@ -244,7 +244,10 @@ public class Grid {
     public void removeTetris(int[] rows) {
         for (int i = 0; i < rows.length; i++) {
             removeRow(grid, rows[i]);
-            levels++;
+            score++;
+            if (score % 7 == 0){
+                level++;
+            }
         }
     }
     public boolean checkFailure() { //checks if the game is finished. if so stop playing and reset the game data
