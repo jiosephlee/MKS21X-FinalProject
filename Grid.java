@@ -41,6 +41,9 @@ public class Grid {
         } else if (toAdd.toSTring().equals("6")) { //TBlock
             lines[3] = ".[    66    |.";
             lines[4] = ".[  666666  |.";
+        } else { //ZBlock
+            lines[3] = ".[  7777    |.";
+            lines[4] = ".[    7777  |.";
         }
     }
 
