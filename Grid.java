@@ -33,6 +33,9 @@ public class Grid {
         } else if (toAdd.toString().equals("4")) { //OBlock
             lines[3] = ".[   4444   |.";
             lines[4] = ".[   4444   |.";
+        } else if (toAdd.toString().equals("5")) { //SBlock
+            lines[3] = ".[    5555  |.";
+            lines[4] = ".[  5555    |.";
         }
     }
 
