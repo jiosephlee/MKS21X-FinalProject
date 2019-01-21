@@ -20,36 +20,36 @@ public class Grid {
         }
     }
     public static void addTetToArr(String[] lines, Tetrimino toAdd) {
-        if (toAdd.toString().equals("1")) { //IBlock
+        if (toAdd.getPieces()[0].toString().equals("1")) { //IBlock
             for (int i = 3; i < 7; i++) {
                 lines[i] = ".[    11    |.";
             }
-        } else if (toAdd.toString().equals("2")) { //JBlock
+        } else if (toAdd.getPieces()[0].toString().equals("2")) { //JBlock
             lines[3] = ".[     22   |.";
             lines[4] = ".[     22   |.";
             lines[5] = ".[   2222   |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("3")) { //LBlock
+        } else if (toAdd.getPieces()[0].toString().equals("3")) { //LBlock
             lines[3] = ".[   33     |.";
             lines[4] = ".[   33     |.";
             lines[5] = ".[   3333   |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("4")) { //OBlock
+        } else if (toAdd.getPieces()[0].toString().equals("4")) { //OBlock
             lines[3] = ".[          |.";
             lines[4] = ".[   4444   |.";
             lines[5] = ".[   4444   |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("5")) { //SBlock
+        } else if (toAdd.getPieces()[0].toString().equals("5")) { //SBlock
             lines[3] = ".[          |.";
             lines[4] = ".[    5555  |.";
             lines[5] = ".[  5555    |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("6")) { //TBlock
+        } else if (toAdd.getPieces()[0].toString().equals("6")) { //TBlock
             lines[3] = ".[          |.";
             lines[4] = ".[    66    |.";
             lines[5] = ".[  666666  |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("7")) { //ZBlock
+        } else if (toAdd.getPieces()[0].toString().equals("7")) { //ZBlock
             lines[3] = ".[          |.";
             lines[4] = ".[  7777    |.";
             lines[5] = ".[    7777  |.";
@@ -189,18 +189,6 @@ public class Grid {
         else {
             setDrop(whatsNext());
         }
-    }
-    public Tetrimino getNext() {
-        return nexting;
-    }
-    public void setNext(Tetrimino toAdd) {
-        nexting = toAdd;
-    }
-    public void setHold(Tetrimino toAdd) {
-        holding = toAdd;
-    }
-    public Tetrimino getNext() {
-        return holding;
     }
 
     public boolean getHeld() {
@@ -366,8 +354,7 @@ public class Grid {
         Tetrimino toAdd = new ZBlock(0, 4);
         test.setDrop(toAdd);
         test.moveDown(15);
-        test.setNext();
-        System.out.println()
+        test.setNext(toAdd);
         System.out.println(test);
         System.out.println(test.isDoneDropping());
     }
