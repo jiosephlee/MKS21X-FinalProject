@@ -178,19 +178,19 @@ public class Grid {
         dropping = toPut;
     }
     public void moveDown(int x) {
-        if (!isDoneDropping()){
+        if (!isDoneDropping()) {
             dropping.moveDown(x);
         }
-        else{
+        else {
             setDrop(whatsNext());
         }
     }
 
-    public boolean getHeld(){
+    public boolean getHeld() {
         return held;
     }
 
-    public void setHeld(boolean input){
+    public void setHeld(boolean input) {
         held = input;
     }
     public void moveLeft(int cordx) {
@@ -314,19 +314,18 @@ public class Grid {
     public boolean checkFailure() { //checks if the game is finished. if so stop playing and reset the game data
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
-
                 return true;
             }
         }
         return false;
     }
 
-    public Tetrimino whatsNext(){ //puts in the tetrimino that is queud to be next
+    public Tetrimino whatsNext() { //puts in the tetrimino that is queud to be next
         Random rand = new Random();
         int input = rand.nextInt(queue.size());
         Tetrimino output = queue.get(input);
         queue.remove(input);
-        if (queue.size() == 0){
+        if (queue.size() == 0) {
             queue.add(new SBlock(5, 4));
             queue.add(new IBlock(5, 4));
             queue.add(new LBlock(5, 4));
@@ -338,13 +337,13 @@ public class Grid {
         return output;
     }
 
-    public void playGame(boolean input){ //sets whether the game is in play mode
+    public void playGame(boolean input) { //sets whether the game is in play mode
         play = input;
     }
-
-    public boolean getPlay(){
+    public boolean getPlay() {
         return play;
     }
+
     public static void main(String[] args) {
         Random print = new Random();
         int yolo = print.nextInt(7);

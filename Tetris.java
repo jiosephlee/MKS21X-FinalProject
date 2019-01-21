@@ -11,7 +11,7 @@ public class Tetris {
 	public static void putString(int x, int y, Screen screen, String str) {
 		int xcor = x;
 		for (int i = 0; i < str.length(); i++) {
-			if(str.charAt(i) == '\n') {
+			if (str.charAt(i) == '\n') {
 				y++;
 				xcor = x;
 			} else {
@@ -37,7 +37,6 @@ public class Tetris {
 		long diff = time2 - time1;
 		long lasts = 0;
 
-
 		putString(1, 1, screen,"____    __    ____  _______  __        ______   ______   .___  ___.  _______    .___________.  ______   ");
 		putString(1, 2, screen, "\\   \\  /  \\  /   / |   ____||  |      /      | /  __  \\  |   \\/   | |   ____|   |           | /  __  \\  ");
 		putString(1, 3, screen, " \\   \\/    \\/   /  |  |__   |  |     |  ,----'|  |  |  | |  \\  /  | |  |__      `---|  |----`|  |  |  | ");
@@ -58,9 +57,13 @@ public class Tetris {
 		while (!isEnter) {
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
-				if (key.getKeyType() == KeyType.Escape) break;
-				if (key.getKeyType() == KeyType.Character){
-					if (key.getCharacter() == ' ') isEnter = true;
+				if (key.getKeyType() == KeyType.Escape) {
+					break;
+				}
+				if (key.getKeyType() == KeyType.Character) {
+					if (key.getCharacter() == ' ') {
+						isEnter = true;
+					}
 				}
 			}
 		}
@@ -71,84 +74,83 @@ public class Tetris {
 			time2 = System.currentTimeMillis();
 			diff = time2 - time1;
 
-			if (!game.getPlay()){ //if game ended put this screen on until they want to play again
-
-				putString(10,10,screen,"To play again, please press Enter");
-				putString(10,15,screen,"Current Highscore: " + game.highscore);
+			if (!game.getPlay()) { //if game ended put this screen on until they want to play again
+				putString(10, 10, screen, "To play again, please press Enter");
+				putString(10, 15, screen, "Current Highscore: " + game.highscore);
 				KeyStroke keyone = screen.pollInput();
 				if (keyone != null) {
-					if (keyone.getKeyType() == KeyType.Escape) break;
-					if (keyone.getKeyType() == KeyType.Enter){
+					if (keyone.getKeyType() == KeyType.Escape) {
+						break;
+					}
+					if (keyone.getKeyType() == KeyType.Enter) {
 						game.playGame(true);
 					}
 				}
-
-			}
-			else if (diff / 10 > lasts) {
+			} else if (diff / 10 > lasts) {
 				lasts = diff / 10;
 				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
 				int ycor = 5;
-				for (int i = 0; i < storage.length(); i++){ //set up the game graphics
+				for (int i = 0; i < storage.length(); i++) { //set up the game graphics
 					xcor++;
 					if (storage.charAt(i) == '\t') {
 						xcor += 3;
 					}
 					if (storage.charAt(i) == '.' || storage.charAt(i) == '_') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
 							new TextColor.RGB(255, 255, 255),
 							new TextColor.RGB(255, 255, 255)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '1') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
-							new TextColor.RGB(102,205,170),
-							new TextColor.RGB(102,205,170)
+							new TextColor.RGB(102, 205, 170),
+							new TextColor.RGB(102, 205, 170)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '2') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
-							new TextColor.RGB(0,0,255),
-							new TextColor.RGB(0,0,255)
+							new TextColor.RGB(0, 0, 255),
+							new TextColor.RGB(0, 0, 255)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '3') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
-							new TextColor.RGB(255,165,0),
-							new TextColor.RGB(255,165,0)
+							new TextColor.RGB(255, 165, 0),
+							new TextColor.RGB(255, 165, 0)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '4') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
-							new TextColor.RGB(255,255,0),
-							new TextColor.RGB(255,255,0)
+							new TextColor.RGB(255, 255, 0),
+							new TextColor.RGB(255, 255, 0)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '5') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
-							new TextColor.RGB(50,205,50),
-							new TextColor.RGB(50,205,50)
+							new TextColor.RGB(50, 205, 50),
+							new TextColor.RGB(50, 205, 50)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '6') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
 							new TextColor.RGB(238,130,238),
 							new TextColor.RGB(238,130,238)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					} else if (storage.charAt(i) == '7') {
-						TextCharacter put = new TextCharacter(
+						TextCharacter put = new TextCharacter (
 							' ',
-							new TextColor.RGB(255,0,0),
-							new TextColor.RGB(255,0,0)
+							new TextColor.RGB(255, 0, 0),
+							new TextColor.RGB(255, 0, 0)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					}
@@ -157,55 +159,59 @@ public class Tetris {
 						xcor = 3;
 					}
 				}
-			KeyStroke key = screen.pollInput();
 
-			if (key != null) { //check for user input
+				KeyStroke key = screen.pollInput();
+				if (key != null) { //check for user input
 
-				if      (key.getKeyType() == KeyType.Escape) break;
-				else if (key.getKeyType() == KeyType.Character){
-					if (key.getCharacter() == ' ') game.hardDrop();
-					else if (key.getCharacter() == 'c' && !game.getHeld()){
-						game.setHold();
-						game.setDrop();
-						game.setNext();
-					} else if (key.getCharacter() == 'z'){
+					if (key.getKeyType() == KeyType.Escape) {
+						break;
+					} else if (key.getKeyType() == KeyType.Character) {
+						if (key.getCharacter() == ' ') game.hardDrop();
+						else if (key.getCharacter() == 'c' && !game.getHeld()) {
+							game.setHold();
+							game.setDrop();
+							game.setNext();
+						} else if (key.getCharacter() == 'z'){
+							game.rotateCW();
+						} else if (key.getCharacter() == 'x'){
+							game.rotateCCW();
+						}
+					} else if (key.getKeyType() == KeyType.ArrowLeft) {
+						game.moveLeft(1);
+					} else if (key.getKeyType() == KeyType.ArrowRight) {
+						game.moveRight(1);
+					} else if (key.getKeyType() == KeyType.ArrowUp) {
 						game.rotateCW();
-					} else if (key.getCharacter() == 'x'){
-						game.rotateCCW();
+					} else if (key.getKeyType() == KeyType.ArrowDown) {
+						game.moveDown(1);
 					}
 				}
-				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
-				else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
-				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
-				else if (key.getKeyType() == KeyType.ArrowDown)  game.moveDown(1);
-			}
 
-			if (game.isDoneDropping()){//if dropped reached the bottom, set it in stone and set up the next piece
-				game.setInStone();
-				game.setDrop();
-				game.setNext();
-				game.setHeld(false);
-			}
-			tEnd = System.currentTimeMillis(); //move down the current moving piece every second
-			millis = tEnd - tStart;
-			if (millis / (1000 - game.level * 20)> lastSecond) {
-				lastSecond = millis / (1000 - game.level * 20);
-				game.moveDown(1);
-			}
+				if (game.isDoneDropping()) {//if dropped reached the bottom, set it in stone and set up the next piece
+					game.setInStone();
+					game.setDrop();
+					game.setNext();
+					game.setHeld(false);
+				}
+				tEnd = System.currentTimeMillis(); //move down the current moving piece every second
+				millis = tEnd - tStart;
+				if (millis / (1000 - game.level * 20)> lastSecond) {
+					lastSecond = millis / (1000 - game.level * 20);
+					game.moveDown(1);
+				}
 
-			int[] cleared = game.checkTetris(); //clear levels that need to be cleared
-			if (cleared.length > 0){
-				game.removeTetris(cleared);
-			}
-
-			if (game.checkFailure()){ //check if the game ended
-				game = new Grid(game.highscore);
-				screen.clear();
-			}
+				int[] cleared = game.checkTetris(); //clear levels that need to be cleared
+				if (cleared.length > 0) {
+					game.removeTetris(cleared);
+				}
+				if (game.checkFailure()) { //check if the game ended
+					game = new Grid(game.highscore);
+					screen.clear();
+				}
+	 		}
+			screen.doResizeIfNecessary();
+			screen.refresh();
 		}
-		screen.doResizeIfNecessary();
-		screen.refresh();
-		}
-	screen.stopScreen();
+		screen.stopScreen();
 	}
 }

@@ -10,7 +10,7 @@ public class LBlock extends Tetrimino {
     }
     public LBlock(int x, int y) {
         super(x + 1, y);
-        String colour ="3";
+        String colour = "3";
         Piece a = new Piece(x, y, colour); //preconditions: x < 7, y < 24
         Piece b = new Piece(x + 1, y, colour);
         Piece c = new Piece(x + 2, y, colour);
