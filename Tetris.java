@@ -45,7 +45,10 @@ public class Tetris {
 			while (!isEnter) {
 				KeyStroke key = screen.pollInput();
 				if (key != null) {
-					isEnter = true;
+					if (key.getKeyType() == KeyType.Escape) break;
+					if (key.getKeyType() == KeyType.Character){
+						if (key.getCharacter() == ' ') isEnter = true;
+					}
 				}
 			}
 		}
