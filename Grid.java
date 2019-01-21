@@ -250,7 +250,7 @@ public class Grid {
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
                 int[] input = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24};
-                removeRow(input);
+                removeTetris(input);
                 holding = new Tetrimino();
                 queue = new ArrayList<Tetrimino>();
                 queue.add(new SBlock(5, 4));
