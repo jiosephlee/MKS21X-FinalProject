@@ -22,10 +22,21 @@ public class Tetris {
 	}
 	public static void main(String[] args) throws IOException {
 		boolean isEnter = false;
-		if (!isEnter) {
-			Screen screen = new DefaultTerminalFactory().createScreen();
-			screen.startScreen();
-			TextGraphics text = screen.newTextGraphics();
+		Screen screen = new DefaultTerminalFactory().createScreen();
+		screen.startScreen();
+		int x = 1;
+		int y = 1;
+		Grid game = new Grid(); //set up grid
+		long tStart = System.currentTimeMillis();
+		long lastSecond = 0;
+		long tEnd = System.currentTimeMillis();
+		long millis = tEnd - tStart;
+		long time2 = System.currentTimeMillis();
+		long time1 = System.currentTimeMillis();
+		long diff = time2 - time1;
+		long lasts = 0;
+
+
 			text.putString(1, 1, "____    __    ____  _______  __        ______   ______   .___  ___.  _______    .___________.  ______   ");
 			text.putString(1, 2, "\\   \\  /  \\  /   / |   ____||  |      /      | /  __  \\  |   \\/   | |   ____|   |           | /  __  \\  ");
 			text.putString(1, 3, " \\   \\/    \\/   /  |  |__   |  |     |  ,----'|  |  |  | |  \\  /  | |  |__      `---|  |----`|  |  |  | ");
@@ -40,8 +51,6 @@ public class Tetris {
 			text.putString(1, 13, "                      |__|     |_______|    |__|     | _| `._____||__| |_______/                        ");
 			//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Welcome%20to%0A%20%20%20%20%20%20%20Tetris
 			text.putString(42, 15, "Press space to begin");
-			screen.doResizeIfNecessary();
-			screen.refresh();
 			while (!isEnter) {
 				KeyStroke key = screen.pollInput();
 				if (key != null) {
@@ -51,21 +60,9 @@ public class Tetris {
 					}
 				}
 			}
-		}
-		int x = 1;
-		int y = 1;
-		Grid game = new Grid(); //set up grid
-		Screen screen = new DefaultTerminalFactory().createScreen();
-		screen.startScreen();
 
-		long tStart = System.currentTimeMillis();
-		long lastSecond = 0;
-		long tEnd = System.currentTimeMillis();
-		long millis = tEnd - tStart;
-		long time2 = System.currentTimeMillis();
-		long time1 = System.currentTimeMillis();
-		long diff = time2 - time1;
-		long lasts = 0;
+		screen.clear();
+
 		while (true) {
 			time2 = System.currentTimeMillis();
 			diff = time2 - time1;
@@ -81,6 +78,7 @@ public class Tetris {
 						game.playGame(true);
 					}
 				}
+
 			}
 			else if (diff / 10 > lasts) {
 				lasts = diff / 10;
