@@ -49,8 +49,8 @@ import java.awt.Color;
 					}
 				}
 			}
-			else if (diff / 100 > lasts) {
-				lasts = diff / 100;
+			else if (diff / 10 > lasts) {
+				lasts = diff / 10;
 				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
