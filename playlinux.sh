@@ -1,6 +1,6 @@
 
 #!/bin/bash
 
-resize -s 80 80
+resize -s 50 100
 javac -cp lanterna.jar:. Tetris.java
 java -cp lanterna.jar:. Tetris
