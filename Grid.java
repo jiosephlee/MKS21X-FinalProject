@@ -119,6 +119,8 @@ public class Grid {
             }
             toReturnArr[i] += row;
         }
+        toReturnArr[20] += "  Score: " + score;
+        toReturnArr[21] += "  Level: " + level;
         String toReturn = "";
         for (int i = 0; i < toReturnArr.length; i++) {
             toReturn += toReturnArr[i] + "\n";
