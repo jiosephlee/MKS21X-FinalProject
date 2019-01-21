@@ -37,7 +37,15 @@ import java.awt.Color;
 			while (true) {
 			time2 = System.currentTimeMillis();
 			diff = time2 - time1;
-			if (diff / 50 > lasts && ) {
+			if (!game.getEnd()){
+
+				screen.clear();
+				KeyStroke key = screen.pollInput();
+				if (key != null) {
+
+					if      (key.getKeyType() == KeyType.Escape) break;
+			}
+			else if (diff / 50 > lasts) {
 				lasts = diff / 50;
 
 				screen.clear();
@@ -110,7 +118,7 @@ import java.awt.Color;
 						xcor = 3;
 					}
 				}
-				KeyStroke key = screen.pollInput();
+			KeyStroke key = screen.pollInput();
 
 			if (key != null) {
 
@@ -149,7 +157,7 @@ import java.awt.Color;
 				game.removeTetris(cleared);
 			}
 			if(game.checkFailure()){
-
+				game.gameEnd(true);
 			}
 			screen.doResizeIfNecessary();
 			screen.refresh();

@@ -25,7 +25,7 @@ public class Grid {
     private int x, y; //these are coords of the dropping tetrimino
     private ArrayList<Tetrimino> queue;
     private boolean held;
-    private boolean end;
+    private boolean play;
     public int score, level, highscore;
 
 
@@ -47,7 +47,7 @@ public class Grid {
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
         nexting = whatsNext();
-        end = false;
+        play = false;
         score = 0;
         level = 1;
         highscore = 0;
@@ -249,6 +249,22 @@ public class Grid {
     public boolean checkFailure() {
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
+                int[] input = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24};
+                removeRow(input);
+                holding = new Tetrimino();
+                queue = new ArrayList<Tetrimino>();
+                queue.add(new SBlock(5, 4));
+                queue.add(new IBlock(5, 4));
+                queue.add(new LBlock(5, 4));
+                queue.add(new JBlock(5, 4));
+                queue.add(new OBlock(5, 4));
+                queue.add(new ZBlock(5, 4));
+                queue.add(new TBlock(5, 4));
+                play = false;
+                score = 0;
+                level = 1;
+                highscore = 0;
+                held = false;
                 return true;
             }
         }
@@ -272,12 +288,12 @@ public class Grid {
         return output;
     }
 
-    public void gameEnd(boolean input){
-        end = input;
+    public void playGame(boolean input){
+        play = input;
     }
 
-    public boolean getEnd(){
-        return end;
+    public boolean getPlay(){
+        return play;
     }
     public static void main(String[] args) {
         Random print = new Random();
