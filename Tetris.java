@@ -27,6 +27,7 @@ public class Tetris {
 		int x = 1;
 		int y = 1;
 		Grid game = new Grid(); //set up grid
+		game.playGame(true);
 		long tStart = System.currentTimeMillis();
 		long lastSecond = 0;
 		long tEnd = System.currentTimeMillis();
@@ -50,7 +51,10 @@ public class Tetris {
 		putString(1, 12, screen, "                      |  |     |  |____     |  |     |  |\\  \\----.|  | .----)   |                       ");
 		putString(1, 13, screen, "                      |__|     |_______|    |__|     | _| `._____||__| |_______/                        ");
 		//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Welcome%20to%0A%20%20%20%20%20%20%20Tetris
-		screen.putString(42, 15, "Press space to begin");
+		putString(42, 15, screen, "Press space to begin");
+		screen.doResizeIfNecessary();
+		screen.refresh();
+
 		while (!isEnter) {
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
