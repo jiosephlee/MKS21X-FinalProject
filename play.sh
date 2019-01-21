@@ -1,6 +1,6 @@
 
 #!/bin/bash
 
- printf '\e[8;50;80t'
+resize -s 50 80
 javac -cp lanterna.jar:. Tetris.java
 java -cp lanterna.jar Tetris
