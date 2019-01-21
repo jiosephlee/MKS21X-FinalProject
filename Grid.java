@@ -99,7 +99,7 @@ public class Grid {
         next[8] = ".----------.";
         for (int i = 3; i < 7; i++) {
             next[i] = ".[   " + nexting.getPieces()[i - 3].toString() + nexting.getPieces()[i - 3].toString()+ "   |.";
-            hold[i] = ".[   " + holding.getPieces()[i - 3].toString() + nexting.getPieces()[i - 3].toString()+ "   |.";
+            hold[i] = ".[   " + holding.getPieces()[i - 3].toString() + holding.getPieces()[i - 3].toString()+ "   |.";
         }
         for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden
             String row = ".";
@@ -277,7 +277,7 @@ public class Grid {
     public boolean checkFailure() { //checks if the game is finished. if so stop playing and reset the game data
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
-                
+
                 return true;
             }
         }
