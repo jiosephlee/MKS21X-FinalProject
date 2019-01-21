@@ -25,7 +25,6 @@ import java.awt.Color;
 			Grid game = new Grid(); //set up grid
 			Screen screen = new DefaultTerminalFactory().createScreen();
 			screen.startScreen();
-
 			long tStart = System.currentTimeMillis();
 			long lastSecond = 0;
 			long tEnd = System.currentTimeMillis();
@@ -55,7 +54,7 @@ import java.awt.Color;
 				String storage = game.toString();
 				int xcor = 3;
 				int ycor = 5;
-				for (int i = 0; i < storage.length(); i++){
+				for (int i = 0; i < storage.length(); i++){ //set up the game graphics
 					xcor++;
 					if (storage.charAt(i) =='\t'){
 						xcor+=3;
@@ -123,7 +122,7 @@ import java.awt.Color;
 				}
 			KeyStroke key = screen.pollInput();
 
-			if (key != null) {
+			if (key != null) { //check for user input
 
 				if      (key.getKeyType() == KeyType.Escape) break;
 				else if (key.getKeyType() == KeyType.Character){
@@ -143,28 +142,33 @@ import java.awt.Color;
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
 				else if (key.getKeyType() == KeyType.ArrowDown)  game.moveDown(1);
 			}
-			if (game.isDoneDropping()){
+
+			if (game.isDoneDropping()){//if dropped reached the bottom, set it in stone and set up the next piece
 				game.setInStone();
 				game.setDrop();
 				game.setNext();
 				game.setHeld(false);
 			}
-			tEnd = System.currentTimeMillis();
+			tEnd = System.currentTimeMillis(); //move down the current moving piece every second
 			millis = tEnd - tStart;
 			if (millis / (1000 - game.level * 20)> lastSecond) {
 				lastSecond = millis / (1000 - game.level * 20);
 				game.moveDown(1);
 			}
 
-			int[] cleared = game.checkTetris();
+			int[] cleared = game.checkTetris(); //clear levels that need to be cleared
 			if (cleared.length > 0){
 				game.removeTetris(cleared);
 			}
-			game.checkFailure();
+
+			if (game.checkFailure()){ //check if the game ended
+				game = new Grid(game.highscore);
+				screen.clear();
 			}
-			screen.doResizeIfNecessary();
-			screen.refresh();
 		}
-		screen.stopScreen();
+		screen.doResizeIfNecessary();
+		screen.refresh();
+		}
+	screen.stopScreen();
 	}
 }

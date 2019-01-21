@@ -53,6 +53,30 @@ public class Grid {
         highscore = 0;
         held = false;
     }
+    public Grid(int prev) {
+        grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                grid[i][j] = new Piece(j, i);
+            }
+        }
+        holding = new Tetrimino();
+        queue = new ArrayList<Tetrimino>();
+        queue.add(new SBlock(5, 4));
+        queue.add(new IBlock(5, 4));
+        queue.add(new LBlock(5, 4));
+        queue.add(new JBlock(5, 4));
+        queue.add(new OBlock(5, 4));
+        queue.add(new ZBlock(5, 4));
+        queue.add(new TBlock(5, 4));
+        dropping = whatsNext();
+        nexting = whatsNext();
+        play = false;
+        level = 1;
+        score = 0;
+        highscore = prev;
+        held = false;
+    }
 
     public String toString() {
         Piece[][] grid2 = copyOf(grid);
@@ -253,25 +277,7 @@ public class Grid {
     public boolean checkFailure() { //checks if the game is finished. if so stop playing and reset the game data
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
-                int[] input = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24};
-                removeTetris(input);
-                holding = new Tetrimino();
-                queue = new ArrayList<Tetrimino>();
-                queue.add(new SBlock(5, 4));
-                queue.add(new IBlock(5, 4));
-                queue.add(new LBlock(5, 4));
-                queue.add(new JBlock(5, 4));
-                queue.add(new OBlock(5, 4));
-                queue.add(new ZBlock(5, 4));
-                queue.add(new TBlock(5, 4));
-                if (score > highscore){
-                    highscore = score;
-                }
-                play = false;
-                score = 0;
-                level = 1;
-                held = false;
-
+                
                 return true;
             }
         }
