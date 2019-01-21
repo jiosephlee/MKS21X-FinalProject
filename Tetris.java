@@ -39,21 +39,18 @@ import java.awt.Color;
 			diff = time2 - time1;
 			if (!game.getPlay()){
 
-				screen.clear();
 				putString(10,10,screen,"To Start the Game, please press Enter");
 				putString(10,15,screen,"Current Highscore" + game.highscore);
 				KeyStroke keyone = screen.pollInput();
-				if (key != null) {
+				if (keyone != null) {
 					if (keyone.getKeyType() == KeyType.Escape) break;
 					if (keyone.getKeyType() == KeyType.Enter){
 						game.playGame(true);
 					}
-				screen.doResizeIfNecessary();
-				screen.refresh();
+				}
 			}
-			else if (diff / 50 > lasts) {
-				lasts = diff / 50;
-
+			else if (diff / 100 > lasts) {
+				lasts = diff / 100;
 				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
@@ -134,12 +131,13 @@ import java.awt.Color;
 					else if (key.getCharacter() == 'c' && !game.getHeld()){
 						game.setHold();
 						game.setDrop();
-						game.setNext();}
+						game.setNext();
 					} else if (key.getCharacter() == 'z'){
 						game.rotateCW();
 					} else if (key.getCharacter() == 'x'){
 						game.rotateCCW();
 					}
+				}
 				else if (key.getKeyType() == KeyType.ArrowLeft) game.moveLeft(1);//game.moveLeft();
 				else if (key.getKeyType() == KeyType.ArrowRight) game.moveRight(1);//game.moveRight();
 				else if (key.getKeyType() == KeyType.ArrowUp) game.rotateCW();
@@ -154,7 +152,7 @@ import java.awt.Color;
 			tEnd = System.currentTimeMillis();
 			millis = tEnd - tStart;
 			if (millis / (1000 - game.level * 20)> lastSecond) {
-				lastSecond = millis / 1000;
+				lastSecond = millis / (1000 - game.level * 20);
 				game.moveDown(1);
 			}
 
@@ -167,7 +165,6 @@ import java.awt.Color;
 			screen.doResizeIfNecessary();
 			screen.refresh();
 		}
-	}
 		screen.stopScreen();
 	}
 }
