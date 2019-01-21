@@ -125,7 +125,7 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }
-        String[] toReturnArr = new String[21]; //each cell is a row in the tetris board
+        String[] toReturnArr = new String[23]; //each cell is a row in the tetris board
         toReturnArr[0] = ".--------------------.";
         String[] hold = new String[9]; //each cell is a row in the tetris board
         String[] next = new String[9];
@@ -159,8 +159,8 @@ public class Grid {
             }
             toReturnArr[i] += row;
         }
-        toReturnArr[20] += "  Score: " + score;
-        toReturnArr[21] += "  Level: " + level;
+        toReturnArr[21] = "  Score: " + score;
+        toReturnArr[22] = "  Level: " + level;
         String toReturn = "";
         for (int i = 0; i < toReturnArr.length; i++) {
             toReturn += toReturnArr[i] + "\n";
