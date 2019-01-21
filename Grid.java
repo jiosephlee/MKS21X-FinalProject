@@ -48,8 +48,8 @@ public class Grid {
         dropping = whatsNext();
         nexting = whatsNext();
         play = false;
-        score = 0;
-        level = 1;
+        levels = 0;
+        score = 1;
         highscore = 0;
         held = false;
     }
@@ -244,9 +244,10 @@ public class Grid {
     public void removeTetris(int[] rows) {
         for (int i = 0; i < rows.length; i++) {
             removeRow(grid, rows[i]);
+            levels++;
         }
     }
-    public boolean checkFailure() {
+    public boolean checkFailure() { //checks if the game is finished. if so stop playing and reset the game data
         for (int i = 0; i < grid[4].length; i++) {
             if (!grid[4][i].toString().equals(" ")) {
                 int[] input = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24};
@@ -260,11 +261,14 @@ public class Grid {
                 queue.add(new OBlock(5, 4));
                 queue.add(new ZBlock(5, 4));
                 queue.add(new TBlock(5, 4));
+                if (score > highscore){
+                    highscore = score;
+                }
                 play = false;
                 score = 0;
                 level = 1;
-                highscore = 0;
                 held = false;
+
                 return true;
             }
         }

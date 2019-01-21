@@ -40,7 +40,7 @@ import java.awt.Color;
 			if (!game.getPlay()){
 
 				putString(10,10,screen,"To Start the Game, please press Enter");
-				putString(10,15,screen,"Current Highscore" + game.highscore);
+				putString(10,15,screen,"Current Highscore: " + game.highscore);
 				KeyStroke keyone = screen.pollInput();
 				if (keyone != null) {
 					if (keyone.getKeyType() == KeyType.Escape) break;
