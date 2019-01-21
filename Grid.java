@@ -27,7 +27,7 @@ public class Grid {
         } else if (toAdd.toString().equals("2")) { //JBlock
             lines[3] = ".[     22   |.";
             lines[4] = ".[     22   |.";
-            lines[5] = ".[   2222   |."
+            lines[5] = ".[   2222   |.";
             lines[6] = ".[          |.";
         } else if (toAdd.toString().equals("3")) { //LBlock
             lines[3] = ".[   33     |.";
