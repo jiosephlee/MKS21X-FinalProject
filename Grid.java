@@ -25,12 +25,19 @@ public class Grid {
                 lines[i] = ".[    " + toAdd.getPieces()[i - 3].toString() + toAdd.getPieces()[i - 3].toString() + "    |.";
             }
         } else if (toAdd.toString().equals("2")) {
-            lines[3] = ".[  " + toAdd.getPieces()[0].toString() + toAdd.getPieces()[0].toString() + "  |.";
+            lines[3] = ".[  " + toAdd.getPieces()[0].toString() + toAdd.getPieces()[0].toString() + "      |.";
             lines[4] = ".[  ";
             for (int i = 1; i < 4; i++) {
                 lines[4] += toAdd.getPieces()[i].toString() + toAdd.getPieces()[i].toString();
             }
             lines[4] += "  |.";
+        } else if (toAdd.toString().equals("3")) {
+            lines[3] = ".[      " + toAdd.getPieces()[3].toString() + toAdd.getPieces()[3].toString() + "  |.";
+            lines[4] = ".[  ";
+            for (int i = 0; i < 3; i++) {
+                lines[4] += toAdd.getPieces()[i].toString() + toAdd.getPieces()[i].toString();
+            }
+            lines[4] += "  |."
         }
     }
 
