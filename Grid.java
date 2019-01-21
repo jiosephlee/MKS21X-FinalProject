@@ -190,6 +190,18 @@ public class Grid {
             setDrop(whatsNext());
         }
     }
+    public Tetrimino getNext() {
+        return nexting;
+    }
+    public void setNext(Tetrimino toAdd) {
+        nexting = toAdd;
+    }
+    public void setHold(Tetrimino toAdd) {
+        holding = toAdd;
+    }
+    public Tetrimino getNext() {
+        return holding;
+    }
 
     public boolean getHeld() {
         return held;
@@ -350,21 +362,12 @@ public class Grid {
     }
 
     public static void main(String[] args) {
-        Random print = new Random();
-        int yolo = print.nextInt(7);
-        System.out.println(yolo);
-        int yoo = print.nextInt(7);
-        System.out.println(yoo);
         Grid test = new Grid();
+        Tetrimino toAdd = new ZBlock(0, 4);
+        test.setDrop(toAdd);
         test.moveDown(15);
-        test.moveLeft(1);
-        test.rotateCW();
-        test.moveLeft(1);
-        test.rotateCCW();
-        test.moveDown(2);
-        test.setInStone();
-        test.rotateCW();
-        test.moveLeft(1);
+        test.setNext();
+        System.out.println()
         System.out.println(test);
         System.out.println(test.isDoneDropping());
     }
