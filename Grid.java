@@ -134,7 +134,8 @@ public class Grid {
         next[2] = ".[          |.";
         next[7] = ".[          |.";
         next[8] = ".------------.";
-
+        addTetToArr(hold, holding); //what the function does is so that it manually adds
+        addTetToArr(next, nexting); //the shape of the tetriminos into the toStringArrays
         for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden
             String row = ".";
             for (int j = 0; j < grid2[i].length; j++) {
