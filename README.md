@@ -61,3 +61,4 @@ Final Project: Tetris
 
 ### 1/20/19
 - I finished adding some textgraphics in the home screen so now it looks super cool and it says "Welcome to // Tetris //Press space to begin". I also had trouble merging, but that's okay now. Hopefully we're at the stage where we can (George)
+- Finished the end game features and integrated replayability into the graphics. Fixed a bunch of bugs and visaul errors and fixed some of the new graphics that was merged. Added/fixed a bunch of small features such as a highscore and framerate to make the game playing experience much better (Joseph)
