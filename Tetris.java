@@ -36,7 +36,8 @@ import java.awt.Color;
 			while (true) {
 			time2 = System.currentTimeMillis();
 			diff = time2 - time1;
-			if (!game.getPlay()){
+
+			if (!game.getPlay()){ //if game ended put this screen on until they want to play again
 
 				putString(10,10,screen,"To play again, please press Enter");
 				putString(10,15,screen,"Current Highscore: " + game.highscore);
