@@ -25,11 +25,13 @@ public class Grid {
                 lines[i] = ".[    11    |.";
             }
         } else if (toAdd.toString().equals("2")) { //JBlock
-            lines[3] = ".[  22      |.";
-            lines[4] = ".[  222222  |.";
+            lines[3] = ".[     22   |.";
+            lines[4] = ".[     22   |.";
+            lines[5] = ".[   2222   |."
         } else if (toAdd.toString().equals("3")) { //LBlock
-            lines[3] = ".[      33  |.";
-            lines[4] = ".[  333333  |.";
+            lines[3] = ".[   33     |.";
+            lines[4] = ".[   33     |.";
+            lines[5] = ".[   3333   |.";
         } else if (toAdd.toString().equals("4")) { //OBlock
             lines[3] = ".[   4444   |.";
             lines[4] = ".[   4444   |.";
