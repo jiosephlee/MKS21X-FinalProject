@@ -22,29 +22,17 @@ public class Grid {
     public static void addTetToArr(String[] lines, Tetrimino toAdd) {
         if (toAdd.toString().equals("1")) { //IBlock
             for (int i = 3; i < 7; i++) {
-                lines[i] = ".[    " + toAdd.getPieces()[i - 3].toString() + toAdd.getPieces()[i - 3].toString() + "    |.";
+                lines[i] = ".[    11    |.";
             }
-        } else if (toAdd.toString().equals("2")) {
-            lines[3] = ".[  " + toAdd.getPieces()[0].toString() + toAdd.getPieces()[0].toString() + "      |.";
-            lines[4] = ".[  ";
-            for (int i = 1; i < 4; i++) { //JBlock
-                lines[4] += toAdd.getPieces()[i].toString() + toAdd.getPieces()[i].toString();
-            }
-            lines[4] += "  |.";
+        } else if (toAdd.toString().equals("2")) { //JBlock
+            lines[3] = ".[  22      |.";
+            lines[4] = ".[  222222  |.";
         } else if (toAdd.toString().equals("3")) { //LBlock
-            lines[3] = ".[      " + toAdd.getPieces()[3].toString() + toAdd.getPieces()[3].toString() + "  |.";
-            lines[4] = ".[  ";
-            for (int i = 0; i < 3; i++) {
-                lines[4] += toAdd.getPieces()[i].toString() + toAdd.getPieces()[i].toString();
-            }
-            lines[4] += "  |.";
+            lines[3] = ".[      33  |.";
+            lines[4] = ".[  333333  |.";
         } else if (toAdd.toString().equals("4")) { //OBlock
-            lines[3] = ".[   ";
-            lines[4] = ".[   ";
-            for (int i = 0; i < 2; i++) {
-                lines[3] += toAdd.getPieces()[i + 2].toString() + toAdd.getPieces()[i + 2].toString();
-                lines[4] += toAdd.getPieces()[i].toString() + toAdd.getPieces()[i].toString();
-            }
+            lines[3] = ".[   4444   |.";
+            lines[4] = ".[   4444   |.";
         }
     }
 
