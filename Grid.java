@@ -348,14 +348,4 @@ public class Grid {
     public boolean getPlay() {
         return play;
     }
-
-    public static void main(String[] args) {
-        Grid test = new Grid();
-        Tetrimino toAdd = new ZBlock(0, 4);
-        test.setDrop(toAdd);
-        test.moveDown(15);
-        test.setNext(toAdd);
-        System.out.println(test);
-        System.out.println(test.isDoneDropping());
-    }
 }
