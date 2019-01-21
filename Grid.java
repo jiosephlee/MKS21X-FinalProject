@@ -22,8 +22,15 @@ public class Grid {
     public static void addTetToArr(String[] lines, Tetrimino toAdd) {
         if (toAdd.toString().equals("1")) {
             for (int i = 3; i < 7; i++) {
-                next[i] = ".[    " + toAdd.getPieces()[i - 3].toString() + toAdd.getPieces()[i - 3].toString() + "    |.";
+                lines[i] = ".[    " + toAdd.getPieces()[i - 3].toString() + toAdd.getPieces()[i - 3].toString() + "    |.";
             }
+        } else if (toAdd.toString().equals("2")) {
+            lines[3] = ".[  " + toAdd.getPieces()[0].toString() + toAdd.getPieces()[0].toString() + "  |.";
+            lines[4] = ".[  ";
+            for (int i = 1; i < 4; i++) {
+                lines[4] += toAdd.getPieces()[i].toString() + toAdd.getPieces()[i].toString();
+            }
+            lines[4] += "  |.";
         }
     }
 
