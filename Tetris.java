@@ -37,29 +37,29 @@ public class Tetris {
 		long lasts = 0;
 
 
-			text.putString(1, 1, "____    __    ____  _______  __        ______   ______   .___  ___.  _______    .___________.  ______   ");
-			text.putString(1, 2, "\\   \\  /  \\  /   / |   ____||  |      /      | /  __  \\  |   \\/   | |   ____|   |           | /  __  \\  ");
-			text.putString(1, 3, " \\   \\/    \\/   /  |  |__   |  |     |  ,----'|  |  |  | |  \\  /  | |  |__      `---|  |----`|  |  |  | ");
-			text.putString(1, 4, "  \\            /   |   __|  |  |     |  |     |  |  |  | |  |\\/|  | |   __|         |  |     |  |  |  | ");
-			text.putString(1, 5, "   \\    /\\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____        |  |     |  `--'  | ");
-			text.putString(1, 6, "    \\__/  \\__/     |_______||_______| \\______| \\______/  |__|  |__| |_______|       |__|      \\______/  ");
-			text.putString(1, 8, "                  .___________. _______ .___________..______       __       _______.                    ");
-			text.putString(1, 9, "                  |           ||   ____||           ||   _  \\     |  |     /       |                    ");
-			text.putString(1, 10, "                  `---|  |----`|  |__   `---|  |----`|  |_)  |    |  |    |   (----`                    ");
-			text.putString(1, 11, "                      |  |     |   __|      |  |     |      /     |  |     \\   \\                        ");
-			text.putString(1, 12, "                      |  |     |  |____     |  |     |  |\\  \\----.|  | .----)   |                       ");
-			text.putString(1, 13, "                      |__|     |_______|    |__|     | _| `._____||__| |_______/                        ");
-			//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Welcome%20to%0A%20%20%20%20%20%20%20Tetris
-			text.putString(42, 15, "Press space to begin");
-			while (!isEnter) {
-				KeyStroke key = screen.pollInput();
-				if (key != null) {
-					if (key.getKeyType() == KeyType.Escape) break;
-					if (key.getKeyType() == KeyType.Character){
-						if (key.getCharacter() == ' ') isEnter = true;
-					}
+		putString(1, 1, screen,"____    __    ____  _______  __        ______   ______   .___  ___.  _______    .___________.  ______   ");
+		putString(1, 2, screen, "\\   \\  /  \\  /   / |   ____||  |      /      | /  __  \\  |   \\/   | |   ____|   |           | /  __  \\  ");
+		putString(1, 3, screen, " \\   \\/    \\/   /  |  |__   |  |     |  ,----'|  |  |  | |  \\  /  | |  |__      `---|  |----`|  |  |  | ");
+		putString(1, 4, screen, "  \\            /   |   __|  |  |     |  |     |  |  |  | |  |\\/|  | |   __|         |  |     |  |  |  | ");
+		putString(1, 5, screen, "   \\    /\\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____        |  |     |  `--'  | ");
+		putString(1, 6, screen, "    \\__/  \\__/     |_______||_______| \\______| \\______/  |__|  |__| |_______|       |__|      \\______/  ");
+		putString(1, 8, screen, "                  .___________. _______ .___________..______       __       _______.                    ");
+		putString(1, 9, screen, "                  |           ||   ____||           ||   _  \\     |  |     /       |                    ");
+		putString(1, 10, screen, "                  `---|  |----`|  |__   `---|  |----`|  |_)  |    |  |    |   (----`                    ");
+		putString(1, 11, screen, "                      |  |     |   __|      |  |     |      /     |  |     \\   \\                        ");
+		putString(1, 12, screen, "                      |  |     |  |____     |  |     |  |\\  \\----.|  | .----)   |                       ");
+		putString(1, 13, screen, "                      |__|     |_______|    |__|     | _| `._____||__| |_______/                        ");
+		//this ascii art is creditted from http://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Welcome%20to%0A%20%20%20%20%20%20%20Tetris
+		screen.putString(42, 15, "Press space to begin");
+		while (!isEnter) {
+			KeyStroke key = screen.pollInput();
+			if (key != null) {
+				if (key.getKeyType() == KeyType.Escape) break;
+				if (key.getKeyType() == KeyType.Character){
+					if (key.getCharacter() == ' ') isEnter = true;
 				}
 			}
+		}
 
 		screen.clear();
 
