@@ -265,7 +265,7 @@ public class Grid {
         }
         return toReturnActually;
     }
-    public void removeTetris(int[] rows) {
+    public void removeTetris(int[] rows) { //clears rows that are supposed to be cleared
         for (int i = 0; i < rows.length; i++) {
             removeRow(grid, rows[i]);
             score++;
@@ -284,7 +284,7 @@ public class Grid {
         return false;
     }
 
-    public Tetrimino whatsNext(){
+    public Tetrimino whatsNext(){ //puts in the tetrimino that is queud to be next
         Random rand = new Random();
         int input = rand.nextInt(queue.size());
         Tetrimino output = queue.get(input);
@@ -301,7 +301,7 @@ public class Grid {
         return output;
     }
 
-    public void playGame(boolean input){
+    public void playGame(boolean input){ //sets whether the game is in play mode
         play = input;
     }
 
