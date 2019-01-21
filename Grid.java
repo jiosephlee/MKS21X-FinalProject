@@ -38,6 +38,9 @@ public class Grid {
         } else if (toAdd.toString().equals("5")) { //SBlock
             lines[3] = ".[    5555  |.";
             lines[4] = ".[  5555    |.";
+        } else if (toAdd.toSTring().equals("6")) { //TBlock
+            lines[3] = ".[    66    |.";
+            lines[4] = ".[  666666  |.";
         }
     }
 
