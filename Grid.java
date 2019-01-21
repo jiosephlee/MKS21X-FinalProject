@@ -44,15 +44,20 @@ public class Grid {
             lines[4] = ".[    5555  |.";
             lines[5] = ".[  5555    |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toSTring().equals("6")) { //TBlock
+        } else if (toAdd.toString().equals("6")) { //TBlock
             lines[3] = ".[          |.";
             lines[4] = ".[    66    |.";
             lines[5] = ".[  666666  |.";
             lines[6] = ".[          |.";
-        } else { //ZBlock
+        } else if (toAdd.toString().equals("7")) { //ZBlock
             lines[3] = ".[          |.";
             lines[4] = ".[  7777    |.";
             lines[5] = ".[    7777  |.";
+            lines[6] = ".[          |.";
+        } else { //the empty tetrimino
+            lines[3] = ".[          |.";
+            lines[4] = ".[          |.";
+            lines[5] = ".[          |.";
             lines[6] = ".[          |.";
         }
     }
