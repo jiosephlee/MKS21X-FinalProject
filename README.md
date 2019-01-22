@@ -10,14 +10,14 @@ The game is played in the same manner of the original. Try to stack tetriminoes 
 
 The controls are:
 
-Down: lower piece by 1 space
-Left/Right : Move piece to the Left/Right
-Up : Rotate Clockwise
+- Down: lower piece by 1 space
+- Left/Right : Move piece to the Left/Right
+- Up : Rotate Clockwise
 
-Z/X: Rotate Clockwise / Rotate CounterClockwise
-C: Store piece in holding
-Space: HardDrop piece
-Esc: Leave game
+- Z/X: Rotate Clockwise / Rotate CounterClockwise
+- C: Store piece in holding
+- Space: HardDrop piece
+- Esc: Leave game
 
 ## DevLogs:
 ### 1/3/19
