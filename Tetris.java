@@ -90,16 +90,10 @@ public class Tetris {
 						game.playGame(true);
 					}
 				}
-<<<<<<< HEAD
 				screen.doResizeIfNecessary();
 				screen.refresh();
-			} else if (diff / 10 > lasts) {
-				lasts = diff / 10;
-=======
-			}
-			else if (diff / 50 > lasts) {
-				lasts = diff / 50;
->>>>>>> MoreeeMechanics
+			} else if (diff / 20 > lasts) {
+				lasts = diff / 20;
 				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
