@@ -185,6 +185,7 @@ public class Grid {
 
     public void setHold() {
         holding = dropping;
+        ghostDrop = new Tetrimino();
         setHeld(true);
     }
     public void setNext() {
@@ -196,6 +197,7 @@ public class Grid {
     }
     public void setDrop(Tetrimino toPut) {
         dropping = toPut;
+        ghostDrop = ghostCopyOf(dropping);
     }
     public void moveDown(int x) {
         if (!isDoneDropping()) {
@@ -228,6 +230,8 @@ public class Grid {
         if (!isDone) {
             dropping.moveRight(cordx);
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
     public void moveRight(int cordx) {
         dropping.moveRight(cordx);
@@ -244,6 +248,8 @@ public class Grid {
         if (!isDone) {
             dropping.moveLeft(cordx);
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
     public void hardDrop() {
         while (!isDoneDropping()) {
@@ -255,7 +261,9 @@ public class Grid {
         setHeld(false);
     }
     public void ghostHardDrop() {
-
+        while (!isDoneDroppingGhost()) {
+            ghostDrop.moveDown(1);
+        }
     }
     public boolean isDoneDroppingGhost() {
         for (int i = 0; i < ghostDrop.getPieces().length; i++) {
@@ -281,6 +289,8 @@ public class Grid {
         if (!isDone) {
             dropping.rotateCCW();
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
     public void rotateCCW() {
         dropping.rotateCCW();
@@ -296,7 +306,7 @@ public class Grid {
             dropping.rotateCW();
         }
         ghostDrop = ghostCopyOf(dropping);
-        ghostDrop
+        ghostHardDrop();
     }
 
     public boolean isDoneDropping() {
