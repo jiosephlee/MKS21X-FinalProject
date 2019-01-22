@@ -6,7 +6,7 @@ Hi! Welcome to Tetris.
 
 Our project is based on the game of Tetris
 
-The game is played in the same manner of the original. Try to stack tetriminoes in a manner to complete and clear a level. The more levels you clear, the higher your score! But be warned. The higher your score, the tougher the game will get!
+The game is played in the same manner of the original. Try to stack tetriminoes in a manner to complete and clear a level. The more levels you clear, the higher your score! But be warned. The higher your score, the tougher the game will get! If the tetriminos get stacked to high (20 levels high to be exact), you lose.
 
 The controls are:
 
