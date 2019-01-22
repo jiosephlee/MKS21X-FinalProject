@@ -177,9 +177,13 @@ public class Tetris {
 						break;
 					} else if (key.getKeyType() == KeyType.Character) {
 						if (key.getCharacter() == ' ') game.hardDrop();
-						else if (key.getCharacter() == 'c' && !game.getHeld()) {
+						else if (key.getCharacter() == 'c' && !game.getHeld() ) {
+							if (game.getHeld()) {
+								game.setDropHold();
+							} else {
+								game.setDrop();
+							}
 							game.setHold();
-							game.setDrop();
 							game.setNext();
 						} else if (key.getCharacter() == 'z'){
 							game.rotateCW();
@@ -192,7 +196,7 @@ public class Tetris {
 						game.moveRight(1);
 					} else if (key.getKeyType() == KeyType.ArrowUp) {
 						game.rotateCW();
-					} else if (key.getKeyType() == KeyType.ArrowDown) {
+					} else if (key.getKeyType() == KeyType.ArrowDown && wait < 1) {
 						game.moveDown(1);
 					}
 				}

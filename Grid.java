@@ -165,8 +165,6 @@ public class Grid {
             toReturn += toReturnArr[i] + "\n";
         }
         toReturn += "______________________\n";
-        toReturn += "    Score: " + score;
-        toReturn += "\n    Level: " + level;
         return toReturn;
     }
 
@@ -178,17 +176,17 @@ public class Grid {
         nexting = whatsNext();
     }
     public void setDrop() {
-        dropping = nexting;
+        dropping = whatsNext();
     }
-    public void setDrop(Tetrimino toPut) {
-        dropping = toPut;
+    public void setDropHold() {
+        dropping = holding;
     }
     public void moveDown(int x) {
         if (!isDoneDropping()) {
             dropping.moveDown(x);
         }
         else {
-            setDrop(whatsNext());
+            setDrop();
         }
     }
 
