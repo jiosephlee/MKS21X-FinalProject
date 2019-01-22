@@ -214,8 +214,9 @@ public class Tetris {
 				}
 				tEnd = System.currentTimeMillis(); //move down the current moving piece every second
 				millis = tEnd - tStart;
-				if (millis / (1000 - game.level * 20)> lastSecond) {
-					lastSecond = millis / (1000 - game.level * 20);
+
+				if (millis / (1000 - (int)Math.sqrt(game.level * 50000.0)) > lastSecond) {
+					lastSecond = millis / (1000 - (int)Math.sqrt(game.level * 50000.0));
 					game.moveDown(1);
 				}
 
