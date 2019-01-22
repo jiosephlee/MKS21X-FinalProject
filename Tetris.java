@@ -30,7 +30,7 @@ public class Tetris {
 		Grid game = new Grid(); //set up grid
 		game.playGame(true);
 
-		boolean wait = true;
+		int wait = 0;
 
 		long tStart = System.currentTimeMillis(); //time tracking variables
 		long lastSecond = 0;
@@ -193,13 +193,14 @@ public class Tetris {
 				}
 
 				if (game.isDoneDropping()) {//if dropped reached the bottom, set it in stone and set up the next piece
-					if (!wait){
+					if (wait > 10){
 						game.setInStone();
 						game.setDrop();
 						game.setNext();
 						game.setHeld(false);
+						wait = 0;
 					} else {
-						wait = false;
+						wait++;
 					}
 				}
 				tEnd = System.currentTimeMillis(); //move down the current moving piece every second
