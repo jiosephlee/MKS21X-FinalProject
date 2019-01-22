@@ -22,43 +22,43 @@ public class Grid {
     public static void addTetToArr(String[] lines, Tetrimino toAdd) {
         if (toAdd.getPieces()[0].toString().equals("1")) { //IBlock
             for (int i = 3; i < 7; i++) {
-                lines[i] = ".[    11    |.";
+                lines[i] = " .[    11    |.";
             }
         } else if (toAdd.getPieces()[0].toString().equals("2")) { //JBlock
-            lines[3] = ".[     22   |.";
-            lines[4] = ".[     22   |.";
-            lines[5] = ".[   2222   |.";
-            lines[6] = ".[          |.";
+            lines[3] = " .[     22   |.";
+            lines[4] = " .[     22   |.";
+            lines[5] = " .[   2222   |.";
+            lines[6] = " .[          |.";
         } else if (toAdd.getPieces()[0].toString().equals("3")) { //LBlock
-            lines[3] = ".[   33     |.";
-            lines[4] = ".[   33     |.";
-            lines[5] = ".[   3333   |.";
-            lines[6] = ".[          |.";
+            lines[3] = " .[   33     |.";
+            lines[4] = " .[   33     |.";
+            lines[5] = " .[   3333   |.";
+            lines[6] = " .[          |.";
         } else if (toAdd.getPieces()[0].toString().equals("4")) { //OBlock
-            lines[3] = ".[          |.";
-            lines[4] = ".[   4444   |.";
-            lines[5] = ".[   4444   |.";
-            lines[6] = ".[          |.";
+            lines[3] = " .[          |.";
+            lines[4] = " .[   4444   |.";
+            lines[5] = " .[   4444   |.";
+            lines[6] = " .[          |.";
         } else if (toAdd.getPieces()[0].toString().equals("5")) { //SBlock
-            lines[3] = ".[          |.";
-            lines[4] = ".[    5555  |.";
-            lines[5] = ".[  5555    |.";
-            lines[6] = ".[          |.";
+            lines[3] = ". [          |.";
+            lines[4] = ". [    5555  |.";
+            lines[5] = ". [  5555    |.";
+            lines[6] = ". [          |.";
         } else if (toAdd.getPieces()[0].toString().equals("6")) { //TBlock
-            lines[3] = ".[          |.";
-            lines[4] = ".[    66    |.";
-            lines[5] = ".[  666666  |.";
-            lines[6] = ".[          |.";
+            lines[3] = " .[          |.";
+            lines[4] = " .[    66    |.";
+            lines[5] = " .[  666666  |.";
+            lines[6] = " .[          |.";
         } else if (toAdd.getPieces()[0].toString().equals("7")) { //ZBlock
-            lines[3] = ".[          |.";
-            lines[4] = ".[  7777    |.";
-            lines[5] = ".[    7777  |.";
-            lines[6] = ".[          |.";
+            lines[3] = " .[          |.";
+            lines[4] = " .[  7777    |.";
+            lines[5] = " .[    7777  |.";
+            lines[6] = " .[          |.";
         } else { //the empty tetrimino
-            lines[3] = ".[          |.";
-            lines[4] = ".[          |.";
-            lines[5] = ".[          |.";
-            lines[6] = ".[          |.";
+            lines[3] = " .[          |.";
+            lines[4] = " .[          |.";
+            lines[5] = " .[          |.";
+            lines[6] = " .[          |.";
         }
     }
 
@@ -103,7 +103,7 @@ public class Grid {
                 grid[i][j] = new Piece(j, i);
             }
         }
-        holding = new Tetrimino(true);
+        holding = new Tetrimino();
         queue = new ArrayList<Tetrimino>();
         queue.add(new SBlock(5, 4));
         queue.add(new IBlock(5, 4));
@@ -130,16 +130,16 @@ public class Grid {
         toReturnArr[0] = ".--------------------.";
         String[] hold = new String[9]; //each cell is a row in the tetris board
         String[] next = new String[9];
-        hold[0] = ".------------.";
-        hold[1] = ".[ Hold:    |.";
-        hold[2] = ".[          |.";
-        hold[7] = ".[          |.";
-        hold[8] = ".------------.";
-        next[0] = ".------------.";
-        next[1] = ".[ Next:    |.";
-        next[2] = ".[          |.";
-        next[7] = ".[          |.";
-        next[8] = ".------------.";
+        hold[0] = " .------------.";
+        hold[1] = " .[ Hold:    |.";
+        hold[2] = " .[          |.";
+        hold[7] = " .[          |.";
+        hold[8] = " .------------.";
+        next[0] = " .------------.";
+        next[1] = " .[ Next:    |.";
+        next[2] = " .[          |.";
+        next[7] = " .[          |.";
+        next[8] = " .------------.";
         addTetToArr(hold, holding); //what the function does is so that it manually adds
         addTetToArr(next, nexting); //the shape of the tetriminos into the toStringArrays
         for (int i = 4; i < grid2.length; i++) { //remember first 4 rows are hidden

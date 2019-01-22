@@ -3,7 +3,6 @@ public class Tetrimino{
     private Piece[] pieces;
     private double centerX;
     private double centerY;
-    public boolean notInHolding;
 
     public Tetrimino(Piece[] input, double x, double y) {
         pieces = input;
@@ -26,16 +25,6 @@ public class Tetrimino{
         pieces = toAdd;
     }
 
-    public Tetrimino(boolean held) { //this is used for stuff like hold in Grid
-        Piece[] toAdd = {
-            new Piece(0, 0),
-            new Piece(0, 0),
-            new Piece(0, 0),
-            new Piece(0, 0)
-        }; //these pieces are simply placeholders
-        pieces = toAdd;
-        notInHolding = held;
-    }
     public void rotateCW() {
         for (int i = 0; i < pieces.length; i++) { //first translates to 0,0, and then rotates using (x,y) -> (y,-x)
             int xcor = pieces[i].getX();

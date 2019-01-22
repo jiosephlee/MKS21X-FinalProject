@@ -31,6 +31,7 @@ public class Tetris {
 		game.playGame(true);
 
 		int wait = 0;
+		int place = 0;
 
 		long tStart = System.currentTimeMillis(); //time tracking variables
 		long lastSecond = 0;
@@ -168,6 +169,8 @@ public class Tetris {
 						xcor = 3;
 					}
 				}
+				putString(25, 10, screen, "  Next: ");
+				putString(25, 20, screen, " Holding:");
 				putString(3, 28, screen, "Score: " + game.score);
 				putString(3, 29, screen, "Level: " + game.level);
 				KeyStroke key = screen.pollInput();
@@ -178,13 +181,15 @@ public class Tetris {
 					} else if (key.getKeyType() == KeyType.Character) {
 						if (key.getCharacter() == ' ') game.hardDrop();
 						else if (key.getCharacter() == 'c' && !game.getHeld() ) {
-							if (game.getHolding().notInHolding){
-								game.setDropHold();
-							} else{
-								game.setDrop();
+							if (place == 0){
 								game.setHold();
+								game.setDrop();
+								game.setNext();
+								place++;
+							} else {
+								game.setDropHold();
+								game.setNext();
 							}
-							game.setNext();
 						} else if (key.getCharacter() == 'z'){
 							game.rotateCW();
 						} else if (key.getCharacter() == 'x'){
