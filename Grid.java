@@ -5,7 +5,7 @@ import java.util.Random;
 public class Grid {
     public static Tetrimino ghostCopyOf(Tetrimino og) {
         Tetrimino toReturn = new Tetrimino(og.getX(), og.getY());
-        Piece[] newPieces = Piece[4];
+        Piece[] newPieces = new Piece[4];
         for (int i = 0; i < 4; i++) {
             newPieces[i] = new Piece(og.getPieces()[i].getX(), og.getPieces()[i].getY(), "8");
         }
@@ -207,6 +207,8 @@ public class Grid {
         else {
             setDrop(whatsNext());
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
 
     public boolean getHeld() {
@@ -389,5 +391,12 @@ public class Grid {
     }
     public boolean getPlay() {
         return play;
+    }
+    public static void main(String[] args) {
+        Grid test = new Grid();
+        Tetrimino toAdd = new ZBlock(0, 0, "3");
+        test.setDrop(toAdd);
+        test.moveDown(15);
+        System.out.println(test);
     }
 }
