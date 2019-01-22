@@ -98,6 +98,7 @@ public class Grid {
         queue.add(new ZBlock(5, 4));
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
+        ghostDrop = copyOf(dropping);
         nexting = whatsNext();
         play = false;
         level = 1;
@@ -122,6 +123,7 @@ public class Grid {
         queue.add(new ZBlock(5, 4));
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
+        ghostDrop = copyOf(dropping);
         nexting = whatsNext();
         play = false;
         level = 1;
@@ -190,6 +192,7 @@ public class Grid {
     }
     public void setDrop() {
         dropping = nexting;
+        ghostDrop = copyOf(dropping);
     }
     public void setDrop(Tetrimino toPut) {
         dropping = toPut;
@@ -298,6 +301,7 @@ public class Grid {
             grid[y][x] = dropping.getPieces()[i];
         }
         dropping = new Tetrimino(); //now there is nothing thats "dropping"
+        ghostDrop = copyOf(dropping);
     }
 
     public int[] checkTetris() { //returns the rows that have tetris
