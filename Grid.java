@@ -63,7 +63,8 @@ public class Grid {
     }
 
     private Piece[][] grid;
-    private Tetrimino dropping, holding, nexting;
+    private Tetrimino dropping, holding, nexting, ghostDrop; //the ghostDrop is the thing that shows you where the
+                                                             //dropping tetrimino is going to land if you hard drop
     private int x, y; //these are coords of the dropping tetrimino
     private ArrayList<Tetrimino> queue;
     private boolean held;
@@ -123,6 +124,7 @@ public class Grid {
     public String toString() {
         Piece[][] grid2 = copyOf(grid);
         for (int i = 0; i < dropping.getPieces().length; i++) {
+            grid2[ghostDrop.getPieces()[i].getY()][ghostDrop.getPieces()[i].getX()] = ghostDrop.getPieces()[i];
             grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
         }
         String[] toReturnArr = new String[21]; //each cell is a row in the tetris board
