@@ -71,6 +71,7 @@ public class Grid {
     public int score, level, highscore;
 
 
+
     public Grid() {
         grid = new Piece[24][10]; //usually 20 x 10, but 4 is added so blocks can start offscreen
         for (int i = 0; i < grid.length; i++) {
@@ -325,11 +326,7 @@ public class Grid {
         return false;
     }
 
-<<<<<<< HEAD
     public Tetrimino whatsNext(){ //puts in the tetrimino that is queud to be next
-=======
-    public Tetrimino whatsNext() { //puts in the tetrimino that is queud to be next
->>>>>>> master
         Random rand = new Random();
         int input = rand.nextInt(queue.size());
         Tetrimino output = queue.get(input);
@@ -346,11 +343,7 @@ public class Grid {
         return output;
     }
 
-<<<<<<< HEAD
     public void playGame(boolean input){ //sets whether the game is in play mode
-=======
-    public void playGame(boolean input) { //sets whether the game is in play mode
->>>>>>> master
         play = input;
     }
     public boolean getPlay() {

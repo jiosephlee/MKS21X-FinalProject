@@ -73,11 +73,6 @@ public class Tetris {
 		while (true) {
 			time2 = System.currentTimeMillis();
 			diff = time2 - time1;
-<<<<<<< HEAD
-
-			if (!game.getPlay()){ //if game ended put this screen on until they want to play again
-=======
->>>>>>> master
 
 			if (!game.getPlay()) { //if game ended put this screen on until they want to play again
 				putString(10, 10, screen, "To play again, please press Enter");
@@ -91,14 +86,9 @@ public class Tetris {
 						game.playGame(true);
 					}
 				}
-<<<<<<< HEAD
 			}
 			else if (diff / 50 > lasts) {
 				lasts = diff / 50;
-=======
-			} else if (diff / 10 > lasts) {
-				lasts = diff / 10;
->>>>>>> master
 				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
