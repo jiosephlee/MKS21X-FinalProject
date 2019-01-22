@@ -159,7 +159,8 @@ public class Tetris {
 						xcor = 3;
 					}
 				}
-
+				putString(3, 28, screen, "Score: " + game.score);
+				putString(3, 29, screen, "Level: " + game.level);
 				KeyStroke key = screen.pollInput();
 				if (key != null) { //check for user input
 
