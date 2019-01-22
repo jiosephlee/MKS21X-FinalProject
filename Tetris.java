@@ -86,6 +86,8 @@ public class Tetris {
 						game.playGame(true);
 					}
 				}
+				screen.doResizeIfNecessary();
+				screen.refresh();
 			} else if (diff / 10 > lasts) {
 				lasts = diff / 10;
 				screen.clear();
@@ -208,9 +210,9 @@ public class Tetris {
 					game = new Grid(game.highscore);
 					screen.clear();
 				}
+				screen.doResizeIfNecessary();
+				screen.refresh();
 	 		}
-			screen.doResizeIfNecessary();
-			screen.refresh();
 		}
 		screen.stopScreen();
 	}
