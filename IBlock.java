@@ -9,7 +9,7 @@ public class IBlock extends Tetrimino {
         super.setPieces(toAdd);
     }
     public IBlock(int x, int y) {
-        super((double)(x + 2), (double)y - 0.5);
+        super((double)(x + 1.5), (double)y - 0.5);
         String colour = "1";
         Piece a = new Piece(x, y, colour); //precondition, x < 7 and y < 24
         Piece b = new Piece(x + 1, y, colour);
