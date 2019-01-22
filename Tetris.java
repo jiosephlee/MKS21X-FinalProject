@@ -178,8 +178,12 @@ public class Tetris {
 					} else if (key.getKeyType() == KeyType.Character) {
 						if (key.getCharacter() == ' ') game.hardDrop();
 						else if (key.getCharacter() == 'c' && !game.getHeld() ) {
-							game.setHold();
-							game.setDrop();
+							if (game.getHolding().notInHolding){
+								game.setDropHold();
+							} else{
+								game.setDrop();
+								game.setHold();
+							}
 							game.setNext();
 						} else if (key.getCharacter() == 'z'){
 							game.rotateCW();

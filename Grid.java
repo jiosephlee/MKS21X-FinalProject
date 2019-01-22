@@ -103,7 +103,7 @@ public class Grid {
                 grid[i][j] = new Piece(j, i);
             }
         }
-        holding = new Tetrimino();
+        holding = new Tetrimino(true);
         queue = new ArrayList<Tetrimino>();
         queue.add(new SBlock(5, 4));
         queue.add(new IBlock(5, 4));
@@ -179,14 +179,18 @@ public class Grid {
         dropping = nexting;
     }
     public void setDropHold() {
+        Tetrimino placehold = dropping;
         dropping = holding;
+        holding = placehold;
     }
     public void moveDown(int x) {
         if (!isDoneDropping()) {
             dropping.moveDown(x);
         }
     }
-
+    public Tetrimino getHolding(){
+        return holding;
+    }
     public boolean getHeld() {
         return held;
     }
