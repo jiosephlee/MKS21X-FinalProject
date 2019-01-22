@@ -81,7 +81,9 @@ public class Tetris {
 			if (!game.getPlay()) { //if game ended put this screen on until they want to play again
 				putString(10, 10, screen, "To play again, please press Enter");
 				putString(10, 15, screen, "Current Highscore: " + game.highscore);
+
 				KeyStroke keyone = screen.pollInput();
+
 				if (keyone != null) {
 					if (keyone.getKeyType() == KeyType.Escape) {
 						break;
@@ -92,6 +94,7 @@ public class Tetris {
 				}
 				screen.doResizeIfNecessary();
 				screen.refresh();
+
 			} else if (diff / 20 > lasts) {
 				lasts = diff / 20;
 				screen.clear();
