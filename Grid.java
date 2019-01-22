@@ -20,36 +20,36 @@ public class Grid {
         }
     }
     public static void addTetToArr(String[] lines, Tetrimino toAdd) {
-        if (toAdd.toString().equals("1")) { //IBlock
+        if (toAdd.getPieces()[0].toString().equals("1")) { //IBlock
             for (int i = 3; i < 7; i++) {
                 lines[i] = ".[    11    |.";
             }
-        } else if (toAdd.toString().equals("2")) { //JBlock
+        } else if (toAdd.getPieces()[0].toString().equals("2")) { //JBlock
             lines[3] = ".[     22   |.";
             lines[4] = ".[     22   |.";
             lines[5] = ".[   2222   |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("3")) { //LBlock
+        } else if (toAdd.getPieces()[0].toString().equals("3")) { //LBlock
             lines[3] = ".[   33     |.";
             lines[4] = ".[   33     |.";
             lines[5] = ".[   3333   |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("4")) { //OBlock
+        } else if (toAdd.getPieces()[0].toString().equals("4")) { //OBlock
             lines[3] = ".[          |.";
             lines[4] = ".[   4444   |.";
             lines[5] = ".[   4444   |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("5")) { //SBlock
+        } else if (toAdd.getPieces()[0].toString().equals("5")) { //SBlock
             lines[3] = ".[          |.";
             lines[4] = ".[    5555  |.";
             lines[5] = ".[  5555    |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("6")) { //TBlock
+        } else if (toAdd.getPieces()[0].toString().equals("6")) { //TBlock
             lines[3] = ".[          |.";
             lines[4] = ".[    66    |.";
             lines[5] = ".[  666666  |.";
             lines[6] = ".[          |.";
-        } else if (toAdd.toString().equals("7")) { //ZBlock
+        } else if (toAdd.getPieces()[0].toString().equals("7")) { //ZBlock
             lines[3] = ".[          |.";
             lines[4] = ".[  7777    |.";
             lines[5] = ".[    7777  |.";
@@ -69,6 +69,7 @@ public class Grid {
     private boolean held;
     private boolean play;
     public int score, level, highscore;
+
 
 
     public Grid() {
@@ -134,7 +135,7 @@ public class Grid {
         hold[2] = ".[          |.";
         hold[7] = ".[          |.";
         hold[8] = ".------------.";
-        next[0] = ".----------.";
+        next[0] = ".------------.";
         next[1] = ".[ Next:    |.";
         next[2] = ".[          |.";
         next[7] = ".[          |.";
@@ -159,13 +160,13 @@ public class Grid {
             }
             toReturnArr[i] += row;
         }
-        toReturnArr[20] += "  Score: " + score;
-        toReturnArr[21] += "  Level: " + level;
         String toReturn = "";
         for (int i = 0; i < toReturnArr.length; i++) {
             toReturn += toReturnArr[i] + "\n";
         }
-        toReturn += "______________________";
+        toReturn += "______________________\n";
+        toReturn += "    Score: " + score;
+        toReturn += "\n    Level: " + level;
         return toReturn;
     }
 
@@ -325,7 +326,7 @@ public class Grid {
         return false;
     }
 
-    public Tetrimino whatsNext() { //puts in the tetrimino that is queud to be next
+    public Tetrimino whatsNext(){ //puts in the tetrimino that is queud to be next
         Random rand = new Random();
         int input = rand.nextInt(queue.size());
         Tetrimino output = queue.get(input);
@@ -342,30 +343,10 @@ public class Grid {
         return output;
     }
 
-    public void playGame(boolean input) { //sets whether the game is in play mode
+    public void playGame(boolean input){ //sets whether the game is in play mode
         play = input;
     }
     public boolean getPlay() {
         return play;
-    }
-
-    public static void main(String[] args) {
-        Random print = new Random();
-        int yolo = print.nextInt(7);
-        System.out.println(yolo);
-        int yoo = print.nextInt(7);
-        System.out.println(yoo);
-        Grid test = new Grid();
-        test.moveDown(15);
-        test.moveLeft(1);
-        test.rotateCW();
-        test.moveLeft(1);
-        test.rotateCCW();
-        test.moveDown(2);
-        test.setInStone();
-        test.rotateCW();
-        test.moveLeft(1);
-        System.out.println(test);
-        System.out.println(test.isDoneDropping());
     }
 }

@@ -20,6 +20,7 @@ public class Tetris {
 			}
 		}
 	}
+
 	public static void main(String[] args) throws IOException {
 		boolean isEnter = false;
 		Screen screen = new DefaultTerminalFactory().createScreen();
@@ -28,7 +29,10 @@ public class Tetris {
 		int y = 1;
 		Grid game = new Grid(); //set up grid
 		game.playGame(true);
-		long tStart = System.currentTimeMillis();
+
+		int wait = 0;
+
+		long tStart = System.currentTimeMillis(); //time tracking variables
 		long lastSecond = 0;
 		long tEnd = System.currentTimeMillis();
 		long millis = tEnd - tStart;
@@ -77,7 +81,9 @@ public class Tetris {
 			if (!game.getPlay()) { //if game ended put this screen on until they want to play again
 				putString(10, 10, screen, "To play again, please press Enter");
 				putString(10, 15, screen, "Current Highscore: " + game.highscore);
+
 				KeyStroke keyone = screen.pollInput();
+
 				if (keyone != null) {
 					if (keyone.getKeyType() == KeyType.Escape) {
 						break;
@@ -86,8 +92,11 @@ public class Tetris {
 						game.playGame(true);
 					}
 				}
-			} else if (diff / 10 > lasts) {
-				lasts = diff / 10;
+				screen.doResizeIfNecessary();
+				screen.refresh();
+
+			} else if (diff / 20 > lasts) {
+				lasts = diff / 20;
 				screen.clear();
 				String storage = game.toString();
 				int xcor = 3;
@@ -189,10 +198,15 @@ public class Tetris {
 				}
 
 				if (game.isDoneDropping()) {//if dropped reached the bottom, set it in stone and set up the next piece
-					game.setInStone();
-					game.setDrop();
-					game.setNext();
-					game.setHeld(false);
+					if (wait > 10){
+						game.setInStone();
+						game.setDrop();
+						game.setNext();
+						game.setHeld(false);
+						wait = 0;
+					} else {
+						wait++;
+					}
 				}
 				tEnd = System.currentTimeMillis(); //move down the current moving piece every second
 				millis = tEnd - tStart;
@@ -209,9 +223,9 @@ public class Tetris {
 					game = new Grid(game.highscore);
 					screen.clear();
 				}
+				screen.doResizeIfNecessary();
+				screen.refresh();
 	 		}
-			screen.doResizeIfNecessary();
-			screen.refresh();
 		}
 		screen.stopScreen();
 	}
