@@ -71,3 +71,4 @@ Final Project: Tetris
 ### 1/21/19
 - I made a feature which enables the Grid to have a Ghost Block which shows where the dropping Tetrimino would go if you to hard drop the tetrimino. (George)
 - I fixed an error where the center of rotation of the IBlock is incorrect. (George)
+- Fixed alot of bugs and errors today such as the glitchiness of the game and the holding feature. Added a bunch of features such as the game getting hard over time and score showing and allowing the player to move the piece around a bit after it landed. Modified a bunch of little things to increase the gaming experience (Joseph)
