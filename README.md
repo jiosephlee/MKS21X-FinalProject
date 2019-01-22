@@ -1,6 +1,6 @@
 # MKS21X-FinalProject
 Final Project: Tetris
-## Instructions: 
+## Instructions:
 
 Hi! Welcome to Tetris.
 
@@ -18,6 +18,8 @@ The controls are:
 - C: Store piece in holding
 - Space: HardDrop piece
 - Esc: Leave game
+
+Note: if you move a piece using down, left, right, or up such that the piece will go off the screen, the game will let you! If this happens, move away from the screen and try the move again.
 
 ## DevLogs:
 ### 1/3/19
