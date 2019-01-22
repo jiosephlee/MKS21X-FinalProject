@@ -3,6 +3,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Grid {
+    public static Tetrimino ghostCopyOf(Tetrimino og) {
+        Tetrimino toReturn = new Tetrimino(og.getX(), og.getY());
+        Piece[] newPieces = Piece[4];
+        for (int i = 0; i < 4; i++) {
+            newPieces[i] = new Piece(og.getPieces()[i].getX(), og.getPieces()[i].getY(), "8");
+        }
+        toReturn.setPieces(newPieces);
+        return toReturn;
+    }
     public static Piece[][] copyOf(Piece[][] og) {
         Piece[][] toReturn = new Piece[og.length][og[0].length];
         for (int i = 0; i < og.length; i++) {
@@ -63,7 +72,8 @@ public class Grid {
     }
 
     private Piece[][] grid;
-    private Tetrimino dropping, holding, nexting;
+    private Tetrimino dropping, holding, nexting, ghostDrop; //the ghostDrop is the thing that shows you where the
+                                                             //dropping tetrimino is going to land if you hard drop
     private int x, y; //these are coords of the dropping tetrimino
     private ArrayList<Tetrimino> queue;
     private boolean held;
@@ -89,6 +99,7 @@ public class Grid {
         queue.add(new ZBlock(5, 4));
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
+        ghostDrop = ghostCopyOf(dropping);
         nexting = whatsNext();
         play = false;
         level = 1;
@@ -113,6 +124,7 @@ public class Grid {
         queue.add(new ZBlock(5, 4));
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
+        ghostDrop = ghostCopyOf(dropping);
         nexting = whatsNext();
         play = false;
         level = 1;
@@ -124,7 +136,9 @@ public class Grid {
     public String toString() {
         Piece[][] grid2 = copyOf(grid);
         for (int i = 0; i < dropping.getPieces().length; i++) {
+            grid2[ghostDrop.getPieces()[i].getY()][ghostDrop.getPieces()[i].getX()] = ghostDrop.getPieces()[i];
             grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
+            //the ghostDrop is done first because you want the dropping piece to override the ghost
         }
         String[] toReturnArr = new String[21]; //each cell is a row in the tetris board
         toReturnArr[0] = ".--------------------.";
@@ -172,6 +186,7 @@ public class Grid {
 
     public void setHold() {
         holding = dropping;
+        ghostDrop = new Tetrimino();
         setHeld(true);
     }
     public void setNext() {
@@ -179,9 +194,11 @@ public class Grid {
     }
     public void setDrop() {
         dropping = nexting;
+        ghostDrop = ghostCopyOf(dropping);
     }
     public void setDrop(Tetrimino toPut) {
         dropping = toPut;
+        ghostDrop = ghostCopyOf(dropping);
     }
     public void moveDown(int x) {
         if (!isDoneDropping()) {
@@ -214,6 +231,8 @@ public class Grid {
         if (!isDone) {
             dropping.moveRight(cordx);
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
     public void moveRight(int cordx) {
         dropping.moveRight(cordx);
@@ -230,6 +249,8 @@ public class Grid {
         if (!isDone) {
             dropping.moveLeft(cordx);
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
     public void hardDrop() {
         while (!isDoneDropping()) {
@@ -239,6 +260,21 @@ public class Grid {
         setDrop();
         setNext();
         setHeld(false);
+    }
+    public void ghostHardDrop() {
+        while (!isDoneDroppingGhost()) {
+            ghostDrop.moveDown(1);
+        }
+    }
+    public boolean isDoneDroppingGhost() {
+        for (int i = 0; i < ghostDrop.getPieces().length; i++) {
+            int x = ghostDrop.getPieces()[i].getX();
+            int y = ghostDrop.getPieces()[i].getY();
+            if (y == 23 || !grid[y + 1][x].toString().equals(" ")) { //checks if its on top of the ground or on top of a piece;
+                return true;
+            }
+        }
+        return false;
     }
 
     public void rotateCW() {
@@ -254,6 +290,8 @@ public class Grid {
         if (!isDone) {
             dropping.rotateCCW();
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
     public void rotateCCW() {
         dropping.rotateCCW();
@@ -268,6 +306,8 @@ public class Grid {
         if (!isDone) {
             dropping.rotateCW();
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostHardDrop();
     }
 
     public boolean isDoneDropping() {
@@ -287,6 +327,7 @@ public class Grid {
             grid[y][x] = dropping.getPieces()[i];
         }
         dropping = new Tetrimino(); //now there is nothing thats "dropping"
+        ghostDrop = ghostCopyOf(dropping);
     }
 
     public int[] checkTetris() { //returns the rows that have tetris
