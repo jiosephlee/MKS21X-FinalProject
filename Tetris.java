@@ -31,6 +31,7 @@ public class Tetris {
 		game.playGame(true);
 
 		int wait = 0;
+		int place = 0;
 
 		long tStart = System.currentTimeMillis(); //time tracking variables
 		long lastSecond = 0;
@@ -175,7 +176,10 @@ public class Tetris {
 						xcor = 3;
 					}
 				}
-
+				putString(25, 10, screen, "  Next: ");
+				putString(25, 20, screen, " Holding:");
+				putString(3, 28, screen, "Score: " + game.score);
+				putString(3, 29, screen, "Level: " + game.level);
 				KeyStroke key = screen.pollInput();
 				if (key != null) { //check for user input
 
@@ -183,10 +187,16 @@ public class Tetris {
 						break;
 					} else if (key.getKeyType() == KeyType.Character) {
 						if (key.getCharacter() == ' ') game.hardDrop();
-						else if (key.getCharacter() == 'c' && !game.getHeld()) {
-							game.setHold();
-							game.setDrop();
-							game.setNext();
+						else if (key.getCharacter() == 'c' && !game.getHeld() ) {
+							if (place == 0){
+								game.setHold();
+								game.setDrop();
+								game.setNext();
+								place++;
+							} else {
+								game.setDropHold();
+								game.setNext();
+							}
 						} else if (key.getCharacter() == 'z'){
 							game.rotateCW();
 						} else if (key.getCharacter() == 'x'){
@@ -198,7 +208,7 @@ public class Tetris {
 						game.moveRight(1);
 					} else if (key.getKeyType() == KeyType.ArrowUp) {
 						game.rotateCW();
-					} else if (key.getKeyType() == KeyType.ArrowDown) {
+					} else if (key.getKeyType() == KeyType.ArrowDown && wait < 1) {
 						game.moveDown(1);
 					}
 				}
@@ -216,8 +226,9 @@ public class Tetris {
 				}
 				tEnd = System.currentTimeMillis(); //move down the current moving piece every second
 				millis = tEnd - tStart;
-				if (millis / (1000 - game.level * 20)> lastSecond) {
-					lastSecond = millis / (1000 - game.level * 20);
+
+				if (millis / (1000 - (int)Math.sqrt(game.level * 50000.0)) > lastSecond) {
+					lastSecond = millis / (1000 - (int)Math.sqrt(game.level * 50000.0));
 					game.moveDown(1);
 				}
 
