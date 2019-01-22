@@ -4,7 +4,7 @@ public class Piece{
     private Tetrimino owner;
     private String colour; //:)))))
 
-    public Piece(int x, int y, String col){
+    public Piece(int x, int y, String col) {
         xCor = x;
         yCor = y;
         colour = col;
@@ -20,27 +20,27 @@ public class Piece{
         return "" + colour;
     }
 
-    public void setX(int x){
+    public void setX(int x) {
         xCor = x;
     }
 
-    public void setY(int y){
+    public void setY(int y) {
         yCor = y;
     }
 
-    public int getX(){
+    public int getX() {
         return xCor;
     }
 
-    public int getY(){
+    public int getY() {
         return yCor;
     }
 
-    public Tetrimino getOwner(){
+    public Tetrimino getOwner() {
         return owner;
     }
 
-    public void moveDown(int x){
+    public void moveDown(int x) {
         yCor += x; //you add because down = higher num. in arrays
     }
     public void moveRight(int x) {
