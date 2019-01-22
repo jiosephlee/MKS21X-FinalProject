@@ -3,11 +3,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Grid {
-    public static Tetrimino copyOf(Tetrimino og) {
+    public static Tetrimino ghostCopyOf(Tetrimino og) {
         Tetrimino toReturn = new Tetrimino(og.getX(), og.getY());
         Piece[] newPieces = Piece[4];
         for (int i = 0; i < 4; i++) {
-            newPieces[i] = new Piece(og.getPieces()[i].getX(), og.getPieces()[i].getY(), og.getPieces()[i].toString());
+            newPieces[i] = new Piece(og.getPieces()[i].getX(), og.getPieces()[i].getY(), "8");
         }
         toReturn.setPieces(newPieces);
         return toReturn;
@@ -98,7 +98,7 @@ public class Grid {
         queue.add(new ZBlock(5, 4));
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
-        ghostDrop = copyOf(dropping);
+        ghostDrop = ghostCopyOf(dropping);
         nexting = whatsNext();
         play = false;
         level = 1;
@@ -123,7 +123,7 @@ public class Grid {
         queue.add(new ZBlock(5, 4));
         queue.add(new TBlock(5, 4));
         dropping = whatsNext();
-        ghostDrop = copyOf(dropping);
+        ghostDrop = ghostCopyOf(dropping);
         nexting = whatsNext();
         play = false;
         level = 1;
@@ -192,7 +192,7 @@ public class Grid {
     }
     public void setDrop() {
         dropping = nexting;
-        ghostDrop = copyOf(dropping);
+        ghostDrop = ghostCopyOf(dropping);
     }
     public void setDrop(Tetrimino toPut) {
         dropping = toPut;
@@ -301,7 +301,7 @@ public class Grid {
             grid[y][x] = dropping.getPieces()[i];
         }
         dropping = new Tetrimino(); //now there is nothing thats "dropping"
-        ghostDrop = copyOf(dropping);
+        ghostDrop = ghostCopyOf(dropping);
     }
 
     public int[] checkTetris() { //returns the rows that have tetris
