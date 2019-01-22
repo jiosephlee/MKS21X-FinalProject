@@ -3,6 +3,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Grid {
+    public static Tetrimino copyOf(Tetrimino og) {
+        Tetrimino toReturn = new Tetrimino(og.getX(), og.getY());
+        Piece[] newPieces = Piece[4];
+        for (int i = 0; i < 4; i++) {
+            newPieces[i] = new Piece(og.getPieces()[i].getX(), og.getPieces()[i].getY(), og.getPieces()[i].toString());
+        }
+        toReturn.setPieces(newPieces);
+        return toReturn;
+    }
     public static Piece[][] copyOf(Piece[][] og) {
         Piece[][] toReturn = new Piece[og.length][og[0].length];
         for (int i = 0; i < og.length; i++) {
@@ -126,6 +135,7 @@ public class Grid {
         for (int i = 0; i < dropping.getPieces().length; i++) {
             grid2[ghostDrop.getPieces()[i].getY()][ghostDrop.getPieces()[i].getX()] = ghostDrop.getPieces()[i];
             grid2[dropping.getPieces()[i].getY()][dropping.getPieces()[i].getX()] = dropping.getPieces()[i];
+            //the ghostDrop is done first because you want the dropping piece to override the ghost
         }
         String[] toReturnArr = new String[21]; //each cell is a row in the tetris board
         toReturnArr[0] = ".--------------------.";
