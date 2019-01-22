@@ -165,8 +165,8 @@ public class Tetris {
 					} else if (storage.charAt(i) == '8') {
 						TextCharacter put = new TextCharacter (
 							' ',
-							new TextColor.RGB(169,169,169),
-							new TextColor.RGB(169,169,169)
+							new TextColor.RGB(105,105,105),
+							new TextColor.RGB(105,105,105)
 						);
 						screen.setCharacter(xcor, ycor, put);
 					}
