@@ -1,6 +1,8 @@
 # MKS21X-FinalProject
 Final Project: Tetris
 
+## Instructions:
+
 ## DevLogs:
 ### 1/3/19
 - Made the classes Grid, Tetrimino, and Piece, and started the skeleton (Joseph)
@@ -64,3 +66,7 @@ Final Project: Tetris
 - I also FIXED MORE TABBING OH MY GOD (George)
 - I finished the toString by allowing it take in multiple different shapes for the Hold and the Next section. I also added a score and a level section in the toString (George)
 - Finished the end game features and integrated replayability into the graphics. Fixed a bunch of bugs and visaul errors and fixed some of the new graphics that was merged. Added/fixed a bunch of small features such as a highscore and framerate to make the game playing experience much better (Joseph)
+
+### 1/21/19
+- I made a feature which enables the Grid to have a Ghost Block which shows where the dropping Tetrimino would go if you to hard drop the tetrimino. (George)
+- I fixed an error where the center of rotation of the IBlock is incorrect. (George)
