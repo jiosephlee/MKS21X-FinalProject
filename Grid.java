@@ -176,7 +176,7 @@ public class Grid {
         nexting = whatsNext();
     }
     public void setDrop() {
-        dropping = whatsNext();
+        dropping = nexting;
     }
     public void setDropHold() {
         dropping = holding;
@@ -184,9 +184,6 @@ public class Grid {
     public void moveDown(int x) {
         if (!isDoneDropping()) {
             dropping.moveDown(x);
-        }
-        else {
-            setDrop();
         }
     }
 
