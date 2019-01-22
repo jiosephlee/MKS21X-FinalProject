@@ -65,6 +65,7 @@ public class Tetrimino{
         }
         centerY += x; //it is adding it to move down becuase in an array, down = higher num.
     }
+    
     public void moveRight(int x) {
         for (int i = 0; i < pieces.length; i++) {
             pieces[i].moveRight(x);

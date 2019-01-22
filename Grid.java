@@ -49,10 +49,10 @@ public class Grid {
             lines[5] = " .[   4444   |.";
             lines[6] = " .[          |.";
         } else if (toAdd.getPieces()[0].toString().equals("5")) { //SBlock
-            lines[3] = ". [          |.";
-            lines[4] = ". [    5555  |.";
-            lines[5] = ". [  5555    |.";
-            lines[6] = ". [          |.";
+            lines[3] = " .[          |.";
+            lines[4] = " .[    5555  |.";
+            lines[5] = " .[  5555    |.";
+            lines[6] = " .[          |.";
         } else if (toAdd.getPieces()[0].toString().equals("6")) { //TBlock
             lines[3] = " .[          |.";
             lines[4] = " .[    66    |.";
@@ -198,6 +198,8 @@ public class Grid {
         Tetrimino placehold = dropping;
         dropping = holding;
         holding = placehold;
+        ghostDrop = new Tetrimino();
+        setHeld(true);
     }
 
     public void setDrop(Tetrimino toPut) {

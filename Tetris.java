@@ -82,6 +82,7 @@ public class Tetris {
 			if (!game.getPlay()) { //if game ended put this screen on until they want to play again
 				putString(10, 10, screen, "To play again, please press Enter");
 				putString(10, 15, screen, "Current Highscore: " + game.highscore);
+				putString(10, 18, screen, "To leave, press esc");
 
 				KeyStroke keyone = screen.pollInput();
 
@@ -237,7 +238,11 @@ public class Tetris {
 					game.removeTetris(cleared);
 				}
 				if (game.checkFailure()) { //check if the game ended
-					game = new Grid(game.highscore);
+					if (game.score > game.highscore){
+						game = new Grid(game.score);
+					} else{
+						game = new Grid();
+					}
 					screen.clear();
 				}
 				screen.doResizeIfNecessary();
