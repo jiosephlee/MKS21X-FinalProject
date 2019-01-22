@@ -254,6 +254,19 @@ public class Grid {
         setNext();
         setHeld(false);
     }
+    public void ghostHardDrop() {
+
+    }
+    public boolean isDoneDroppingGhost() {
+        for (int i = 0; i < ghostDrop.getPieces().length; i++) {
+            int x = ghostDrop.getPieces()[i].getX();
+            int y = ghostDrop.getPieces()[i].getY();
+            if (y == 23 || !grid[y + 1][x].toString().equals(" ")) { //checks if its on top of the ground or on top of a piece;
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void rotateCW() {
         dropping.rotateCW();
@@ -282,6 +295,8 @@ public class Grid {
         if (!isDone) {
             dropping.rotateCW();
         }
+        ghostDrop = ghostCopyOf(dropping);
+        ghostDrop
     }
 
     public boolean isDoneDropping() {
